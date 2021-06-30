@@ -67,7 +67,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Login_to_CRMworkflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="CRM VTiger Cloud\Login_to_CRM.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Login_to_CRM workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="CRM VTiger Cloud\Login_to_CRM.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="in_CrmBaseUrl">[CrmBaseUrl]</InArgument>
