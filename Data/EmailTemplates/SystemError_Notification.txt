@@ -1,0 +1,12 @@
+Hello Bot Supervisor,
+
+I encountered an error while trying to run the MoneySoft Payroll process.
+
+Please find attached a screenshot of the state of the system/application as at the moment I encountered the error. Kindly resolve and run the process again.
+
+
+Thank you.
+
+
+Regards,
+SinnergyBot

@@ -1,0 +1,448 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Run_Payroll" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:df="clr-namespace:dipoleDIAMOND_Reuseables.FrameworkCustom;assembly=dipoleDIAMOND_Reuseables" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="in_Sysfig" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+  </x:Members>
+  <this:Run_Payroll.in_Config>
+    <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" />
+  </this:Run_Payroll.in_Config>
+  <this:Run_Payroll.in_Sysfig>
+    <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" />
+  </this:Run_Payroll.in_Sysfig>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1548,1247</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Run_Payroll_Single_Company_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="34">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>dipoleDIAMOND_Reuseables.FrameworkCustom</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.Core.Activities.Orchestrator</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="31">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>dipoleDIAMOND_Reuseables</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="ACTIONS:&#xA;1. Read the Work Log file in Processing.&#xA;2. Load the Organizations data from the Process Data (external config) file.&#xA;3. For each organization in the work log yet treated completely, try/attempt to run payroll." DisplayName="Run_Payroll" sap:VirtualizedContainerService.HintSize="514,1082" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="WorkLogFilePath" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dtOrganizationsToTreat" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dtOrganizationData" />
+      <Variable x:TypeArguments="x:Int32" Name="LogSheetRowNumber" />
+      <Variable x:TypeArguments="x:String" Name="SheetNameWorkLog" />
+      <Variable x:TypeArguments="x:String" Name="PayrollStatusColumnLetter" />
+      <Variable x:TypeArguments="x:String" Name="OrganizationName" />
+      <Variable x:TypeArguments="s:String[]" Name="ArrayOfCategoryNames" />
+      <Variable x:TypeArguments="x:String" Name="IsSentLicenseRenewalMailNotification" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="472,51" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="418,158" sap2010:WorkflowViewState.IdRef="Sequence_14">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Sequence DisplayName="TO DELETE - TESTING" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:MultipleAssign DisplayName="Initialize Dictionaries" sap:VirtualizedContainerService.HintSize="334,129" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+              <ui:MultipleAssign.AssignOperations>
+                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">[in_Config]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">[New Dictionary(Of String, Object)]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_12">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">[in_Sysfig]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">[New Dictionary(Of String, Object)]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                </scg:List>
+              </ui:MultipleAssign.AssignOperations>
+            </ui:MultipleAssign>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Initialize_Config_Values workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Project\Initialize_Config_Values.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:String" x:Key="in_ConfigFilePath">Data\ConfigMsPayroll.xlsx</InArgument>
+                <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="out_Config">[in_Config]</OutArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+            <df:Load_Custom_Dictionary CustomDictVar="[in_Sysfig]" DictionaryItemName="[in_Config(&quot;ColName_SystemSettingsName&quot;).ToString]" DictionaryItemValue="[in_Config(&quot;ColName_SystemSettingsValue&quot;).ToString]" DisplayName="Load System Config Settings" ExcelFileFullPath="[in_Config(&quot;ProcessDataConfigFilePath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Load_Custom_Dictionary_1" SheetName="[in_Config(&quot;SheetName_SystemSettings&quot;).ToString]" />
+          </Sequence>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+    <ui:MultipleAssign DisplayName="Assign WF Variables" sap:VirtualizedContainerService.HintSize="472,191" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+      <ui:MultipleAssign.AssignOperations>
+        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[WorkLogFilePath]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[Path.Combine(in_Config("ProcessingFolderPath").ToString, in_Config("WorkLogTemplateFileName").ToString)]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[SheetNameWorkLog]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[in_Config("SheetName_WorkLog").ToString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Int32">[LogSheetRowNumber]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Int32">1</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[PayrollStatusColumnLetter]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[in_Config("ColLetter_PayrollStatus").ToString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+        </scg:List>
+      </ui:MultipleAssign.AssignOperations>
+    </ui:MultipleAssign>
+    <df:String_to_Array_of_Strings ArrayOfStringItems="[ArrayOfCategoryNames]" DelimiterPhrase="," DisplayName="Array of Category Names" sap:VirtualizedContainerService.HintSize="472,22" sap2010:WorkflowViewState.IdRef="String_to_Array_of_Strings_1" StringOfStringItems="[in_Sysfig(&quot;StringOfCategoryNames&quot;).ToString]" />
+    <Sequence DisplayName="Read Excel Files" sap:VirtualizedContainerService.HintSize="472,66" sap2010:WorkflowViewState.IdRef="Sequence_3">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:ReadRange AddHeaders="True" DataTable="[dtOrganizationsToTreat]" DisplayName="Read WorkLog File in Processing" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ReadRange_1" Range="[Nothing]" SheetName="[SheetNameWorkLog]" WorkbookPath="[WorkLogFilePath]" />
+      <ui:ReadRange AddHeaders="True" DataTable="[dtOrganizationData]" DisplayName="Read Organization Data" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ReadRange_2" Range="[Nothing]" SheetName="[in_Config(&quot;SheetName_OrganizationData&quot;).ToString]" WorkbookPath="[in_Config(&quot;ProcessDataConfigFilePath&quot;).ToString]" />
+    </Sequence>
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dtOrganizationsToTreat]" DisplayName="For Each Organization to Treat" sap:VirtualizedContainerService.HintSize="472,413" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+      <ui:ForEachRow.Body>
+        <ActivityAction x:TypeArguments="sd:DataRow">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="sd:DataRow" Name="RowCurrentOrganization" />
+          </ActivityAction.Argument>
+          <TryCatch DisplayName="Try To Run Payroll..." sap:VirtualizedContainerService.HintSize="438,293" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+            <TryCatch.Try>
+              <Sequence DisplayName="Try to Treat Single Organization" sap:VirtualizedContainerService.HintSize="526,1433" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:ShouldStop DisplayName="Should Stop" sap:VirtualizedContainerService.HintSize="484,22" sap2010:WorkflowViewState.IdRef="ShouldStop_1" />
+                <Assign DisplayName="Increment Row Number" sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:Int32">[LogSheetRowNumber]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:Int32">[LogSheetRowNumber + 1]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <Assign DisplayName="Assign OrganizationName" sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[OrganizationName]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[RowCurrentOrganization.Item(in_Config("ColName_WorkLogCompanyName").ToString).ToString]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <If Condition="[(RowCurrentOrganization.Item(in_Config(&quot;ColName_PayrollStatus&quot;).ToString).ToString).ToUpper &lt;&gt; &quot;DONE&quot;]" DisplayName="If Organization has been Treated" sap:VirtualizedContainerService.HintSize="484,886" sap2010:WorkflowViewState.IdRef="If_8">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <If.Then>
+                    <Sequence DisplayName="Treat Payroll File" sap:VirtualizedContainerService.HintSize="376,709" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                      <Sequence.Variables>
+                        <Variable x:TypeArguments="sd:DataRow" Name="RowOrganizationInfo" />
+                        <Variable x:TypeArguments="x:String" Name="OrganizationCategory" />
+                        <Variable x:TypeArguments="x:String" Name="PayrollFilePath" />
+                        <Variable x:TypeArguments="x:String" Name="PayeFolderPath" />
+                      </Sequence.Variables>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Sequence sap2010:Annotation.AnnotationText="The info for the current organization is gotten from the 'OrganizationData' worksheet of the Process-Data-Config file." DisplayName="Get Info for Current Organization" sap:VirtualizedContainerService.HintSize="334,153" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <df:Select_Row_from_ProcessConfig_DT DisplayName="Select Row from ProcessConfig" sap:VirtualizedContainerService.HintSize="484,22" sap2010:WorkflowViewState.IdRef="Select_Row_from_ProcessConfig_DT_2" NeededRow="[RowOrganizationInfo]" PrimarySearchFieldName="[in_Config(&quot;ColName_OrganizationNameOnCrm&quot;).ToString]" PrimarySearchValue="[OrganizationName]" SecondarySearchFieldName="[Nothing]" SecondarySearchValue="[Nothing]" dtInput="[dtOrganizationData]" />
+                        <If Condition="[RowOrganizationInfo is Nothing]" DisplayName="If NULL RowOrganizationInfo" sap:VirtualizedContainerService.HintSize="484,237" sap2010:WorkflowViewState.IdRef="If_5">
+                          <If.Then>
+                            <Throw DisplayName="Throw BRE" Exception="[New BusinessRuleException(String.Format(&quot;Unable to find any record for [{0}] in the Process Data Config file; please correct this.&quot;, OrganizationName))]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_4" />
+                          </If.Then>
+                        </If>
+                      </Sequence>
+                      <Sequence DisplayName="Validate Organization Category" sap:VirtualizedContainerService.HintSize="334,66" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Assign DisplayName="Assign OrganizationCategory" sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_7">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[OrganizationCategory]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">[(RowOrganizationInfo.Item(in_Config("ColName_OrganizationCategory").ToString).ToString).ToUpper]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <If Condition="[Not ArrayOfCategoryNames.Contains(OrganizationCategory)]" DisplayName="If UNKNOWN Category" sap:VirtualizedContainerService.HintSize="484,237" sap2010:WorkflowViewState.IdRef="If_6">
+                          <If.Then>
+                            <Throw DisplayName="Throw BRE" Exception="[New BusinessRuleException(String.Format(&quot;Unknown Category value [{0}] found in the record for [{1}] in the Process Data Config file; please correct this.&quot;, OrganizationCategory, OrganizationName))]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_5" />
+                          </If.Then>
+                        </If>
+                      </Sequence>
+                      <Sequence DisplayName="Validate Payroll File " sap:VirtualizedContainerService.HintSize="334,66" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                        <Sequence.Variables>
+                          <Variable x:TypeArguments="x:Boolean" Name="PayrollFileExists" />
+                        </Sequence.Variables>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Assign DisplayName="Assign PayrollFilePath" sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_9">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[PayrollFilePath]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">[RowOrganizationInfo.Item(in_Config("ColName_PayrollFilePath").ToString).ToString]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <ui:PathExists DisplayName="Payroll File Exists" Exists="[PayrollFileExists]" sap:VirtualizedContainerService.HintSize="484,89" sap2010:WorkflowViewState.IdRef="PathExists_2" Path="[PayrollFilePath]" PathType="File" />
+                        <If Condition="[Not PayrollFileExists]" DisplayName="If Payroll File does not Exist" sap:VirtualizedContainerService.HintSize="484,237" sap2010:WorkflowViewState.IdRef="If_7">
+                          <If.Then>
+                            <Throw DisplayName="Throw BRE" Exception="[New BusinessRuleException(String.Format(&quot;Unable to locate the PAYROLL FILE indicated in the Process Data Config file for the organization, [{0}]&quot;, OrganizationName))]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_6" />
+                          </If.Then>
+                        </If>
+                        <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="484,51" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+                          <ui:CommentOut.Body>
+                            <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,204" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Update WorkLog - Payroll File Found" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Project\Update_Status_on_Work_Log.xaml">
+                                <ui:InvokeWorkflowFile.Arguments>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_WorkLogFilePath">[WorkLogFilePath]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_SheetName">[SheetNameWorkLog]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_CellAddress">[String.Format("{0}{1}", in_Config("ColLetter_PayrollFileFound").ToString, LogSheetRowNumber)]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_CellContent">YES</InArgument>
+                                </ui:InvokeWorkflowFile.Arguments>
+                              </ui:InvokeWorkflowFile>
+                            </Sequence>
+                          </ui:CommentOut.Body>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:CommentOut>
+                      </Sequence>
+                      <Assign DisplayName="Assign PayeFolderPath" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_10">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[PayeFolderPath]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">[RowOrganizationInfo.Item(in_Config("ColName_PayeFolderPath").ToString).ToString]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Treat Single Organization" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Project\Treat_Single_Organization.xaml">
+                        <ui:InvokeWorkflowFile.Arguments>
+                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
+                            <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
+                          </InArgument>
+                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Sysfig">
+                            <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Sysfig" />
+                          </InArgument>
+                          <InArgument x:TypeArguments="sd:DataRow" x:Key="in_LogCurrentOrganization">
+                            <mva:VisualBasicValue x:TypeArguments="sd:DataRow" ExpressionText="RowCurrentOrganization" />
+                          </InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_OrganizationName">
+                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="OrganizationName" />
+                          </InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_OrganizationCategory">
+                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="OrganizationCategory" />
+                          </InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_PayrollFilePath">
+                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="PayrollFilePath" />
+                          </InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_PayeFolderPath">
+                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="PayeFolderPath" />
+                          </InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_WorkLogFilePath">
+                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="WorkLogFilePath" />
+                          </InArgument>
+                          <InArgument x:TypeArguments="x:Int32" x:Key="in_LogSheetRowNumber">
+                            <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="LogSheetRowNumber" />
+                          </InArgument>
+                          <InOutArgument x:TypeArguments="x:String" x:Key="io_IsSentLicenseRenewalMailNotification">
+                            <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="IsSentLicenseRenewalMailNotification" />
+                          </InOutArgument>
+                        </ui:InvokeWorkflowFile.Arguments>
+                      </ui:InvokeWorkflowFile>
+                    </Sequence>
+                  </If.Then>
+                </If>
+                <ui:LogMessage DisplayName="Log Status as DONE" sap:VirtualizedContainerService.HintSize="484,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[String.Format(&quot;DONE: Payroll successfully run for [{0}]&quot;, OrganizationName)]" />
+                <Delay DisplayName="Delay 4s" Duration="00:00:04" sap:VirtualizedContainerService.HintSize="484,22" sap2010:WorkflowViewState.IdRef="Delay_1" />
+              </Sequence>
+            </TryCatch.Try>
+            <TryCatch.Catches>
+              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ActivityAction x:TypeArguments="s:Exception">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Exception Protocol" sap:VirtualizedContainerService.HintSize="426,709" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="x:String" Name="XMailMessage" />
+                    </Sequence.Variables>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="384,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Error" Message="[exception.Message]" />
+                    <ui:WriteCell Cell="[String.Format(&quot;{0}{1}&quot;, PayrollStatusColumnLetter, LogSheetRowNumber)]" DisplayName="Update Status for Organization" sap:VirtualizedContainerService.HintSize="384,115" sap2010:WorkflowViewState.IdRef="WriteCell_1" SheetName="[SheetNameWorkLog]" Text="[exception.Message]" WorkbookPath="[WorkLogFilePath]" />
+                    <ui:ReadTextFile Content="[XMailMessage]" DisplayName="Read Email Template #5" FileName="Data\EmailTemplates\05_Job_Exception_Message.txt" sap:VirtualizedContainerService.HintSize="384,79" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
+                    <Assign DisplayName="Set Email Message" sap:VirtualizedContainerService.HintSize="384,60" sap2010:WorkflowViewState.IdRef="Assign_11">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[XMailMessage]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[XMailMessage.Replace("OrganizationName", OrganizationName).Replace("ExceptionMessage", exception.Message)]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Send Payroll App Error Mail Notification" sap:VirtualizedContainerService.HintSize="384,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Project\Send_MailNotification_withScreenshot.xaml">
+                      <ui:InvokeWorkflowFile.Arguments>
+                        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_MailSubject">[String.Format("MS Payroll Manager: Run Payroll Error {0}", Date.Now.ToString("yyyy-MM-dd_HH:mm"))]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_MailMessage">[XMailMessage]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_MessageType">ERROR</InArgument>
+                      </ui:InvokeWorkflowFile.Arguments>
+                    </ui:InvokeWorkflowFile>
+                  </Sequence>
+                </ActivityAction>
+              </Catch>
+            </TryCatch.Catches>
+          </TryCatch>
+        </ActivityAction>
+      </ui:ForEachRow.Body>
+    </ui:ForEachRow>
+  </Sequence>
+</Activity>

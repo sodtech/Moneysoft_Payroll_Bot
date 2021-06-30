@@ -1,0 +1,593 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Treat_Single_Organization" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="in_Sysfig" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="in_LogCurrentOrganization" Type="InArgument(sd:DataRow)" />
+    <x:Property Name="in_OrganizationName" Type="InArgument(x:String)" />
+    <x:Property Name="in_OrganizationCategory" Type="InArgument(x:String)" />
+    <x:Property Name="in_PayrollFilePath" Type="InArgument(x:String)" />
+    <x:Property Name="in_PayeFolderPath" Type="InArgument(x:String)" />
+    <x:Property Name="in_WorkLogFilePath" Type="InArgument(x:String)" />
+    <x:Property Name="in_LogSheetRowNumber" Type="InArgument(x:Int32)" />
+    <x:Property Name="io_IsSentLicenseRenewalMailNotification" Type="InOutArgument(x:String)" />
+  </x:Members>
+  <this:Treat_Single_Organization.in_LogCurrentOrganization>
+    <InArgument x:TypeArguments="sd:DataRow" />
+  </this:Treat_Single_Organization.in_LogCurrentOrganization>
+  <this:Treat_Single_Organization.in_OrganizationName>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Treat_Single_Organization.in_OrganizationName>
+  <this:Treat_Single_Organization.in_OrganizationCategory>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Treat_Single_Organization.in_OrganizationCategory>
+  <this:Treat_Single_Organization.in_PayrollFilePath>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Treat_Single_Organization.in_PayrollFilePath>
+  <this:Treat_Single_Organization.in_PayeFolderPath>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Treat_Single_Organization.in_PayeFolderPath>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1548,3331</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Treat_Single_Organization_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="28">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.ComponentModel</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="27">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="WF to handle straight-through running of the payroll process for one organization&#xA;&#xA;1. Set the Year Band based on the name of the payroll file in question&#xA;2. Open the payroll file&#xA;3. Obtain current job status values of the company in question from the Work Log file&#xA;4. If yet to be done, perform HMRC Submission; optional (**Note: some clients send Email reports right after submission to HMRC); and then save the RTI FPS PDF file. &#xA;5. In the event of a repeat run where HMRC Submission is done yet RTI FPS PDF is not logged as saved, save the RTI FPS PDF file. Also, send Email reports if this is the client's preference.&#xA;6. If yet to be done, save the Employee Payslip PDF file right after sending the associated email reports&#xA;7. If yet to be done, save the Employer's P30 Payslip PPDF file&#xA;8. Confirm that these four core tasks i.e. HMRC Submission, RTI FPS PDF Saved, Employees Payslip PDF Saved, and P30 Employers Payslip are all of th status 'DONE'&#xA;9. Close the Payroll app and file.&#xA;10. If client uses CRM, update the record on the portal for the organization in question&#xA;11. Update the final status column on the Work Log file as 'DONE'" DisplayName="Treat_Single_Organization" sap:VirtualizedContainerService.HintSize="728,2966" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="MsPayrollAppExePath" />
+      <Variable x:TypeArguments="x:String" Name="YearBand" />
+      <Variable x:TypeArguments="x:String" Name="IsHmrcSubmissionDone" />
+      <Variable x:TypeArguments="x:String" Name="IsRtiFpsPdfSaved" />
+      <Variable x:TypeArguments="x:String" Name="IsEmployeePayslipPdfSaved" />
+      <Variable x:TypeArguments="x:String" Name="IsP30PdfSaved" />
+      <Variable x:TypeArguments="x:String" Name="ShouldProceed" />
+      <Variable x:TypeArguments="x:String" Name="ViewFileButtonRow" />
+      <Variable x:TypeArguments="x:TimeSpan" Name="DelayIntervalPostSingleOrganization" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Sequence DisplayName="Preliminaries" sap:VirtualizedContainerService.HintSize="686,618" sap2010:WorkflowViewState.IdRef="Sequence_5">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="CommentOut_4">
+        <ui:CommentOut.Body>
+          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,314" sap2010:WorkflowViewState.IdRef="Sequence_9">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:MultipleAssign DisplayName=" TO DELETE" sap:VirtualizedContainerService.HintSize="334,222" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+              <ui:MultipleAssign.AssignOperations>
+                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[in_PayrollFilePath]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">Z:\Payroll Bot Testing files\Moneysoft files\Bot testing file 02 2020-21.pay</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[in_OrganizationCategory]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">Testing Category</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[in_OrganizationName]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">Test Company</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[MsPayrollAppExePath]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">C:\Program Files (x86)\Moneysoft\Payroll Manager\pm3.exe</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:TimeSpan">[DelayIntervalPostSingleOrganization]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:TimeSpan">00:00:05</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                </scg:List>
+              </ui:MultipleAssign.AssignOperations>
+            </ui:MultipleAssign>
+          </Sequence>
+        </ui:CommentOut.Body>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:CommentOut>
+      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+        <ui:CommentOut.Body>
+          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,224" sap2010:WorkflowViewState.IdRef="Sequence_7">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:KillProcess AppliesTo="{x:Null}" Process="{x:Null}" ContinueOnError="True" DisplayName="Kill Payroll Manager" sap:VirtualizedContainerService.HintSize="334,132" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="PM3">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:KillProcess>
+          </Sequence>
+        </ui:CommentOut.Body>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:CommentOut>
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[String.Format(&quot;Company to treat = {0}{1}Category = {2}{1}File path = {3}{1}PAYE Folder path = {4}&quot;, in_OrganizationName, Environment.NewLine, in_OrganizationCategory, in_PayrollFilePath, in_PayeFolderPath)]" />
+      <Assign DisplayName="Assign MsPayrollAppExePath" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[MsPayrollAppExePath]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[in_Config("MsPayrollAppExePath").ToString]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim filePathSansExtension As String = Path.GetFileNameWithoutExtension(in_PayrollFilePath)&#xA;Dim yearUno As Int32 = CInt(Left(Right(filePathSansExtension, 7), 4))&#xA;Dim yearDuo As Int32 = (yearUno + 1)&#xA;out_YearBand = String.Format(&quot;{0}-{1}&quot;, yearUno, yearDuo)&#xA;&#xA;Console.WriteLine(out_YearBand)" DisplayName="Set YearBand" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
+        <ui:InvokeCode.Arguments>
+          <OutArgument x:TypeArguments="x:String" x:Key="out_YearBand">[YearBand]</OutArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_PayrollFilePath">[in_PayrollFilePath]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_PayeFolderPath">[in_PayeFolderPath]</InArgument>
+        </ui:InvokeCode.Arguments>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:InvokeCode>
+      <ui:ShouldStop DisplayName="Should Stop" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="ShouldStop_1" />
+    </Sequence>
+    <Sequence DisplayName="Pre HMRC Submission" sap:VirtualizedContainerService.HintSize="686,66" sap2010:WorkflowViewState.IdRef="Sequence_6">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Open the Payroll File" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="MoneysoftPayroll\Open_Payroll_File.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_PayrollFilePath">[in_PayrollFilePath]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_MsPayrollAppExePath">[MsPayrollAppExePath]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_OrganizationName">[in_OrganizationName]</InArgument>
+          <InOutArgument x:TypeArguments="x:String" x:Key="io_IsSentLicenseRenewalMailNotification">[io_IsSentLicenseRenewalMailNotification]</InOutArgument>
+        </ui:InvokeWorkflowFile.Arguments>
+      </ui:InvokeWorkflowFile>
+      <Assign DisplayName="View/File Button Row" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[ViewFileButtonRow]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[(in_LogCurrentOrganization.Item(in_Config("ColName_ViewButtonRow").ToString).ToString)]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign DisplayName="Is HMRC Submission Done?" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_11">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[IsHmrcSubmissionDone]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[(in_LogCurrentOrganization.Item(in_Config("ColName_HmrcSubmission").ToString).ToString).ToUpper]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign DisplayName="Is 'RTI FPS PDF' Saved?" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[IsRtiFpsPdfSaved]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[(in_LogCurrentOrganization.Item(in_Config("ColName_RtiFpsPdfSaved").ToString).ToString).ToUpper]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign DisplayName="Is 'Payslip PDF' Saved?" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_7">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[IsEmployeePayslipPdfSaved]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[(in_LogCurrentOrganization.Item(in_Config("ColName_PayslipPdfSaved").ToString).ToString).ToUpper]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign DisplayName="Is 'P30 PDF' Saved?" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_8">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[IsP30PdfSaved]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[(in_LogCurrentOrganization.Item(in_Config("ColName_P30PdfSaved").ToString).ToString).ToUpper]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <ui:ShouldStop DisplayName="Should Stop" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="ShouldStop_2" />
+    </Sequence>
+    <ui:Comment sap:VirtualizedContainerService.HintSize="686,93" sap2010:WorkflowViewState.IdRef="Comment_2" Text="// [Optional] Confirm the actual steps for &quot;Send RTI FPS Email Reports&quot; as used by LeoBS" />
+    <If Condition="[IsHmrcSubmissionDone &lt;&gt;&quot;DONE&quot;]" DisplayName="IF YET TO DO: HMRC Submission" sap:VirtualizedContainerService.HintSize="686,270" sap2010:WorkflowViewState.IdRef="If_5">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If.Then>
+        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="HMRC Submission with RTI FPS PDF" sap:VirtualizedContainerService.HintSize="379,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="MoneysoftPayroll\HmrcSubmission_with_RtiFpsPdf.xaml">
+          <ui:InvokeWorkflowFile.Arguments>
+            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_MsPayrollAppExePath">[MsPayrollAppExePath]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_PayrollFilePath">[in_PayrollFilePath]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_OrganizationCategory">[in_OrganizationCategory]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_OrganizationName">[in_OrganizationName]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_PayeFolderPath">[in_PayeFolderPath]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_FolderNameRti">[in_Sysfig("FolderNameRti").ToString]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_YearBand">[YearBand]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_WorkLogFilePath">[in_WorkLogFilePath]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_WorkLogSheetName">[in_Config("SheetName_WorkLog").ToString]</InArgument>
+            <InArgument x:TypeArguments="x:Int32" x:Key="in_LogSheetRowNumber">[in_LogSheetRowNumber]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_SendRtiFpsEmailReport">[in_Sysfig("SendRtiFpsEmailReport").ToString]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_HmrcSubmissionSuccessResponse">[in_Sysfig("HmrcSubmissionSuccessResponse").ToString]</InArgument>
+            <OutArgument x:TypeArguments="x:String" x:Key="out_IsRtiFpsPdfSaved">[IsRtiFpsPdfSaved]</OutArgument>
+          </ui:InvokeWorkflowFile.Arguments>
+        </ui:InvokeWorkflowFile>
+      </If.Then>
+      <If.Else>
+        <Assign DisplayName="Checkpoint 1A: RTI FPS PDF" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[IsHmrcSubmissionDone]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">DONE</InArgument>
+          </Assign.Value>
+        </Assign>
+      </If.Else>
+    </If>
+    <If Condition="[IsRtiFpsPdfSaved &lt;&gt;&quot;DONE&quot;]" DisplayName="IF YET TO DO: RTI FPS PDF Saved" sap:VirtualizedContainerService.HintSize="686,270" sap2010:WorkflowViewState.IdRef="If_6">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If.Then>
+        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Save RTI FPS File" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="MoneysoftPayroll\Save_RTI_FPS_File.xaml">
+          <ui:InvokeWorkflowFile.Arguments>
+            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_MsPayrollAppExePath">[MsPayrollAppExePath]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_PayrollFilePath">[in_PayrollFilePath]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_OrganizationCategory">[in_OrganizationCategory]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_OrganizationName">[in_OrganizationName]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_PayeFolderPath">[in_PayeFolderPath]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_FolderNameRti">[in_Sysfig("FolderNameRti").ToString]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_YearBand">[YearBand]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_WorkLogFilePath">[in_WorkLogFilePath]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_WorkLogSheetName">[in_Config("SheetName_WorkLog").ToString]</InArgument>
+            <InArgument x:TypeArguments="x:Int32" x:Key="in_LogSheetRowNumber">[in_LogSheetRowNumber]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_SendRtiFpsEmailReport">[in_Sysfig("SendRtiFpsEmailReport").ToString]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_ViewFileButtonRow">[ViewFileButtonRow]</InArgument>
+            <OutArgument x:TypeArguments="x:String" x:Key="out_IsRtiFpsPdfSaved">[IsRtiFpsPdfSaved]</OutArgument>
+          </ui:InvokeWorkflowFile.Arguments>
+        </ui:InvokeWorkflowFile>
+      </If.Then>
+      <If.Else>
+        <Assign DisplayName="Checkpoint 1B: RTI FPS PDF Saved" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_10">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[IsRtiFpsPdfSaved]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">DONE</InArgument>
+          </Assign.Value>
+        </Assign>
+      </If.Else>
+    </If>
+    <ui:ShouldStop DisplayName="Should Stop" sap:VirtualizedContainerService.HintSize="686,22" sap2010:WorkflowViewState.IdRef="ShouldStop_3" />
+    <If Condition="[IsEmployeePayslipPdfSaved.ToUpper &lt;&gt; &quot;DONE&quot;]" DisplayName="IF YET TO SAVE: Employee Payslip" sap:VirtualizedContainerService.HintSize="686,270" sap2010:WorkflowViewState.IdRef="If_1">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If.Then>
+        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Run Employee Payslip" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="MoneysoftPayroll\Employee_Payslip.xaml">
+          <ui:InvokeWorkflowFile.Arguments>
+            <InArgument x:TypeArguments="x:String" x:Key="in_MsPayrollAppExePath">[MsPayrollAppExePath]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_PayrollFilePath">[in_PayrollFilePath]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_PayeFolderPath">[in_PayeFolderPath]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_FolderNamePayslips">[in_Sysfig("FolderNamePayslips").ToString]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_OrganizationCategory">[in_OrganizationCategory]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_OrganizationName">[in_OrganizationName]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_YearBand">[YearBand]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_WorkLogFilePath">[in_WorkLogFilePath]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_WorkLogSheetName">[in_Config("SheetName_WorkLog").ToString]</InArgument>
+            <InArgument x:TypeArguments="x:Int32" x:Key="in_LogSheetRowNumber">[in_LogSheetRowNumber]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_ColLetterPayslipPdfSaved">[in_Config("ColLetter_PayslipPdfSaved").ToString]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_RobotCvApiKey">[in_Config("RobotCvApiKey").ToString]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_RobotCvServerUrl">[in_Config("RobotCvServerUrl").ToString]</InArgument>
+            <OutArgument x:TypeArguments="x:String" x:Key="out_IsEmployeePayslipPdfSaved">[IsEmployeePayslipPdfSaved]</OutArgument>
+          </ui:InvokeWorkflowFile.Arguments>
+        </ui:InvokeWorkflowFile>
+      </If.Then>
+      <If.Else>
+        <Assign DisplayName="Checkpoint 2: Employee Payslip PDF Saved" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[IsEmployeePayslipPdfSaved]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">DONE</InArgument>
+          </Assign.Value>
+        </Assign>
+      </If.Else>
+    </If>
+    <ui:ShouldStop DisplayName="Should Stop" sap:VirtualizedContainerService.HintSize="686,22" sap2010:WorkflowViewState.IdRef="ShouldStop_4" />
+    <If Condition="[IsP30PdfSaved.ToUpper &lt;&gt; &quot;DONE&quot;]" DisplayName="IF YET TO SAVE: P30 Employer's Payslip" sap:VirtualizedContainerService.HintSize="686,270" sap2010:WorkflowViewState.IdRef="If_2">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If.Then>
+        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Run P30 Employer's Payslip" sap:VirtualizedContainerService.HintSize="355,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="MoneysoftPayroll\Employers_Payslip_P30.xaml">
+          <ui:InvokeWorkflowFile.Arguments>
+            <InArgument x:TypeArguments="x:String" x:Key="in_MsPayrollAppExePath">[MsPayrollAppExePath]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_PayrollFilePath">[in_PayrollFilePath]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_OrganizationCategory">[in_OrganizationCategory]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_OrganizationName">[in_OrganizationName]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_PayeFolderPath">[in_PayeFolderPath]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_FolderNameP30">[in_Sysfig("FolderNameP30").ToString]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_YearBand">[YearBand]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_WorkLogFilePath">[in_WorkLogFilePath]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_WorkLogSheetName">[in_Config("SheetName_WorkLog").ToString]</InArgument>
+            <InArgument x:TypeArguments="x:Int32" x:Key="in_LogSheetRowNumber">[in_LogSheetRowNumber]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_ColLetterP30PdfSaved">[in_Config("ColLetter_P30PdfSaved").ToString]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_RobotCvApiKey">[in_Config("RobotCvApiKey").ToString]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_RobotCvServerUrl">[in_Config("RobotCvServerUrl").ToString]</InArgument>
+            <OutArgument x:TypeArguments="x:String" x:Key="out_IsP30PdfSaved">[IsP30PdfSaved]</OutArgument>
+          </ui:InvokeWorkflowFile.Arguments>
+        </ui:InvokeWorkflowFile>
+      </If.Then>
+      <If.Else>
+        <Assign DisplayName="Checkpoint 3: P30 Employers Payslip PDF" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[IsP30PdfSaved]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">DONE</InArgument>
+          </Assign.Value>
+        </Assign>
+      </If.Else>
+    </If>
+    <ui:InvokeCode ContinueOnError="{x:Null}" Code="'If (in_IsHmrcSubmissionDone.Equals(&quot;DONE&quot;) AndAlso in_IsRtiFpsPdfSaved.Equals(&quot;DONE&quot;) AndAlso in_IsEmployeePayslipPdfSaved.Equals(&quot;DONE&quot;) AndAlso in_IsP30PdfSaved.Equals(&quot;DONE&quot;)) Then&#xD;&#xA;Try&#xD;&#xA;&#x9;If ( ({in_IsHmrcSubmissionDone, in_IsRtiFpsPdfSaved, in_IsEmployeePayslipPdfSaved, in_IsP30PdfSaved}).Contains(Nothing) ) Then&#xD;&#xA;&#x9;&#x9;out_ShouldProceed = &quot;NO&quot;&#xD;&#xA;&#x9;Else&#xD;&#xA;&#x9;&#x9;out_ShouldProceed = &quot;YES&quot;&#xD;&#xA;&#x9;End If&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;Console.WriteLine(String.Format(&quot;[{0}] - Job Epilogue Checkpoint: Should bot update row Status? [{1}]&quot;, in_OrganizationName, out_ShouldProceed))&#xD;&#xA;Catch ex As Exception&#xD;&#xA;&#x9;Console.WriteLine(ex.Message)&#xD;&#xA;&#x9;out_ShouldProceed = &quot;ERROR&quot;&#xD;&#xA;End Try&#xD;&#xA;" DisplayName="Checkpoint 4: Update Log Status &amp; CRM" sap:VirtualizedContainerService.HintSize="686,164" sap2010:WorkflowViewState.IdRef="InvokeCode_2">
+      <ui:InvokeCode.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_OrganizationName">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_OrganizationName" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_IsHmrcSubmissionDone">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IsHmrcSubmissionDone" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_IsRtiFpsPdfSaved">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IsRtiFpsPdfSaved" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_IsEmployeePayslipPdfSaved">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IsEmployeePayslipPdfSaved" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_IsP30PdfSaved">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IsP30PdfSaved" />
+        </InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_ShouldProceed">
+          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="ShouldProceed" />
+        </OutArgument>
+      </ui:InvokeCode.Arguments>
+    </ui:InvokeCode>
+    <Flowchart DisplayName="If there is Need to PROCEED" sap:VirtualizedContainerService.HintSize="686,51" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          <av:Point x:Key="ShapeLocation">540,12.5</av:Point>
+          <av:Size x:Key="ShapeSize">60,75</av:Size>
+          <av:PointCollection x:Key="ConnectorLocation">540,50 480,50 480,76.5</av:PointCollection>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Flowchart.StartNode>
+        <x:Reference>__ReferenceID4</x:Reference>
+      </Flowchart.StartNode>
+      <FlowDecision x:Name="__ReferenceID4" Condition="[ShouldProceed = &quot;YES&quot;]" DisplayName="ShouldProceed ?" sap:VirtualizedContainerService.HintSize="94,87" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <av:Point x:Key="ShapeLocation">433,76.5</av:Point>
+            <av:Size x:Key="ShapeSize">94,87</av:Size>
+            <x:String x:Key="TrueLabel">Yes</x:String>
+            <x:String x:Key="FalseLabel">N</x:String>
+            <av:PointCollection x:Key="TrueConnector">433,120 370,120 370,156.5</av:PointCollection>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <FlowDecision.True>
+          <FlowDecision x:Name="__ReferenceID1" Condition="[in_Sysfig(&quot;Use_Crm&quot;).ToString.ToUpper = &quot;YES&quot;]" DisplayName="Use CRM ?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <av:Point x:Key="ShapeLocation">335,156.5</av:Point>
+                <av:Size x:Key="ShapeSize">70,87</av:Size>
+                <x:String x:Key="FalseLabel">No</x:String>
+                <x:String x:Key="TrueLabel">Yes</x:String>
+                <av:PointCollection x:Key="FalseConnector">405,200 500,200 500,487</av:PointCollection>
+                <av:PointCollection x:Key="TrueConnector">335,200 260,200 260,266.5</av:PointCollection>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <FlowDecision.True>
+              <FlowSwitch x:TypeArguments="x:String" x:Name="__ReferenceID2" DisplayName="Switch CRM Type" Expression="[in_Sysfig(&quot;Crm_Type&quot;).ToString.ToUpper]" sap:VirtualizedContainerService.HintSize="97,87" sap2010:WorkflowViewState.IdRef="FlowSwitch`1_2">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <av:Point x:Key="ShapeLocation">211.5,266.5</av:Point>
+                    <av:Size x:Key="ShapeSize">97,87</av:Size>
+                    <av:PointCollection x:Key="VTIGER CLOUD CRMConnector">211.5,288.25 100,288.25 100,414.5</av:PointCollection>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <FlowStep x:Key="VTIGER CLOUD CRM" x:Name="__ReferenceID3">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <av:Point x:Key="ShapeLocation">0,414.5</av:Point>
+                      <av:Size x:Key="ShapeSize">200,51</av:Size>
+                      <av:PointCollection x:Key="ConnectorLocation">100,465.5 100,520 400,520</av:PointCollection>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Update VTiger CRM" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="CRM VTiger Cloud\Update_CRM_with_Status.xaml">
+                    <ui:InvokeWorkflowFile.Arguments>
+                      <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                    </ui:InvokeWorkflowFile.Arguments>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:InvokeWorkflowFile>
+                  <FlowStep.Next>
+                    <FlowStep x:Name="__ReferenceID0">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <av:Point x:Key="ShapeLocation">400,487</av:Point>
+                          <av:Size x:Key="ShapeSize">200,66</av:Size>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Sequence DisplayName="Update Work Log and Close App" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Update Status &quot;Cell Payroll Status&quot;" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Project\Update_Status_on_Work_Log.xaml">
+                          <ui:InvokeWorkflowFile.Arguments>
+                            <InArgument x:TypeArguments="x:String" x:Key="in_WorkLogFilePath">[in_WorkLogFilePath]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="in_SheetName">[in_Config("SheetName_WorkLog").ToString]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="in_CellAddress">[String.Format("{0}{1}", in_Config("ColLetter_PayrollStatus").ToString, in_LogSheetRowNumber)]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="in_CellContent">DONE</InArgument>
+                          </ui:InvokeWorkflowFile.Arguments>
+                        </ui:InvokeWorkflowFile>
+                        <ui:CloseWindow TimeoutMS="{x:Null}" UseWindow="{x:Null}" ContinueOnError="True" DisplayName="Close MS Payroll Manager App" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="CloseWindow_1" InformativeScreenshot="23071e1dfc873f98188cb05c52568de7" Selector="&lt;wnd app='pm3.exe' cls='Tpaymain' title='Payroll Manager 100*' /&gt;" WaitForReady="INTERACTIVE" />
+                        <Delay DisplayName="Delay 5s" Duration="00:00:05" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Delay_1" />
+                      </Sequence>
+                    </FlowStep>
+                  </FlowStep.Next>
+                </FlowStep>
+              </FlowSwitch>
+            </FlowDecision.True>
+            <FlowDecision.False>
+              <x:Reference>__ReferenceID0</x:Reference>
+            </FlowDecision.False>
+          </FlowDecision>
+        </FlowDecision.True>
+      </FlowDecision>
+      <x:Reference>__ReferenceID1</x:Reference>
+      <x:Reference>__ReferenceID0</x:Reference>
+      <x:Reference>__ReferenceID2</x:Reference>
+      <x:Reference>__ReferenceID3</x:Reference>
+    </Flowchart>
+    <Sequence DisplayName="Set Delay before Treating the Next Organization" sap:VirtualizedContainerService.HintSize="686,66" sap2010:WorkflowViewState.IdRef="Sequence_8">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_12">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:TimeSpan">[DelayIntervalPostSingleOrganization]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:TimeSpan">[TimeSpan.FromSeconds(CInt(in_Sysfig("DelayIntervalPostSingleOrganization").ToString))]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Delay DisplayName="Delay Interlude" Duration="[DelayIntervalPostSingleOrganization]" sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="Delay_2" />
+    </Sequence>
+  </Sequence>
+</Activity>

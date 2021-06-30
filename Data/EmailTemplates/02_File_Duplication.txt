@@ -1,0 +1,17 @@
+Hello Bot Supervisor,
+
+While attempting to run the Moneysoft Payroll Manager process, I found an input file in the PROCESSING folder; this means that something happen when I last ran the process and the process execution was not complete.
+
+At the moment, there is an input file in the INCOMING folder and this creates a conflict. You will have to make a decision:
+
+1. To continue with the last unsuccessful run, remove the input file currently in the Incoming folder. (This is recommended).
+2. To do a fresh run, remove the input file in the PROCESSING folder into the ARCHIVE folder; but note that this is NOT a recommended course of action.
+
+Kindly run the process when you have chosen the Input File you want me to work with.
+
+
+Thank you.
+
+
+Regards,
+SinnergyBot

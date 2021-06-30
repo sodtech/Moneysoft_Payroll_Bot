@@ -1,0 +1,12 @@
+Hello Bot Supervisor,
+
+While attempting to run payroll for OrganizationName, I encountered the following error:
+
+ExceptionMessage
+
+
+Also attached is a screenshot of the stat of the job/task as at when this error happened. If this situation is something you cannot resolve yourself, kindly forward this to Sinnergy Support Desk. Thank you.
+
+
+Regards,
+SinnergyBot

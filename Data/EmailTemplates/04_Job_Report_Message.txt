@@ -1,0 +1,9 @@
+Hello Bot Supervisor,
+
+This is to inform you that I am done with running the Moneysoft Payroll Manager process.
+
+Please find attached the report (or work log) file for the job; and do have a lovely day ahead. Thank you.
+
+
+Regards,
+SinnergyBot

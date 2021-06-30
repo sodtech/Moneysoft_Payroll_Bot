@@ -1,0 +1,12 @@
+Hello Bot Supervisor,
+
+While attempting to run the Moneysoft Payroll Manager process, I found no INPUT FILE in the INCOMING folder therefore there are no companies or organizations for me to run payroll for.
+
+If this is a mistake on your part, kindly provide an Input file and run the process again, else contact Sinnergy Support Desk.
+
+
+Thank you.
+
+
+Regards,
+SinnergyBot

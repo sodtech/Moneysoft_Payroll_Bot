@@ -1,0 +1,12 @@
+Hello Bot Supervisor,
+
+While attempting to run the Moneysoft Payroll Manager process, I encountered the following error:
+
+ExceptionMessage
+
+
+Kindly forward this to Sinnergy Support Desk. Thank you.
+
+
+Regards,
+SinnergyBot

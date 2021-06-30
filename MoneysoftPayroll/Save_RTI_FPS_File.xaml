@@ -1,0 +1,1253 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Employers_RTI_Schedule" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="http://schemas.uipath.com/workflow/activities/cv" xmlns:p1="http://schemas.uipath.com/workflow/activities/ocr" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:this="clr-namespace:" xmlns:uc="clr-namespace:UiPath.CV;assembly=UiPath.CV" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="in_MsPayrollAppExePath" Type="InArgument(x:String)" />
+    <x:Property Name="in_PayrollFilePath" Type="InArgument(x:String)" />
+    <x:Property Name="in_OrganizationCategory" Type="InArgument(x:String)" />
+    <x:Property Name="in_OrganizationName" Type="InArgument(x:String)" />
+    <x:Property Name="in_PayeFolderPath" Type="InArgument(x:String)" />
+    <x:Property Name="in_FolderNameRti" Type="InArgument(x:String)" />
+    <x:Property Name="in_YearBand" Type="InArgument(x:String)" />
+    <x:Property Name="in_WorkLogFilePath" Type="InArgument(x:String)" />
+    <x:Property Name="in_WorkLogSheetName" Type="InArgument(x:String)" />
+    <x:Property Name="in_LogSheetRowNumber" Type="InArgument(x:Int32)" />
+    <x:Property Name="in_SendRtiFpsEmailReport" Type="InArgument(x:String)" />
+    <x:Property Name="in_ViewFileButtonRow" Type="InArgument(x:String)" />
+    <x:Property Name="out_IsRtiFpsPdfSaved" Type="OutArgument(x:String)" />
+  </x:Members>
+  <this:Employers_RTI_Schedule.in_Config>
+    <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" />
+  </this:Employers_RTI_Schedule.in_Config>
+  <this:Employers_RTI_Schedule.in_MsPayrollAppExePath>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Employers_RTI_Schedule.in_MsPayrollAppExePath>
+  <this:Employers_RTI_Schedule.in_PayrollFilePath>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Employers_RTI_Schedule.in_PayrollFilePath>
+  <this:Employers_RTI_Schedule.in_OrganizationCategory>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Employers_RTI_Schedule.in_OrganizationCategory>
+  <this:Employers_RTI_Schedule.in_OrganizationName>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Employers_RTI_Schedule.in_OrganizationName>
+  <this:Employers_RTI_Schedule.in_PayeFolderPath>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Employers_RTI_Schedule.in_PayeFolderPath>
+  <this:Employers_RTI_Schedule.in_FolderNameRti>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Employers_RTI_Schedule.in_FolderNameRti>
+  <this:Employers_RTI_Schedule.in_YearBand>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Employers_RTI_Schedule.in_YearBand>
+  <this:Employers_RTI_Schedule.in_WorkLogFilePath>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Employers_RTI_Schedule.in_WorkLogFilePath>
+  <this:Employers_RTI_Schedule.in_WorkLogSheetName>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Employers_RTI_Schedule.in_WorkLogSheetName>
+  <this:Employers_RTI_Schedule.in_LogSheetRowNumber>
+    <InArgument x:TypeArguments="x:Int32" />
+  </this:Employers_RTI_Schedule.in_LogSheetRowNumber>
+  <this:Employers_RTI_Schedule.in_SendRtiFpsEmailReport>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Employers_RTI_Schedule.in_SendRtiFpsEmailReport>
+  <this:Employers_RTI_Schedule.in_ViewFileButtonRow>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Employers_RTI_Schedule.in_ViewFileButtonRow>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>988,1968</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Employers_RTI_Schedule_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="84">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.CV</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.Shared.ObjectLibrary</x:String>
+      <x:String>UiPath.Vision.OCR</x:String>
+      <x:String>UiPath.OCR.Contracts</x:String>
+      <x:String>UiPath.CV.Activities</x:String>
+      <x:String>UiPath.OCR.Activities</x:String>
+      <x:String>UiPath.OCR.Contracts.Activities</x:String>
+      <x:String>UiPath.CV.Activities.Interfaces</x:String>
+      <x:String>dipoleDIAMOND_Reuseables.FolderOperations</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>Microsoft.Activities.Expressions</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="80">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Vision.Core</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Contracts</AssemblyReference>
+      <AssemblyReference>UiPath.CV.Activities</AssemblyReference>
+      <AssemblyReference>dipoleDIAMOND_Reuseables</AssemblyReference>
+      <AssemblyReference>Microsoft.Activities</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <sap:WorkflowViewStateService.ViewState>
+    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+      <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
+    </scg:Dictionary>
+  </sap:WorkflowViewStateService.ViewState>
+  <Sequence sap2010:Annotation.AnnotationText="Pre-requistes:&#xA;1. Payroll file fo the organization in question already open and visible as the active screen.&#xA;&#xA;Workflow to do the following:&#xA;1. Click on the Employer's RTI Schedule, 4th icon from the left on the main toobar&#xA;2. Using the row number recorded in a previous run where the Bot clicked on the topmost View/File button, click on the View/File button on therow in question&#xA;3. On the RTI FPS window tha opens, .. ...&#xA;&#xA;&gt;&gt;&gt; Save the PDF file&#xA;&gt;&gt;&gt; Send email reprts (optional)&#xA;&#xA;" DisplayName="Save_RTI_FPS_File" sap:VirtualizedContainerService.HintSize="568,1803" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="RtiFpsPdfFilePath" />
+      <Variable x:TypeArguments="x:Int32" Name="XRowNumber" />
+      <Variable x:TypeArguments="ui:Window" Name="RtiFpsWindow" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="526,51" sap2010:WorkflowViewState.IdRef="CommentOut_17">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,143" sap2010:WorkflowViewState.IdRef="Sequence_61">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:MultipleAssign DisplayName=" TO DELETE" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+            <ui:MultipleAssign.AssignOperations>
+              <scg:List x:TypeArguments="ui:AssignOperation" Capacity="32">
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">[in_Config]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">[New Dictionary(Of String, Object)]</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[in_PayrollFilePath]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">\\192.168.1.94\aacslpayrolldb\2021-22\K-Z\SECURITY SERVICES and SYSTEMS LIMITED 2021-22.pay</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_12">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[in_PayeFolderPath]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">Z:\AACSL Central\aacsl Clients folder\Corporate Clients list\SECURITY SERVICES &amp; SYSTEMS LIMITED\Salary</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_13">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[in_FolderNameRti]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">RTI</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_14">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[in_OrganizationCategory]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">EMP-ONLY</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_15">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[in_OrganizationName]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">SECURITY SERVICES and SYSTEMS LIMITED</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_16">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[in_MsPayrollAppExePath]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">["C:\Program Files (x86)\Moneysoft\Payroll Manager\PM3.EXE"]</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_17">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[in_YearBand]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">2021-2022</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_18">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[in_WorkLogFilePath]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">C:\Users\WORKSTATION-VM\Documents\UiPath\__SinnergyBotWorkDirectory\MsPayroll_Manager\Processing\MsPayroll_WorkLog.xlsx</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_19">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[in_WorkLogSheetName]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">Work Log</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_20">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:Object">[in_Config("ColLetter_RtiFpsPdfSaved")]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:Object">["E"]</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_21">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:Int32">[in_LogSheetRowNumber]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:Int32">2</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_22">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:Object">[in_Config("RobotCvApiKey")]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:Object">["1nI+EJnFcXqTKXkFeyI+MbU/HIdIa0OUmZVYHu2gaTBPyumVxGqG20kgHgIZ38iAJ/P7FKgJI6WqirTdOoIwkw=="]</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_23">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:Object">[in_Config("RobotCvServerUrl")]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:Object">["https://cv.uipath.com"]</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_24">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[in_SendRtiFpsEmailReport]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">NO</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_25">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[in_ViewFileButtonRow]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">3</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+              </scg:List>
+            </ui:MultipleAssign.AssignOperations>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:MultipleAssign>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+    <ui:Comment sap:VirtualizedContainerService.HintSize="526,74" sap2010:WorkflowViewState.IdRef="Comment_2" Text="// Endeavor to replace CV properties with Config values" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="526,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[String.Format(&quot;About to do Employer's RTI Schedule file for {0}...&quot;, in_OrganizationName)]" />
+    <Sequence DisplayName="Preliminaries" sap:VirtualizedContainerService.HintSize="526,66" sap2010:WorkflowViewState.IdRef="Sequence_55">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:InvokeCode ContinueOnError="{x:Null}" Code="io_ViewFileButtonRow = (IIf(IsNumeric(io_ViewFileButtonRow), io_ViewFileButtonRow, &quot;0&quot;)).ToString&#xA;&#xA;Console.WriteLine(String.Format(&quot;[{0}]: the View/File button previously used to run HMRC Submission is on row {0}&quot;, in_OrganizationName, io_ViewFileButtonRow))" DisplayName="Validate Logged View/File Row Number" sap:VirtualizedContainerService.HintSize="262,51" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
+        <ui:InvokeCode.Arguments>
+          <InOutArgument x:TypeArguments="x:String" x:Key="io_ViewFileButtonRow">[in_ViewFileButtonRow]</InOutArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_OrganizationName">[in_OrganizationName]</InArgument>
+        </ui:InvokeCode.Arguments>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:InvokeCode>
+      <Assign DisplayName="Assign View/File Button Row" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_12">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:Int32">[XRowNumber]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:Int32">[(CInt(in_ViewFileButtonRow) - 1)]</InArgument>
+        </Assign.Value>
+      </Assign>
+    </Sequence>
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Open Payroll Manager App" sap:VirtualizedContainerService.HintSize="526,51" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="WindowMessages" Version="V1">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence sap2010:Annotation.AnnotationText="This is where HMRC Submission actually takes place" DisplayName="Do" sap:VirtualizedContainerService.HintSize="526,959" sap2010:WorkflowViewState.IdRef="Sequence_54">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SpecialKey="{x:Null}" Activate="True" DisplayName="Open &quot;Pay Details&quot; window" sap:VirtualizedContainerService.HintSize="476,116" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="d" KeyModifiers="Ctrl">
+              <ui:SendHotkey.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="1879efad-003e-4faf-971c-0b7884bc6d17">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:SendHotkey.Target>
+            </ui:SendHotkey>
+            <Sequence DisplayName="Open RTI Schedule" sap:VirtualizedContainerService.HintSize="476,66" sap2010:WorkflowViewState.IdRef="Sequence_48">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <uix:NClick ClickType="Single" DisplayName="Click Employer’s RTI schedule" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable DesignTimeRectangle="81, 55, 23, 22" ElementType="Button" FriendlyName="'push button'" FullSelectorArgument="&lt;wnd cls='Ttoolbar' /&gt;&lt;ctrl name='maintoolbar' role='tool bar' /&gt;&lt;ctrl idx='8' role='push button' /&gt;" FuzzySelectorArgument="&lt;wnd cls='Ttoolbar' /&gt;&lt;ctrl name='maintoolbar' role='tool bar' /&gt;&lt;ctrl automationid='' role='push button' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABsAAAAaCAYAAABGiCfwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAC0SURBVEhL7dBBDsMgDERRjs6RuYGbQZpqapGAYxR1kcVXE1T85JTWmj3Vi23pP7Fa67TRPS2EmZVhKxBawnZAKIVFIDTErBzDNAL+/Mj/38/STjE+960wSDbCO861GYQusT6EGzlM39OY9rOBYDzjHT/Hd7mZH6AYEZbG9PkLCcb8nbOmGN87Ihh+FWJ6zzfEfNwAACMUaQljBO9AKIzdhdAyloVQCBudRwp9xmwvtqUHsWYfIC7NThLKg2IAAAAASUVORK5CYII=" InformativeScreenshot="bea93dfb09c5c0b1f8d42a73d5924b90.png" ScopeSelectorArgument="&lt;wnd app='pm3.exe' cls='Tpaymain' title='Payroll Manager 100  -  Bot testing file 02  -  2020-21' /&gt;" SearchSteps="FuzzySelector, Image">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target DesignTimeRectangle="73, 31, 47, 19" FriendlyName="'Forms'" FullSelectorArgument="&lt;ctrl automationid='MenuBar' name='Application' role='menu bar' /&gt;&lt;ctrl name='Forms' role='menu item' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='MenuBar' name='Application' role='menu bar' /&gt;&lt;ctrl name='Forms' role='menu item' automationid='' check:text='Forms' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADMAAAAXCAYAAACmnHcKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADeSURBVFhH7ZTRDcQgCIady4GYxxGcwmVcwrgAJ4qtNk2j13vgjH9CUqAiX1AVLqQNI1UbRqo2jFQNwjgEpVA1po3nnBxNwGgU2H+nDdPJG9TN8QPHcV4DoFMcksc13Pk//esN5a9H16PRdzWf9fWdKRuU+LFZBqvQJXc2yDW0Sa2SC7nOkc8+QfP3KEGjd5PJzXMDLActaLtmwudpzz4yMmFY9QiODunlnaH49ZhVuNnm7/cgoNEJ/fgBeNN84/N9KtZP/kmDMP+hDSNVa8HEGHEVUyEEXMWUtRbXMIsf2WYXnvwY4UgAAAAASUVORK5CYII=" SearchSteps="Selector, FuzzySelector, Image" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NClick.Target>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NClick>
+              <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Employer's RTI Schedule dialog" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="WindowScope_3" InformativeScreenshot="4ba100b0056003d7b9e3dafa2d4c4e12" Selector="&lt;wnd app='pm3.exe' cls='Tdlg_rti' title='Employer*RTI Schedule*' /&gt;">
+                <ui:WindowScope.Body>
+                  <ActivityAction x:TypeArguments="x:Object">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                    </ActivityAction.Argument>
+                    <Sequence DisplayName="Click Topmost View/File Button" sap:VirtualizedContainerService.HintSize="376,479" sap2010:WorkflowViewState.IdRef="Sequence_41">
+                      <Sequence.Variables>
+                        <Variable x:TypeArguments="scg:IEnumerable(ui:UiElement)" Name="ViewFileButtonCollection" />
+                      </Sequence.Variables>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:FindChildren Children="[ViewFileButtonCollection]" DisplayName="Find Children: &quot;View/File buttons&quot;" Filter="&lt;wnd cls='TButton' /&gt;" sap:VirtualizedContainerService.HintSize="436,106" sap2010:WorkflowViewState.IdRef="FindChildren_3" Scope="FIND_DESCENDANTS">
+                        <ui:FindChildren.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="45613e0b-bfeb-4ab3-84b2-87cd08298129" InformativeScreenshot="f6b8aad6fb064712eb77a43ea3d19eda" Selector="&lt;wnd cls='TScrollBox' /&gt;" WaitForReady="COMPLETE">
+                            <ui:Target.TimeoutMS>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:Target.TimeoutMS>
+                          </ui:Target>
+                        </ui:FindChildren.Target>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </ui:FindChildren>
+                      <Assign DisplayName="Reverse ViewFileButton Collection" sap:VirtualizedContainerService.HintSize="436,60" sap2010:WorkflowViewState.IdRef="Assign_9">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="scg:IEnumerable(ui:UiElement)">[ViewFileButtonCollection]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="scg:IEnumerable(ui:UiElement)">[ViewFileButtonCollection.Reverse()]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,51" sap2010:WorkflowViewState.IdRef="CommentOut_16">
+                        <ui:CommentOut.Body>
+                          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,160" sap2010:WorkflowViewState.IdRef="Sequence_57">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:Highlight Color="Gold" HighlightTime="60" sap:VirtualizedContainerService.HintSize="334,68" sap2010:WorkflowViewState.IdRef="Highlight_1">
+                              <ui:Highlight.Target>
+                                <ui:Target ClippingRegion="{x:Null}" Selector="{x:Null}" Element="[ViewFileButtonCollection(XRowNumber)]" Id="3b1382a1-3d24-494a-8e6b-7b078c49fcd5">
+                                  <ui:Target.TimeoutMS>
+                                    <InArgument x:TypeArguments="x:Int32" />
+                                  </ui:Target.TimeoutMS>
+                                  <ui:Target.WaitForReady>
+                                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                                  </ui:Target.WaitForReady>
+                                </ui:Target>
+                              </ui:Highlight.Target>
+                            </ui:Highlight>
+                          </Sequence>
+                        </ui:CommentOut.Body>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </ui:CommentOut>
+                      <uix:NClick ClickType="Single" DisplayName="Click View / File Button" sap:VirtualizedContainerService.HintSize="436,51" sap2010:WorkflowViewState.IdRef="NClick_6" InUiElement="[ViewFileButtonCollection(XRowNumber)]" KeyModifiers="None" MouseButton="Left">
+                        <uix:NClick.Target>
+                          <uix:TargetAnchorable DesignTimeRectangle="675, 53, 70, 25" ElementType="Button" FriendlyName="'View / File'" FuzzySelectorArgument="&lt;wnd cls='TButton' title='View / File' check:text='View / File' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEoAAAAdCAYAAAANW/o+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIASURBVGhD7ZlNSgMxFIAdBCnoQvAqs/YWIpJuXHoHwYALwVb3gmDcuFAHwQtIVhU9RQX33uCZl5mkmUzSiRi1xbf4aJrm570vb0JhVlZPB3Dz8kF4jJ6eYef2ENZGG4COSFQPw+qERKVwOXnriqqqinAwXoKiptMpoSBRiZCoREhUIiQqERKVyPKJkhzKkoMM/Rbiq+MjfF9UJxAJvCyBizwB+kheQsnlrA/3LwooWjAQJq6FEWXEyOZ7psBiCObshfTttziivFMWrG67AWLbnnaTaOd3VQV6PRRv2j4CmB3XEBNh+jv7eHH48yJkEYVyCiZ0W7ACmFB9NkAvuUA/imaM1fOwP5Q44uxjaSVvUOuafXrjcNaaQx5RNginGtxAQ4moMeYxEkqSTgwlmM/W+jX2ENz+WMLu/j1xtOZFyCSqSRovcJOkH6g3HtGVJEwFNZJV1XRkaLy70BBb399/ThwpZBOlHwt1SjZJGxhWW6ASmjFMJW/uN8mVJFVdwbsjlmhff0ocCeQTNe8OwLYtd4VNDOc4VYKyQ0krOn8LDMmimr5gHP1kFPWzBO+nX2RJRHnV+gcsTUX9NSQqERKVCIlKJChqLF+tKGIGOrmavM9E7d0fW3tEm4PHi1oUvjIejDdh/+FMv+wLDf6PYCWhpPXzrVrU7t2RbhBxtq+H8Am+yGS/252C4AAAAABJRU5ErkJggg==" InformativeScreenshot="9a6c4fb91d292be076c00db33ba24327.png" ScopeSelectorArgument="&lt;wnd app='pm3.exe' cls='Tdlg_rti' title='Employer*s RTI Schedule*' /&gt;" SearchSteps="Selector, FuzzySelector, Image" WaitForReadyArgument="Complete" />
+                        </uix:NClick.Target>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </uix:NClick>
+                    </Sequence>
+                  </ActivityAction>
+                </ui:WindowScope.Body>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:WindowScope>
+              <ui:WindowScope SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" ApplicationWindow="[RtiFpsWindow]" DisplayName="Attach &quot;RTI FPS&quot; Window" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="WindowScope_11" InformativeScreenshot="6eb0a0051693ee1ec1f74690021932f2" Selector="&lt;wnd app='pm3.exe' cls='Tpaymain' title='Payroll Manager 100*' /&gt;&lt;wnd cls='Twin_report' title='RTI Full Payment Submission (FPS)' /&gt;">
+                <ui:WindowScope.Body>
+                  <ActivityAction x:TypeArguments="x:Object">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                    </ActivityAction.Argument>
+                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="242,114" sap2010:WorkflowViewState.IdRef="Sequence_58">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:MaximizeWindow DisplayName="Maximize 'RTI FPS&quot; Window" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="MaximizeWindow_2" Window="[RtiFpsWindow]" />
+                    </Sequence>
+                  </ActivityAction>
+                </ui:WindowScope.Body>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:WindowScope>
+            </Sequence>
+            <If sap2010:Annotation.AnnotationText="OPTIONAL for some clients" Condition="[in_SendRtiFpsEmailReport.ToUpper = &quot;YES&quot;]" DisplayName="Send RTI FPS Email Report???" sap:VirtualizedContainerService.HintSize="476,82" sap2010:WorkflowViewState.IdRef="If_7">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <If.Then>
+                <Sequence DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="242,298" sap2010:WorkflowViewState.IdRef="Sequence_51">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Delay DisplayName="Delay 3s" Duration="00:00:03" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Delay_2" />
+                  <p:CVScope ContinueOnError="{x:Null}" DelayBefore="{x:Null}" ApiKey="[in_Config(&quot;RobotCvApiKey&quot;).ToString]" CvMethod="ElementDetection, OCR" DesignTimeCacheId="21d81fee-ee0e-413a-a329-10dd5c5543d1" DisplayName="CV: RTI FPS Window" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="CVScope_3" Server="[in_Config(&quot;RobotCvServerUrl&quot;).ToString]" Version="V2">
+                    <p:CVScope.Body>
+                      <ActivityAction x:TypeArguments="x:Object">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="x:Object" Name="CVSessionData" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_49">
+                          <p:CvClickWithDescriptor CursorMotionType="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" Descriptor="[&quot;Target: Icon (59,37,21,15)&quot;]" DesignTimeCacheId="21d81fee-ee0e-413a-a329-10dd5c5543d1" DesignTimeScaleFactor="1" DisplayName="CV Click - Icon" sap:VirtualizedContainerService.HintSize="400,136" sap2010:WorkflowViewState.IdRef="CvClickWithDescriptor_3" InformativeScreenshot="cf70647827f38b59c6e601bbacd15fba" KeyModifiers="None" MouseButton="BTN_LEFT" Version="V2">
+                            <p:CvClickWithDescriptor.CursorPosition>
+                              <ui:CursorPosition Position="Center">
+                                <ui:CursorPosition.OffsetX>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetX>
+                                <ui:CursorPosition.OffsetY>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetY>
+                              </ui:CursorPosition>
+                            </p:CvClickWithDescriptor.CursorPosition>
+                            <p:CvClickWithDescriptor.DesignTimeDescriptor>
+                              <uc:CvDescriptor>
+                                <uc:CvDescriptor.Target>
+                                  <uc:CvElementDescriptor DesignTimeArea="59, 37, 21, 15" ElementType="Icon" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABUAAAAPCAYAAAALWoRrAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABlSURBVDhP7ZBBCsAgDATzdJ+cH6QoXRjF2oZ6KfQwmGB2CDF3j9380rMw695SLIU8zcGGaDhizVI621ShUSQ4I09zsCGU1XoG/5ntpNqywtAdSynZKh1v+oTUphmYvZS+4StSjwOy4yKuv97uPAAAAABJRU5ErkJggg==" />
+                                </uc:CvDescriptor.Target>
+                              </uc:CvDescriptor>
+                            </p:CvClickWithDescriptor.DesignTimeDescriptor>
+                            <p:CvClickWithDescriptor.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="a07c8340-6f07-41d5-a7cd-3cb58e05433d">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </p:CvClickWithDescriptor.Target>
+                          </p:CvClickWithDescriptor>
+                        </Sequence>
+                      </ActivityAction>
+                    </p:CVScope.Body>
+                    <p:CVScope.DesignTimeCache>
+                      <uc:CVCache CvUiElements="{x:Null}" OcrTexts="{x:Null}" />
+                    </p:CVScope.DesignTimeCache>
+                    <p:CVScope.DesignTimeCacheContainer>
+                      <uc:CvCacheContainer>
+                        <uc:CvCacheContainer.Caches>
+                          <scg:List x:TypeArguments="uc:CVCache" Capacity="1">
+                            <uc:CVCache DisplayName="RTI FPS dialog" Id="21d81fee-ee0e-413a-a329-10dd5c5543d1" InformativeScreenshot="6d715a88da03881e70e8dad3ee9d087b" LogicalPosition="11, 133" OcrText="CIICI onerre LO crecuec Tie Torr RTI Full Payment Submission (FPS) D X Layout: Basic v Employees: All Employees v Online Filing: blocked (your data fails validation - click here for details) ^ Bot testing file 02 2020-21 RTI Full Payment Submission (FPS) Apr-2020 All Employees, Layout: Basic Total Tax Employee Net Employer Employee Payments Deducted NIC Pay NIC X Abc 1,250.00 41.40 54.96 1,153.64 71.48 Total 1,250.00 41.40 54.96 1,153.64 71.48 Starters: X Abc started on 01-Apr-2020 Employer Totals: PAYE v" Position="11, 133" ScreenshotGuid="1663d671-3f80-4597-881a-fc2cdafb8b2c" ServerVersion="1">
+                              <uc:CVCache.CvTables>
+                                <x:Array Type="uc:CvTableInfo">
+                                  <uc:CvTableInfo>
+                                    <uc:CvTableInfo.Columns>
+                                      <x:Array Type="x:Int32">
+                                        <x:Int32>49</x:Int32>
+                                        <x:Int32>131</x:Int32>
+                                        <x:Int32>213</x:Int32>
+                                        <x:Int32>293</x:Int32>
+                                        <x:Int32>375</x:Int32>
+                                        <x:Int32>457</x:Int32>
+                                        <x:Int32>541</x:Int32>
+                                      </x:Array>
+                                    </uc:CvTableInfo.Columns>
+                                    <uc:CvTableInfo.Rows>
+                                      <x:Array Type="x:Int32">
+                                        <x:Int32>261</x:Int32>
+                                        <x:Int32>279</x:Int32>
+                                        <x:Int32>297</x:Int32>
+                                        <x:Int32>314</x:Int32>
+                                        <x:Int32>334</x:Int32>
+                                      </x:Array>
+                                    </uc:CvTableInfo.Rows>
+                                  </uc:CvTableInfo>
+                                </x:Array>
+                              </uc:CVCache.CvTables>
+                              <uc:CVCache.CvUiElements>
+                                <scg:List x:TypeArguments="uc:CvElementInfo" Capacity="128">
+                                  <uc:CvElementInfo Category="Icon" Region="212, 34, 21, 21" />
+                                  <uc:CvElementInfo Category="Icon" Region="257, 34, 21, 20" />
+                                  <uc:CvElementInfo Category="Icon" Region="181, 34, 21, 21" />
+                                  <uc:CvElementInfo Category="Icon" Region="158, 34, 21, 21" />
+                                  <uc:CvElementInfo Category="Icon" Region="82, 34, 20, 21" />
+                                  <uc:CvElementInfo Category="Icon" Region="135, 34, 21, 21" />
+                                  <uc:CvElementInfo Category="CloseButton" Region="797, 12, 33, 17" />
+                                  <uc:CvElementInfo Category="Icon" Region="59, 37, 21, 15" />
+                                  <uc:CvElementInfo Category="Icon" Region="12, 35, 20, 19" />
+                                  <uc:CvElementInfo Category="Icon" Region="105, 35, 19, 19" />
+                                  <uc:CvElementInfo Category="ArrowButton" Region="812, 444, 19, 19" />
+                                  <uc:CvElementInfo Category="Icon" Region="282, 36, 19, 18" />
+                                  <uc:CvElementInfo Category="Icon" Region="235, 34, 21, 21" />
+                                  <uc:CvElementInfo Category="ArrowButton" Region="812, 110, 19, 20" />
+                                  <uc:CvElementInfo Category="MaximizeButton" Region="764, 12, 33, 16" />
+                                  <uc:CvElementInfo Category="Icon" Region="36, 34, 20, 20" />
+                                  <uc:CvElementInfo Category="MinimizeButton" Region="730, 13, 32, 15" />
+                                  <uc:CvElementInfo Category="Icon" Region="212, 85, 18, 20" />
+                                  <uc:CvElementInfo Category="Icon" Region="9, 12, 18, 17" />
+                                  <uc:CvElementInfo Category="Button" Region="43, 85, 797, 22" />
+                                  <uc:CvElementInfo Category="Cell" Region="49, 297, 82, 17" />
+                                  <uc:CvElementInfo Category="Cell" Region="131, 314, 82, 20" />
+                                  <uc:CvElementInfo Category="Cell" Region="375, 297, 82, 17" />
+                                  <uc:CvElementInfo Category="Cell" Region="131, 297, 82, 17" />
+                                  <uc:CvElementInfo Category="Cell" Region="293, 297, 82, 17" />
+                                  <uc:CvElementInfo Category="Cell" Region="213, 314, 80, 20" />
+                                  <uc:CvElementInfo Category="Cell" Region="293, 314, 82, 20" />
+                                  <uc:CvElementInfo Category="Cell" Region="375, 314, 82, 20" />
+                                  <uc:CvElementInfo Category="Cell" Region="293, 279, 82, 18" />
+                                  <uc:CvElementInfo Category="Cell" Region="457, 314, 84, 20" />
+                                  <uc:CvElementInfo Category="Cell" Region="213, 297, 80, 17" />
+                                  <uc:CvElementInfo Category="Cell" Region="457, 297, 84, 17" />
+                                  <uc:CvElementInfo Category="Cell" Region="49, 261, 82, 36" />
+                                  <uc:CvElementInfo Category="Cell" Region="457, 279, 84, 18" />
+                                  <uc:CvElementInfo Category="Cell" Region="49, 314, 82, 20" />
+                                  <uc:CvElementInfo Category="Cell" Region="375, 279, 82, 18" />
+                                  <uc:CvElementInfo Category="Cell" Region="293, 261, 82, 18" />
+                                  <uc:CvElementInfo Category="Cell" Region="375, 261, 82, 18" />
+                                  <uc:CvElementInfo Category="Cell" Region="131, 261, 82, 36" />
+                                  <uc:CvElementInfo Category="Cell" Region="457, 261, 84, 18" />
+                                  <uc:CvElementInfo Category="Cell" Region="213, 261, 80, 18" />
+                                  <uc:CvElementInfo Category="Cell" Region="213, 279, 80, 18" />
+                                  <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="50, 439, 349, 23" />
+                                  <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="0, 94, 808, 356" />
+                                  <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="730, 13, 33, 15" />
+                                  <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="35, 32, 23, 23" />
+                                  <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="90, 57, 153, 23" />
+                                  <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="342, 439, 68, 22" />
+                                  <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="196, 86, 626, 20" />
+                                  <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="737, 15, 18, 11" />
+                                  <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="11, 33, 22, 22" />
+                                  <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="9, 11, 18, 17" />
+                                  <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="762, 12, 34, 16" />
+                                  <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="13, 56, 81, 25" />
+                                  <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="741, 0, 49, 7" />
+                                  <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="665, 1, 134, 8" />
+                                  <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="12, 426, 36, 32" />
+                                  <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="706, 0, 53, 8" />
+                                  <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="784, 0, 55, 8" />
+                                  <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="759, 0, 23, 11" />
+                                  <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="26, 83, 524, 23" />
+                                  <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="835, 231, 4, 38" />
+                                  <uc:CvElementInfo Category="InputBox" Region="353, 32, 261, 23" />
+                                  <uc:CvElementInfo Category="InputBox" Region="91, 57, 151, 22" />
+                                  <uc:CvElementInfo Category="ArrowButton" Region="596, 34, 18, 20" />
+                                  <uc:CvElementInfo Category="ArrowButton" Region="224, 58, 18, 20" />
+                                </scg:List>
+                              </uc:CVCache.CvUiElements>
+                              <uc:CVCache.OcrTexts>
+                                <scg:List x:TypeArguments="uc:OcrTextInfo" Capacity="128">
+                                  <uc:OcrTextInfo Region="597, 0, 27, 7" Text="CIICI" />
+                                  <uc:OcrTextInfo Region="624, 0, 31, 7" Text="onerre" />
+                                  <uc:OcrTextInfo Region="655, 0, 15, 7" Text="LO" />
+                                  <uc:OcrTextInfo Region="669, 0, 49, 7" Text="crecuec" />
+                                  <uc:OcrTextInfo Region="720, 0, 20, 7" Text="Tie" />
+                                  <uc:OcrTextInfo Region="740, 0, 18, 7" Text="Torr" />
+                                  <uc:OcrTextInfo Region="27, 12, 18, 13" Text="RTI" />
+                                  <uc:OcrTextInfo Region="46, 12, 21, 13" Text="Full" />
+                                  <uc:OcrTextInfo Region="67, 13, 50, 15" Text="Payment" />
+                                  <uc:OcrTextInfo Region="118, 13, 63, 13" Text="Submission" />
+                                  <uc:OcrTextInfo Region="181, 12, 30, 15" Text="(FPS)" />
+                                  <uc:OcrTextInfo Region="736, 13, 17, 12" Text="D" />
+                                  <uc:OcrTextInfo Region="805, 11, 16, 14" Text="X" />
+                                  <uc:OcrTextInfo Region="309, 39, 39, 13" Text="Layout:" />
+                                  <uc:OcrTextInfo Region="355, 38, 28, 12" Text="Basic" />
+                                  <uc:OcrTextInfo Region="598, 39, 12, 10" Text="v" />
+                                  <uc:OcrTextInfo Region="29, 61, 58, 16" Text="Employees:" />
+                                  <uc:OcrTextInfo Region="94, 62, 12, 12" Text="All" />
+                                  <uc:OcrTextInfo Region="106, 61, 56, 15" Text="Employees" />
+                                  <uc:OcrTextInfo Region="225, 62, 13, 11" Text="v" />
+                                  <uc:OcrTextInfo Region="230, 90, 39, 12" Text="Online" />
+                                  <uc:OcrTextInfo Region="269, 89, 35, 15" Text="Filing:" />
+                                  <uc:OcrTextInfo Region="304, 89, 46, 13" Text="blocked" />
+                                  <uc:OcrTextInfo Region="351, 90, 34, 14" Text="(your" />
+                                  <uc:OcrTextInfo Region="385, 90, 28, 12" Text="data" />
+                                  <uc:OcrTextInfo Region="414, 89, 26, 13" Text="fails" />
+                                  <uc:OcrTextInfo Region="440, 89, 58, 14" Text="validation" />
+                                  <uc:OcrTextInfo Region="499, 93, 8, 8" Text="-" />
+                                  <uc:OcrTextInfo Region="508, 90, 27, 12" Text="click" />
+                                  <uc:OcrTextInfo Region="535, 90, 29, 12" Text="here" />
+                                  <uc:OcrTextInfo Region="564, 90, 19, 12" Text="for" />
+                                  <uc:OcrTextInfo Region="583, 89, 45, 15" Text="details)" />
+                                  <uc:OcrTextInfo Region="815, 113, 11, 11" Text="^" />
+                                  <uc:OcrTextInfo Region="50, 141, 47, 26" Text="Bot" />
+                                  <uc:OcrTextInfo Region="101, 142, 87, 29" Text="testing" />
+                                  <uc:OcrTextInfo Region="194, 141, 42, 26" Text="file" />
+                                  <uc:OcrTextInfo Region="242, 141, 33, 25" Text="02" />
+                                  <uc:OcrTextInfo Region="282, 141, 103, 26" Text="2020-21" />
+                                  <uc:OcrTextInfo Region="51, 173, 34, 20" Text="RTI" />
+                                  <uc:OcrTextInfo Region="90, 173, 33, 19" Text="Full" />
+                                  <uc:OcrTextInfo Region="128, 174, 85, 22" Text="Payment" />
+                                  <uc:OcrTextInfo Region="215, 173, 110, 20" Text="Submission" />
+                                  <uc:OcrTextInfo Region="328, 173, 58, 23" Text="(FPS)" />
+                                  <uc:OcrTextInfo Region="49, 196, 91, 24" Text="Apr-2020" />
+                                  <uc:OcrTextInfo Region="49, 221, 18, 16" Text="All" />
+                                  <uc:OcrTextInfo Region="69, 221, 79, 19" Text="Employees," />
+                                  <uc:OcrTextInfo Region="151, 222, 48, 17" Text="Layout:" />
+                                  <uc:OcrTextInfo Region="201, 221, 40, 16" Text="Basic" />
+                                  <uc:OcrTextInfo Region="174, 264, 37, 15" Text="Total" />
+                                  <uc:OcrTextInfo Region="264, 265, 29, 14" Text="Tax" />
+                                  <uc:OcrTextInfo Region="303, 265, 72, 17" Text="Employee" />
+                                  <uc:OcrTextInfo Region="428, 264, 29, 15" Text="Net" />
+                                  <uc:OcrTextInfo Region="470, 265, 68, 17" Text="Employer" />
+                                  <uc:OcrTextInfo Region="53, 283, 73, 17" Text="Employee" />
+                                  <uc:OcrTextInfo Region="141, 283, 70, 17" Text="Payments" />
+                                  <uc:OcrTextInfo Region="221, 282, 71, 15" Text="Deducted" />
+                                  <uc:OcrTextInfo Region="346, 282, 29, 15" Text="NIC" />
+                                  <uc:OcrTextInfo Region="428, 283, 28, 16" Text="Pay" />
+                                  <uc:OcrTextInfo Region="508, 282, 29, 15" Text="NIC" />
+                                  <uc:OcrTextInfo Region="54, 301, 13, 15" Text="X" />
+                                  <uc:OcrTextInfo Region="67, 300, 27, 15" Text="Abc" />
+                                  <uc:OcrTextInfo Region="155, 300, 57, 17" Text="1,250.00" />
+                                  <uc:OcrTextInfo Region="253, 300, 40, 15" Text="41.40" />
+                                  <uc:OcrTextInfo Region="336, 300, 39, 15" Text="54.96" />
+                                  <uc:OcrTextInfo Region="398, 300, 58, 17" Text="1,153.64" />
+                                  <uc:OcrTextInfo Region="500, 301, 37, 14" Text="71.48" />
+                                  <uc:OcrTextInfo Region="54, 317, 37, 15" Text="Total" />
+                                  <uc:OcrTextInfo Region="154, 317, 57, 17" Text="1,250.00" />
+                                  <uc:OcrTextInfo Region="253, 317, 39, 15" Text="41.40" />
+                                  <uc:OcrTextInfo Region="336, 317, 38, 15" Text="54.96" />
+                                  <uc:OcrTextInfo Region="397, 317, 59, 16" Text="1,153.64" />
+                                  <uc:OcrTextInfo Region="499, 317, 38, 15" Text="71.48" />
+                                  <uc:OcrTextInfo Region="50, 355, 88, 18" Text="Starters:" />
+                                  <uc:OcrTextInfo Region="49, 379, 14, 15" Text="X" />
+                                  <uc:OcrTextInfo Region="63, 379, 27, 16" Text="Abc" />
+                                  <uc:OcrTextInfo Region="92, 380, 48, 14" Text="started" />
+                                  <uc:OcrTextInfo Region="141, 382, 19, 12" Text="on" />
+                                  <uc:OcrTextInfo Region="161, 379, 83, 18" Text="01-Apr-2020" />
+                                  <uc:OcrTextInfo Region="50, 415, 99, 23" Text="Employer" />
+                                  <uc:OcrTextInfo Region="151, 415, 71, 20" Text="Totals:" />
+                                  <uc:OcrTextInfo Region="364, 440, 42, 16" Text="PAYE" />
+                                  <uc:OcrTextInfo Region="814, 446, 12, 11" Text="v" />
+                                </scg:List>
+                              </uc:CVCache.OcrTexts>
+                            </uc:CVCache>
+                          </scg:List>
+                        </uc:CvCacheContainer.Caches>
+                      </uc:CvCacheContainer>
+                    </p:CVScope.DesignTimeCacheContainer>
+                    <p:CVScope.OCREngine>
+                      <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd:Rectangle, x:String))">
+                        <ActivityFunc.Argument>
+                          <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+                        </ActivityFunc.Argument>
+                        <p1:UiPathScreenOCR Endpoint="{x:Null}" Output="{x:Null}" Text="{x:Null}" ApiKey="[in_Config(&quot;RobotCvApiKey&quot;).ToString]" ComputeSkewAngle="False" ExtractWords="True" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="UiPathScreenOCR_3" Image="[Image]" Language="en" Profile="Screen" Scale="1" />
+                      </ActivityFunc>
+                    </p:CVScope.OCREngine>
+                    <p:CVScope.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="cfcb350b-e4b2-400d-a38b-aa65622dac7e" InformativeScreenshot="689449f92b0ff25917f0ca0a3383bfcb" Selector="&lt;wnd app='pm3.exe' cls='Tpaymain' title='Payroll Manager 100*' /&gt;&lt;wnd cls='Ttoolpanel' /&gt;" WaitForReady="COMPLETE">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                      </ui:Target>
+                    </p:CVScope.Target>
+                    <p:CVScope.UseLocalServer>
+                      <InArgument x:TypeArguments="x:Boolean" />
+                    </p:CVScope.UseLocalServer>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </p:CVScope>
+                  <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Email Templates Window" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="WindowScope_10" InformativeScreenshot="8d5fc51f182ee7881fd5a1861358aff2" Selector="&lt;wnd app='pm3.exe' cls='Tdlg_email_templates' title='Email templates' /&gt;">
+                    <ui:WindowScope.Body>
+                      <ActivityAction x:TypeArguments="x:Object">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,458" sap2010:WorkflowViewState.IdRef="Sequence_50">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:Comment sap:VirtualizedContainerService.HintSize="334,74" sap2010:WorkflowViewState.IdRef="Comment_3" Text="// Add a CLICK to determine the Template to be used" />
+                          <ui:Click CursorMotionType="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SimulateClick="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click 'OK' Button" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_7" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="True">
+                            <ui:Click.CursorPosition>
+                              <ui:CursorPosition Position="Center">
+                                <ui:CursorPosition.OffsetX>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetX>
+                                <ui:CursorPosition.OffsetY>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetY>
+                              </ui:CursorPosition>
+                            </ui:Click.CursorPosition>
+                            <ui:Click.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="775d5790-be15-4457-be10-887bb69e3436" InformativeScreenshot="4466d3a77d7356598034a16e7cb4ba2d" Selector="&lt;wnd cls='TButton' title='OK' /&gt;" WaitForReady="INTERACTIVE">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                              </ui:Target>
+                            </ui:Click.Target>
+                          </ui:Click>
+                          <ui:Click CursorMotionType="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SimulateClick="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click 'TButton'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_8" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="True">
+                            <ui:Click.CursorPosition>
+                              <ui:CursorPosition Position="Center">
+                                <ui:CursorPosition.OffsetX>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetX>
+                                <ui:CursorPosition.OffsetY>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetY>
+                              </ui:CursorPosition>
+                            </ui:Click.CursorPosition>
+                            <ui:Click.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c5df5bcf-2a5f-4343-8d7a-227408fc4b56" InformativeScreenshot="c044125911130c2434bc03151c86c975" Selector="&lt;wnd app='pm3.exe' cls='Tdlg_askbox' title='Moneysoft E-mailer' /&gt;&lt;wnd cls='TButton' title='OK' /&gt;" WaitForReady="INTERACTIVE">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                              </ui:Target>
+                            </ui:Click.Target>
+                          </ui:Click>
+                        </Sequence>
+                      </ActivityAction>
+                    </ui:WindowScope.Body>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:WindowScope>
+                </Sequence>
+              </If.Then>
+            </If>
+            <Sequence DisplayName="Save &quot;RTI FPS File&quot; as PDF" sap:VirtualizedContainerService.HintSize="476,359" sap2010:WorkflowViewState.IdRef="Sequence_53">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Delay DisplayName="Delay 3s" Duration="00:00:03" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Delay_3" />
+              <p:CVScope ContinueOnError="{x:Null}" DelayBefore="{x:Null}" ApiKey="[in_Config(&quot;RobotCvApiKey&quot;).ToString]" CvMethod="ElementDetection, OCR" DesignTimeCacheId="21d81fee-ee0e-413a-a329-10dd5c5543d1" DisplayName="CV: RTI FPS Window" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="CVScope_4" Server="[in_Config(&quot;RobotCvServerUrl&quot;).ToString]" Version="V2">
+                <p:CVScope.Body>
+                  <ActivityAction x:TypeArguments="x:Object">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="x:Object" Name="CVSessionData" />
+                    </ActivityAction.Argument>
+                    <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_52">
+                      <p:CvClickWithDescriptor CursorMotionType="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" Descriptor="[&quot;Target: Icon (36,34,20,20)&quot;]" DesignTimeCacheId="21d81fee-ee0e-413a-a329-10dd5c5543d1" DesignTimeScaleFactor="1" DisplayName="Click Save as PDF" sap:VirtualizedContainerService.HintSize="400,136" sap2010:WorkflowViewState.IdRef="CvClickWithDescriptor_4" InformativeScreenshot="56cc059f7019577b8dd16a563b4ae483" KeyModifiers="None" MouseButton="BTN_LEFT" Version="V2">
+                        <p:CvClickWithDescriptor.CursorPosition>
+                          <ui:CursorPosition Position="Center">
+                            <ui:CursorPosition.OffsetX>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:CursorPosition.OffsetX>
+                            <ui:CursorPosition.OffsetY>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:CursorPosition.OffsetY>
+                          </ui:CursorPosition>
+                        </p:CvClickWithDescriptor.CursorPosition>
+                        <p:CvClickWithDescriptor.DesignTimeDescriptor>
+                          <uc:CvDescriptor>
+                            <uc:CvDescriptor.Target>
+                              <uc:CvElementDescriptor DesignTimeArea="36, 34, 20, 20" ElementType="Icon" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACtSURBVDhPzZJLDoMwDER99B6NY3TRdQ9AD5B6CkZDMuRTIYGlpyTGfokSbHp90pnY8z2nM7lGmMxkXiGF5oIAssc6qtqcQ+EWMfcReVXPDAmXoS4dFiJq0j6hg3tEnpG9MunFu8jXHjcSxjyT4gpkr0wqIQJzwa6XF8HvR64IEHxC5GJ+LKTmIvj7SvQWwq2oEV13GDv1CJuvzDLsjoYW0csUJwScG0U+yv/M6QusSiT1rof2lgAAAABJRU5ErkJggg==" />
+                            </uc:CvDescriptor.Target>
+                          </uc:CvDescriptor>
+                        </p:CvClickWithDescriptor.DesignTimeDescriptor>
+                        <p:CvClickWithDescriptor.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="a07c8340-6f07-41d5-a7cd-3cb58e05433d">
+                            <ui:Target.TimeoutMS>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:Target.TimeoutMS>
+                            <ui:Target.WaitForReady>
+                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                            </ui:Target.WaitForReady>
+                          </ui:Target>
+                        </p:CvClickWithDescriptor.Target>
+                      </p:CvClickWithDescriptor>
+                    </Sequence>
+                  </ActivityAction>
+                </p:CVScope.Body>
+                <p:CVScope.DesignTimeCache>
+                  <uc:CVCache CvUiElements="{x:Null}" OcrTexts="{x:Null}" />
+                </p:CVScope.DesignTimeCache>
+                <p:CVScope.DesignTimeCacheContainer>
+                  <uc:CvCacheContainer>
+                    <uc:CvCacheContainer.Caches>
+                      <scg:List x:TypeArguments="uc:CVCache" Capacity="1">
+                        <uc:CVCache DisplayName="RTI FPS dialog" Id="21d81fee-ee0e-413a-a329-10dd5c5543d1" InformativeScreenshot="6d715a88da03881e70e8dad3ee9d087b" LogicalPosition="2, 132" OcrText="CIICI onerre LO crecuec Tie Torr RTI Full Payment Submission (FPS) D X Layout: Basic v Employees: All Employees v Online Filing: blocked (your data fails validation - click here for details) ^ Bot testing file 02 2020-21 RTI Full Payment Submission (FPS) Apr-2020 All Employees, Layout: Basic Total Tax Employee Net Employer Employee Payments Deducted NIC Pay NIC X Abc 1,250.00 41.40 54.96 1,153.64 71.48 Total 1,250.00 41.40 54.96 1,153.64 71.48 Starters: X Abc started on 01-Apr-2020 Employer Totals: PAYE v" Position="2, 132" ScreenshotGuid="e822ada4-0bd5-4313-a48c-f3fa75eb877c" ServerVersion="1">
+                          <uc:CVCache.CvTables>
+                            <x:Array Type="uc:CvTableInfo">
+                              <uc:CvTableInfo>
+                                <uc:CvTableInfo.Columns>
+                                  <x:Array Type="x:Int32">
+                                    <x:Int32>49</x:Int32>
+                                    <x:Int32>131</x:Int32>
+                                    <x:Int32>213</x:Int32>
+                                    <x:Int32>293</x:Int32>
+                                    <x:Int32>375</x:Int32>
+                                    <x:Int32>457</x:Int32>
+                                    <x:Int32>541</x:Int32>
+                                  </x:Array>
+                                </uc:CvTableInfo.Columns>
+                                <uc:CvTableInfo.Rows>
+                                  <x:Array Type="x:Int32">
+                                    <x:Int32>261</x:Int32>
+                                    <x:Int32>279</x:Int32>
+                                    <x:Int32>297</x:Int32>
+                                    <x:Int32>314</x:Int32>
+                                    <x:Int32>334</x:Int32>
+                                  </x:Array>
+                                </uc:CvTableInfo.Rows>
+                              </uc:CvTableInfo>
+                            </x:Array>
+                          </uc:CVCache.CvTables>
+                          <uc:CVCache.CvUiElements>
+                            <scg:List x:TypeArguments="uc:CvElementInfo" Capacity="128">
+                              <uc:CvElementInfo Category="Icon" Region="212, 34, 21, 21" />
+                              <uc:CvElementInfo Category="Icon" Region="257, 34, 21, 20" />
+                              <uc:CvElementInfo Category="Icon" Region="181, 34, 21, 21" />
+                              <uc:CvElementInfo Category="Icon" Region="158, 34, 21, 21" />
+                              <uc:CvElementInfo Category="Icon" Region="82, 34, 20, 21" />
+                              <uc:CvElementInfo Category="Icon" Region="135, 34, 21, 21" />
+                              <uc:CvElementInfo Category="CloseButton" Region="797, 12, 33, 17" />
+                              <uc:CvElementInfo Category="Icon" Region="59, 37, 21, 15" />
+                              <uc:CvElementInfo Category="Icon" Region="12, 35, 20, 19" />
+                              <uc:CvElementInfo Category="Icon" Region="105, 35, 19, 19" />
+                              <uc:CvElementInfo Category="ArrowButton" Region="812, 444, 19, 19" />
+                              <uc:CvElementInfo Category="Icon" Region="282, 36, 19, 18" />
+                              <uc:CvElementInfo Category="Icon" Region="235, 34, 21, 21" />
+                              <uc:CvElementInfo Category="ArrowButton" Region="812, 110, 19, 20" />
+                              <uc:CvElementInfo Category="MaximizeButton" Region="764, 12, 33, 16" />
+                              <uc:CvElementInfo Category="Icon" Region="36, 34, 20, 20" />
+                              <uc:CvElementInfo Category="MinimizeButton" Region="730, 13, 32, 15" />
+                              <uc:CvElementInfo Category="Icon" Region="212, 85, 18, 20" />
+                              <uc:CvElementInfo Category="Icon" Region="9, 12, 18, 17" />
+                              <uc:CvElementInfo Category="Button" Region="43, 85, 797, 22" />
+                              <uc:CvElementInfo Category="Cell" Region="49, 297, 82, 17" />
+                              <uc:CvElementInfo Category="Cell" Region="131, 314, 82, 20" />
+                              <uc:CvElementInfo Category="Cell" Region="375, 297, 82, 17" />
+                              <uc:CvElementInfo Category="Cell" Region="131, 297, 82, 17" />
+                              <uc:CvElementInfo Category="Cell" Region="293, 297, 82, 17" />
+                              <uc:CvElementInfo Category="Cell" Region="213, 314, 80, 20" />
+                              <uc:CvElementInfo Category="Cell" Region="293, 314, 82, 20" />
+                              <uc:CvElementInfo Category="Cell" Region="375, 314, 82, 20" />
+                              <uc:CvElementInfo Category="Cell" Region="293, 279, 82, 18" />
+                              <uc:CvElementInfo Category="Cell" Region="457, 314, 84, 20" />
+                              <uc:CvElementInfo Category="Cell" Region="213, 297, 80, 17" />
+                              <uc:CvElementInfo Category="Cell" Region="457, 297, 84, 17" />
+                              <uc:CvElementInfo Category="Cell" Region="49, 261, 82, 36" />
+                              <uc:CvElementInfo Category="Cell" Region="457, 279, 84, 18" />
+                              <uc:CvElementInfo Category="Cell" Region="49, 314, 82, 20" />
+                              <uc:CvElementInfo Category="Cell" Region="375, 279, 82, 18" />
+                              <uc:CvElementInfo Category="Cell" Region="293, 261, 82, 18" />
+                              <uc:CvElementInfo Category="Cell" Region="375, 261, 82, 18" />
+                              <uc:CvElementInfo Category="Cell" Region="131, 261, 82, 36" />
+                              <uc:CvElementInfo Category="Cell" Region="457, 261, 84, 18" />
+                              <uc:CvElementInfo Category="Cell" Region="213, 261, 80, 18" />
+                              <uc:CvElementInfo Category="Cell" Region="213, 279, 80, 18" />
+                              <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="50, 439, 349, 23" />
+                              <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="0, 94, 808, 356" />
+                              <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="730, 13, 33, 15" />
+                              <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="35, 32, 23, 23" />
+                              <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="90, 57, 153, 23" />
+                              <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="342, 439, 68, 22" />
+                              <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="196, 86, 626, 20" />
+                              <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="737, 15, 18, 11" />
+                              <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="11, 33, 22, 22" />
+                              <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="9, 11, 18, 17" />
+                              <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="762, 12, 34, 16" />
+                              <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="13, 56, 81, 25" />
+                              <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="741, 0, 49, 7" />
+                              <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="665, 1, 134, 8" />
+                              <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="12, 426, 36, 32" />
+                              <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="706, 0, 53, 8" />
+                              <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="784, 0, 55, 8" />
+                              <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="759, 0, 23, 11" />
+                              <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="26, 83, 524, 23" />
+                              <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="835, 231, 4, 38" />
+                              <uc:CvElementInfo Category="InputBox" Region="353, 32, 261, 23" />
+                              <uc:CvElementInfo Category="InputBox" Region="91, 57, 151, 22" />
+                              <uc:CvElementInfo Category="ArrowButton" Region="596, 34, 18, 20" />
+                              <uc:CvElementInfo Category="ArrowButton" Region="224, 58, 18, 20" />
+                            </scg:List>
+                          </uc:CVCache.CvUiElements>
+                          <uc:CVCache.OcrTexts>
+                            <scg:List x:TypeArguments="uc:OcrTextInfo" Capacity="128">
+                              <uc:OcrTextInfo Region="597, 0, 27, 7" Text="CIICI" />
+                              <uc:OcrTextInfo Region="624, 0, 31, 7" Text="onerre" />
+                              <uc:OcrTextInfo Region="655, 0, 15, 7" Text="LO" />
+                              <uc:OcrTextInfo Region="669, 0, 49, 7" Text="crecuec" />
+                              <uc:OcrTextInfo Region="720, 0, 20, 7" Text="Tie" />
+                              <uc:OcrTextInfo Region="740, 0, 18, 7" Text="Torr" />
+                              <uc:OcrTextInfo Region="27, 12, 18, 13" Text="RTI" />
+                              <uc:OcrTextInfo Region="46, 12, 21, 13" Text="Full" />
+                              <uc:OcrTextInfo Region="67, 13, 50, 15" Text="Payment" />
+                              <uc:OcrTextInfo Region="118, 13, 63, 13" Text="Submission" />
+                              <uc:OcrTextInfo Region="181, 12, 30, 15" Text="(FPS)" />
+                              <uc:OcrTextInfo Region="736, 13, 17, 12" Text="D" />
+                              <uc:OcrTextInfo Region="805, 11, 16, 14" Text="X" />
+                              <uc:OcrTextInfo Region="309, 39, 39, 13" Text="Layout:" />
+                              <uc:OcrTextInfo Region="355, 38, 28, 12" Text="Basic" />
+                              <uc:OcrTextInfo Region="598, 39, 12, 10" Text="v" />
+                              <uc:OcrTextInfo Region="29, 61, 58, 16" Text="Employees:" />
+                              <uc:OcrTextInfo Region="94, 62, 12, 12" Text="All" />
+                              <uc:OcrTextInfo Region="106, 61, 56, 15" Text="Employees" />
+                              <uc:OcrTextInfo Region="225, 62, 13, 11" Text="v" />
+                              <uc:OcrTextInfo Region="230, 90, 39, 12" Text="Online" />
+                              <uc:OcrTextInfo Region="269, 89, 35, 15" Text="Filing:" />
+                              <uc:OcrTextInfo Region="304, 89, 46, 13" Text="blocked" />
+                              <uc:OcrTextInfo Region="351, 90, 34, 14" Text="(your" />
+                              <uc:OcrTextInfo Region="385, 90, 28, 12" Text="data" />
+                              <uc:OcrTextInfo Region="414, 89, 26, 13" Text="fails" />
+                              <uc:OcrTextInfo Region="440, 89, 58, 14" Text="validation" />
+                              <uc:OcrTextInfo Region="499, 93, 8, 8" Text="-" />
+                              <uc:OcrTextInfo Region="508, 90, 27, 12" Text="click" />
+                              <uc:OcrTextInfo Region="535, 90, 29, 12" Text="here" />
+                              <uc:OcrTextInfo Region="564, 90, 19, 12" Text="for" />
+                              <uc:OcrTextInfo Region="583, 89, 45, 15" Text="details)" />
+                              <uc:OcrTextInfo Region="815, 113, 11, 11" Text="^" />
+                              <uc:OcrTextInfo Region="50, 141, 47, 26" Text="Bot" />
+                              <uc:OcrTextInfo Region="101, 142, 87, 29" Text="testing" />
+                              <uc:OcrTextInfo Region="194, 141, 42, 26" Text="file" />
+                              <uc:OcrTextInfo Region="242, 141, 33, 25" Text="02" />
+                              <uc:OcrTextInfo Region="282, 141, 103, 26" Text="2020-21" />
+                              <uc:OcrTextInfo Region="51, 173, 34, 20" Text="RTI" />
+                              <uc:OcrTextInfo Region="90, 173, 33, 19" Text="Full" />
+                              <uc:OcrTextInfo Region="128, 174, 85, 22" Text="Payment" />
+                              <uc:OcrTextInfo Region="215, 173, 110, 20" Text="Submission" />
+                              <uc:OcrTextInfo Region="328, 173, 58, 23" Text="(FPS)" />
+                              <uc:OcrTextInfo Region="49, 196, 91, 24" Text="Apr-2020" />
+                              <uc:OcrTextInfo Region="49, 221, 18, 16" Text="All" />
+                              <uc:OcrTextInfo Region="69, 221, 79, 19" Text="Employees," />
+                              <uc:OcrTextInfo Region="151, 222, 48, 17" Text="Layout:" />
+                              <uc:OcrTextInfo Region="201, 221, 40, 16" Text="Basic" />
+                              <uc:OcrTextInfo Region="174, 264, 37, 15" Text="Total" />
+                              <uc:OcrTextInfo Region="264, 265, 29, 14" Text="Tax" />
+                              <uc:OcrTextInfo Region="303, 265, 72, 17" Text="Employee" />
+                              <uc:OcrTextInfo Region="428, 264, 29, 15" Text="Net" />
+                              <uc:OcrTextInfo Region="470, 265, 68, 17" Text="Employer" />
+                              <uc:OcrTextInfo Region="53, 283, 73, 17" Text="Employee" />
+                              <uc:OcrTextInfo Region="141, 283, 70, 17" Text="Payments" />
+                              <uc:OcrTextInfo Region="221, 282, 71, 15" Text="Deducted" />
+                              <uc:OcrTextInfo Region="346, 282, 29, 15" Text="NIC" />
+                              <uc:OcrTextInfo Region="428, 283, 28, 16" Text="Pay" />
+                              <uc:OcrTextInfo Region="508, 282, 29, 15" Text="NIC" />
+                              <uc:OcrTextInfo Region="54, 301, 13, 15" Text="X" />
+                              <uc:OcrTextInfo Region="67, 300, 27, 15" Text="Abc" />
+                              <uc:OcrTextInfo Region="155, 300, 57, 17" Text="1,250.00" />
+                              <uc:OcrTextInfo Region="253, 300, 40, 15" Text="41.40" />
+                              <uc:OcrTextInfo Region="336, 300, 39, 15" Text="54.96" />
+                              <uc:OcrTextInfo Region="398, 300, 58, 17" Text="1,153.64" />
+                              <uc:OcrTextInfo Region="500, 301, 37, 14" Text="71.48" />
+                              <uc:OcrTextInfo Region="54, 317, 37, 15" Text="Total" />
+                              <uc:OcrTextInfo Region="154, 317, 57, 17" Text="1,250.00" />
+                              <uc:OcrTextInfo Region="253, 317, 39, 15" Text="41.40" />
+                              <uc:OcrTextInfo Region="336, 317, 38, 15" Text="54.96" />
+                              <uc:OcrTextInfo Region="397, 317, 59, 16" Text="1,153.64" />
+                              <uc:OcrTextInfo Region="499, 317, 38, 15" Text="71.48" />
+                              <uc:OcrTextInfo Region="50, 355, 88, 18" Text="Starters:" />
+                              <uc:OcrTextInfo Region="49, 379, 14, 15" Text="X" />
+                              <uc:OcrTextInfo Region="63, 379, 27, 16" Text="Abc" />
+                              <uc:OcrTextInfo Region="92, 380, 48, 14" Text="started" />
+                              <uc:OcrTextInfo Region="141, 382, 19, 12" Text="on" />
+                              <uc:OcrTextInfo Region="161, 379, 83, 18" Text="01-Apr-2020" />
+                              <uc:OcrTextInfo Region="50, 415, 99, 23" Text="Employer" />
+                              <uc:OcrTextInfo Region="151, 415, 71, 20" Text="Totals:" />
+                              <uc:OcrTextInfo Region="364, 440, 42, 16" Text="PAYE" />
+                              <uc:OcrTextInfo Region="814, 446, 12, 11" Text="v" />
+                            </scg:List>
+                          </uc:CVCache.OcrTexts>
+                        </uc:CVCache>
+                      </scg:List>
+                    </uc:CvCacheContainer.Caches>
+                  </uc:CvCacheContainer>
+                </p:CVScope.DesignTimeCacheContainer>
+                <p:CVScope.OCREngine>
+                  <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd:Rectangle, x:String))">
+                    <ActivityFunc.Argument>
+                      <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+                    </ActivityFunc.Argument>
+                    <p1:UiPathScreenOCR Endpoint="{x:Null}" Output="{x:Null}" Text="{x:Null}" ApiKey="[in_Config(&quot;RobotCvApiKey&quot;).ToString]" ComputeSkewAngle="False" ExtractWords="True" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="UiPathScreenOCR_4" Image="[Image]" Language="en" Profile="Screen" Scale="1" />
+                  </ActivityFunc>
+                </p:CVScope.OCREngine>
+                <p:CVScope.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="cfcb350b-e4b2-400d-a38b-aa65622dac7e" InformativeScreenshot="689449f92b0ff25917f0ca0a3383bfcb" Selector="&lt;wnd app='pm3.exe' cls='Tpaymain' title='Payroll Manager 100*' /&gt;&lt;wnd cls='Ttoolpanel' /&gt;" WaitForReady="COMPLETE">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                  </ui:Target>
+                </p:CVScope.Target>
+                <p:CVScope.UseLocalServer>
+                  <InArgument x:TypeArguments="x:Boolean" />
+                </p:CVScope.UseLocalServer>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </p:CVScope>
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Save RTI FPS PDF File" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="MoneysoftPayroll\Save_as_PDF_File.xaml">
+                <ui:InvokeWorkflowFile.Arguments>
+                  <OutArgument x:TypeArguments="x:String" x:Key="out_PdfFilePath">[RtiFpsPdfFilePath]</OutArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_OrganizationName">[in_OrganizationName]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_YearBand">[in_YearBand]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_DocumentType">RTI FPS</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_PayeFolderPath">[in_PayeFolderPath]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_FolderNameRti">[in_FolderNameRti]</InArgument>
+                </ui:InvokeWorkflowFile.Arguments>
+              </ui:InvokeWorkflowFile>
+            </Sequence>
+            <If Condition="[RtiFpsWindow Is Nothing]" DisplayName="IF: Close RTI Payment (FPS)" sap:VirtualizedContainerService.HintSize="376,51" sap2010:WorkflowViewState.IdRef="If_8">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <If.Then>
+                <ui:CloseWindow TimeoutMS="{x:Null}" UseWindow="{x:Null}" ContinueOnError="True" DisplayName="Close RTI Payment (FPS)" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="CloseWindow_2" InformativeScreenshot="0bee73bc17c1b796b24c4bccba2d46b7" Selector="&lt;wnd cls='Twin_report' title='RTI *' /&gt;" WaitForReady="INTERACTIVE">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:CloseWindow>
+              </If.Then>
+              <If.Else>
+                <ui:CloseWindow Selector="{x:Null}" TimeoutMS="{x:Null}" ContinueOnError="True" DisplayName="Close RTI Payment (FPS)" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="CloseWindow_3" InformativeScreenshot="e1899f06e4e843e28fa9a0794723f4d0" UseWindow="[RtiFpsWindow]" WaitForReady="INTERACTIVE">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:CloseWindow>
+              </If.Else>
+            </If>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-8, -8, 1552, 697" Arguments="[in_PayrollFilePath]" FilePath="[in_MsPayrollAppExePath]" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACySURBVFhH7ZThCoUwCEZ99D3a3mw3s2HQZxjXuT8KJ8jmt8OKiGiMvcBmFnRy3bRkZPMScAjowu+gvImuOy7vAl+r9z5ak1mcySwUmMUitkSCAJd9EkkCcgooP0DgHsIbWYXzwwTmuqsJCueHCkiGVTg/REDgD23LK/DU0o/QU3Z2goD8AzYI6LG/5/4toLMIlHUnTADNeCiBEigBt8B8boFmPLgFVlECDwFtZAObOdD4AZThEKpZraPlAAAAAElFTkSuQmCC" InformativeScreenshot="9727f41fe0b1a71853dbfd4e86e0babc.png" Selector="&lt;wnd app='pm3.exe' cls='Tpaymain' title='*' /&gt;" />
+      </uix:NApplicationCard.TargetApp>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </uix:NApplicationCard>
+    <Sequence DisplayName="Validate PDF Saved: RTI FPS" sap:VirtualizedContainerService.HintSize="526,971" sap2010:WorkflowViewState.IdRef="Sequence_60">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="x:String" Name="WorkLogColLetterRtiFpsPdfSaved" />
+        <Variable x:TypeArguments="x:Boolean" Name="RtiFpsPdfSaved" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Assign DisplayName="Assign ColLetter for RtiFpsPdfSaved" sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_13">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[WorkLogColLetterRtiFpsPdfSaved]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[in_Config("ColLetter_RtiFpsPdfSaved").ToString]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <ui:PathExists DisplayName="PDF File Saved?" Exists="[RtiFpsPdfSaved]" sap:VirtualizedContainerService.HintSize="484,89" sap2010:WorkflowViewState.IdRef="PathExists_3" Path="[RtiFpsPdfFilePath]" PathType="File" />
+      <If Condition="[RtiFpsPdfSaved]" DisplayName="If PDF File Saved" sap:VirtualizedContainerService.HintSize="484,650" sap2010:WorkflowViewState.IdRef="If_9">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <If.Then>
+          <Sequence DisplayName="Update Status" sap:VirtualizedContainerService.HintSize="376,473" sap2010:WorkflowViewState.IdRef="Sequence_59">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Update Status &quot;Cell RTI FPS PDF Saved&quot;" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Project\Update_Status_on_Work_Log.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:String" x:Key="in_WorkLogFilePath">[in_WorkLogFilePath]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_SheetName">[in_WorkLogSheetName]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_CellAddress">[String.Format("{0}{1}", WorkLogColLetterRtiFpsPdfSaved, in_LogSheetRowNumber)]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_CellContent">DONE</InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:InvokeWorkflowFile>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[String.Format(&quot;Employer's RTI FPS PDF file generated and saved.&quot;)]">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:LogMessage>
+            <ui:MultipleAssign DisplayName="Assign Flow Control Variables" sap:VirtualizedContainerService.HintSize="334,98" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+              <ui:MultipleAssign.AssignOperations>
+                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_26">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[out_IsRtiFpsPdfSaved]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">DONE</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                </scg:List>
+              </ui:MultipleAssign.AssignOperations>
+            </ui:MultipleAssign>
+          </Sequence>
+        </If.Then>
+      </If>
+    </Sequence>
+  </Sequence>
+</Activity>

@@ -1,0 +1,138 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Companies_To_File" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="859,2093" sap2010:WorkflowViewState.IdRef="Companies_To_File_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="48">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="36">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Companies_To_File" sap:VirtualizedContainerService.HintSize="476,1408" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="companyName" />
+      <Variable x:TypeArguments="x:String" Name="Selector" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Assign sap:VirtualizedContainerService.HintSize="434,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[companyName]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">["OLATUNJI SUKURAT"]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Edge: Organisations" sap:VirtualizedContainerService.HintSize="434,1216" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" Version="V1">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence sap:VirtualizedContainerService.HintSize="376,1000" sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'Organisation Name'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="334,226" sap2010:WorkflowViewState.IdRef="NTypeInto_1" Text="[companyName]">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="http://crm.aacsl.co.uk/index.php?module=Accounts&amp;parent=&amp;page=1&amp;view=List&amp;viewname=55&amp;orderby=&amp;sortorder=&amp;app=PROJECT&amp;search_params=%5B%5B%5B%22cf_922%22%2C%22e%22%2C%221%22%5D%5D%5D&amp;tag_params=%5B%5D&amp;nolistcache=0&amp;list_headers=%5B%22cf_1010%22%2C%22cf_1014%22%2C%22cf_1200%22%2C%22accountname%22%2C%22cf_1218%22%2C%22cf_874%22%2C%22cf_922%22%2C%22cf_1230%22%2C%22cf_1216%22%2C%22cf_1214%22%2C%22cf_1196%22%2C%22cf_1050%22%2C%22cf_1054%22%2C%22cf_1052%22%2C%22cf_1086%22%5D&amp;tag=" DesignTimeRectangle="783, 246, 132, 27" ElementType="InputBox" FriendlyName="'INPUT'" FullSelectorArgument="&lt;webctrl name='accountname' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl name='accountname' tag='INPUT' type='text' aaname='' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAIgAAAAfCAYAAAA82YWpAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACFSURBVHhe7dKxDcJAAARB+q/t47e7eWRAFiDYBjwjXXTp3hYEgZDOQOaca4xhF9++768ins5AjhO+OxAIHwRCEghJICSBkARCEghJICSBkARCEghJICSBkARCEghJICSBkARCEghJICSBkARCEghJIKS/gWzb9jjt2js6eHcGAr8IhLDWHSN65+31QCMZAAAAAElFTkSuQmCC" InformativeScreenshot="a1614b9c9d8ef5cdc738cdc39c1d9b98.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Organisations' /&gt;" SearchSteps="Selector, FuzzySelector, Image">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                      <uix:Target DesignTimeRectangle="785, 216, 128, 16" ElementType="Text" FriendlyName="'Organisation Name'" FullSelectorArgument="&lt;webctrl aaname=' &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9; &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9; Organisation Na*' parentid='listViewContent' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname=' &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9; &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9; Organisation Na*' parentid='listViewContent' tag='A' type='' check:text='Organisation Name' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAIQAAAAUCAYAAABMIpXkAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAATZSURBVGhD7Vi/a+NIFL6/ZSp17ty5U+dOXTp1rtS5U6cuf4E7derUqRKERdUqbKGtVCwIjkNwcOIIq7AEsRx892bejD1SlMSXy66zoA8Ge6SZN++9+d4P+zcsWGBhIcSCERZCLBhhIcSCERZCLBhhIcSCESaEeMBf9S0+/X6Pf/STF9FXSAIPa0dACIGVu8Oh7PTLn4kGsesgLAc9fwP0OfaOh6TV8zdBhYj8JNxrVLaqXQpf+Egv4ToLFiEkGT7i5uaGxofzSDGQca6A412jaDr0fYsq2cMVDoK814t+Fn4xQtDwkkY/I7wvQthkMONlUnSpD+GEKCZ3UB82EJsDaj3/VVAfXPg//EYkIXzESQjHJsB7IsT3v7/g9vZ2ZnzCH/dq3QwGFCExPcjxKBdUEUWAMY4dkFY5Qm+liTKgjn0qMyusVhwtYuVin9MGKkGHnYuViqIV3F2MWhNOETBMkIUev6c9QdqQNAmOvKiS3wc0WQhPy3bWHqKCPd1mAby1c3we5jL8e5TRli5I62LkTC5paFK2Qa5Z0d7j2dJkgas4Q+yvlRx1ZjmXJaWeV0jbDqlP68KCZUwJ0WYIPJYlnDW8MAcnKt4fZzF8ZYeDdZCiKq25f/IZKY3U+Ivk+FGh5czjfzSVbJDgGxjjESEcctAOcdmg63qqNNdk6F5nFiLWXmBzMPmkQ1217KShRrwV8DP2kiKEcBEWLZWnHk0i5wG4OlmEkKmevofqgAF926DVDhqaCnXHkz7fk5OolqsZ2zPKEPYlkczAceAnNTo6u6sT+DQ3JUoSQjg+klqWzg5F9FSWtPRsEnhiQ99JxpQQdJEVyVLSlT0OrpWivN/xUzSkR08yfHnZkgTk214Sifo59lmPfO/AjUoOWpKZkI3eMzWQCTHc4+7ubmZ8xcOTNeO/ZAiBXWatmiGEw9ZSZBSIdlvKHsT0rfw8XZIixDahbkFj5ETL0aRRISNeRQRFj2EDnVUnAa5cinLKLlv5KaLzCKFsssujtl8HhCKEiXYJtd7ItmHrOZArXGowiTjtmBADES64kpmSsuSWMybv4f1M9tP8pLdtB78zWe84tM5zYEI8/InPH+z+QY+PX/D1mSbivB7CdoCBdMSWlJMlwy4LLRKPsoVh9OSS1HkUGcb0pwnBGNoa2UGWJopsipih5Lp9DJDRpb0BIezDzyIEYSgQStJH0emsoeRnJ0WtPVM7ef4cIU7keRmnkjElBZHh7rt+9xTO+pUxNUCiwvVs917jsBHYxrLLoDivDpRST8aeTwguO73yg0ybnIH6PKBL2nOJofSZBUTcCSE2VGNlSVB7bfnqkl4oGbaR5xKC0GU+ZTMqq+YsWZ5ozZ4VpX4owOa4Z7qf5/OEINsD6itcIjJlyWGQJUWWTF45h3EPYUhxDhkMXvwfYo4QlNL3a7WeBzdGDfm2y00zuFKNVBFvX0EIqpWmIVNN1gFKJdmTHJs+6vTLDKF1afbZgWxwR/Ilh2RTqeXONJWvJQTrK881Z5mmm57JsheX1Ei/hhAE3VTa95M+01U+biqHb/h2LhleBa6bLtXbVkaiHC39AqHMMHbSgkvgMSF+ODpkksFWvZCR5zsuYut/mgWXwQUIwQQ4pl6Z0r2A0rdJeQsuiYsQYsH7xUKIBRaAfwF6ZRRkUc+wAwAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NClick ClickType="Single" DisplayName="Click 'Search'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="http://crm.aacsl.co.uk/index.php?module=Accounts&amp;parent=&amp;page=&amp;view=List&amp;viewname=55&amp;orderby=&amp;sortorder=&amp;app=PROJECT&amp;tag_params=%5B%5D&amp;nolistcache=0&amp;list_headers=&amp;tag=" DesignTimeRectangle="293, 248, 92, 23" ElementType="Button" FriendlyName="'Search'" FullSelectorArgument="&lt;webctrl parentid='listViewContent' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='listViewContent' tag='BUTTON' type='' aaname='Search' check:text='Search' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGAAAAAbCAYAAACDfYo6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIySURBVGhD7ZYxa+pQFMffl/IzvM0P0MFVOri1SyanOr1BOsgbCk4iRVyaxbeEwrOP0oCkQ0tACBVDFSzh1UASEP7v3KNG0yq8oeRmOAd+YO49yQ3nl3uu3yChNUSA5kgFlH5+F3JkG1kB10IuiADNiADNiADNiADNiADNiADNFEaA2cJduNy8ARAnM1j2gbyvYuTgHUvYowNzeVIUAcbrG608w+DeQO13E22vi/qBvC9DBGRpzOnrXz2hbX6Yu+3DDpPNmyXwX69wwnNXuIv2dkz4gB/qXi7sBJY3QUzj7/MW5RrozGd8zREOUd8I8IPd+IJyy/tr50FRBJRuf8Fb0eKrN7jTLgwWUUEvoOIGfS56+c8QPkl4dNZzjVELVZU3MOHRrZ5Hv7mwFNETevYFzqwKqiQD6mt3TinXQIN22TYvDkxaqwLjZUZX1PYs9ewcKYwAhXmB9nSMBYuY4Mbqw12/Uia40LwzlohXCZOOc2FJ0vPuuR2SiNDKft2bHZC2oI/XeVEoAVtMkwvveWsB/vT8Uw4XNXLQ4J3SxSNJ2wnIFlIE/AeX3hBtu04t5RQ15wELeg/XXbcgJHQ2UCspXau5Jh/ON39pPBqiRr9r4zH38WMCqtxeaEy1IPOc+n8TVRGQ5ZIO4fSQpEL48z4XtzSgw3bv76mS0aHxMhVMSVIRhw7c6LgAdQj3gr1n0CFsiACBEQGaEQGaEQGaEQGaEQGaOSpAyI1tpAIk9IQI0BrAP39v+kzT/FmhAAAAAElFTkSuQmCC" InformativeScreenshot="0ffc33b7c76d2f76942cf878c70753d9.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Organisations' /&gt;" SearchSteps="FuzzySelector, Image" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <Delay Duration="00:00:02" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Delay_1" />
+            <uix:NClick ClickType="Single" DisplayName="Click 'Bot testing file 01'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="http://crm.aacsl.co.uk/index.php?module=Accounts&amp;parent=&amp;page=1&amp;view=List&amp;viewname=55&amp;orderby=&amp;sortorder=&amp;app=PROJECT&amp;search_params=%5B%5B%5B%22accountname%22%2C%22c%22%2C%22bot+testing+file+01%22%5D%2C%5B%22cf_922%22%2C%22e%22%2C%221%22%5D%5D%5D&amp;tag_params=%5B%5D&amp;nolistcache=0&amp;list_headers=%5B%22cf_1010%22%2C%22cf_1014%22%2C%22cf_1200%22%2C%22accountname%22%2C%22cf_1218%22%2C%22cf_874%22%2C%22cf_922%22%2C%22cf_1230%22%2C%22cf_1216%22%2C%22cf_1214%22%2C%22cf_1196%22%2C%22cf_1050%22%2C%22cf_1054%22%2C%22cf_1052%22%2C%22cf_1086%22%5D&amp;tag=" DesignTimeRectangle="787, 284, 87, 15" ElementType="Text" FriendlyName="'Bot testing file 01'" FullSelectorArgument="&lt;webctrl aaname='*' tag='A' css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;form&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;span&amp;gt;span&amp;gt;a' parentclass='value' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='*' tag='A' css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;form&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;span&amp;gt;span&amp;gt;a' parentclass='value' type='' check:text='Bot testing file 01' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFsAAAATCAYAAAD/PXGYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAANQSURBVFhH7Ze/TyJBFMf9F/wrrqO0u9LOjthgQXKxoiGX0EiDhZXNNhcLC22kITE225jQaSOBrAGJijEImggas0RJCFp8773Zt+4P92CN3prL7TcZYGZ33rz5zHtvdAaxIlMMO0LFsCNUDDtCxbAj1H8I+wmVbQOJxSqSez0ZI43vUW8PpPN35IHd2zcwS07YbS7bQLn/Ik+/UgPohWPopnQ/on4LS4UL9MD7Mh27PL7ZVa+E0rCLjaxwyp+iPpRxltnGaqYK7UT6ojewl/YfpPeMwVED39cuaauTRCC2W+R8gM5PseFbMLQ+MneSTppYcEe0rXfBHuFAq2HVeKTfLxgYDcxrVzRKuiE7uVPoO8b7YSfJAWVkeI2tfBXf6CS/pY+xdf5Eg7coyulyc+bSEdDcuZT9rIkKD9KJa/J+4jVrRujox6/vJjev0A2YW9k0sNtnI11o2gUqtBkuBY4vrHvoa5aP1lxqboAE+nVc2X3Abl7sumEPeyiKHa99W+TDMkWz9JjDxnJT+s/qk1lOhe04U8XC+iU6Y37yiPJ6DZohMW5eQcvUUVapQwvngyPbuyCXAgPFG3V0QPsMSc6a4SV+5s7QUYMjDMbBznpgLxoU9RxVJLaT57JAKxzWkdwRT27OsBSUlQTcCYog2C+oU01fPZKZwzZWPGBJ7LNnz2zHW+ZCwfZEtkEppzZCG8zYQCx19gi+MhYWNkNyDtJqVnSV1w38+NXCgeuCmgg713L54qzvgW1eICOH4NFU2Dzm99NeW/T5sFkMiIHQ92fATvsixC36a6CiE6w1C9BE2J713H0qIwULUHD6k0LBtrP2T6I1/WUkLaVS9E7YVmTPZxmyXAh2avnLSLqBSoBzyp5+Lz3LxsqhbZ9KhkkwxiZ6ppQWcnorYzntnRsSNkec1ibLEzQVNgWSTmvv3EoJesbIfPTZnHBBikLBdqePc4mRAi9I1kjVOL6sEtvXMibqUyqnyVZKUoxtFGrq3dlUDZn9Oxqjg6NLU11qKYMOQwD75oaCPeaDt3x3/FcvOQoBmzOkrBnWJU2NL+03td/FI5Ft4sBVQlhTYf/bukMxx9lm/19AEUc13FsWv1YzpVIJcYumxbAjbDHsCFsMO7JWwm+YMz/LClNa1AAAAABJRU5ErkJggg==" InformativeScreenshot="3533e01cfea6ae6ebc8d3f3ced7328c6.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Organisations' /&gt;" SearchSteps="Selector, Image">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                      <uix:Target DesignTimeRectangle="783, 246, 132, 27" ElementType="InputBox" FriendlyName="'bot testing file 01'" FullSelectorArgument="&lt;webctrl name='accountname' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl name='accountname' tag='INPUT' type='text' aaname='' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAIgAAAAfCAYAAAA82YWpAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAPqSURBVHhe7Zgrd6tAFEbvb0GNw+HicHG4unFRuDgcLr8gDofDReFwmC5c2gocDofDfffMAwp5cJP2VqQ5ey0EHRjmseeck/4BwyzAgjCLjIK8vb3h9fWVrye/Pj4+rBGGURDVyDCnHrAgzAwWhFmEBWEWYUGYRVgQZhEWhFmEBWEWYUGYRb4hSIXYcRBX9vYBqBMfIirR2/v/QnNA6Ak4jkCQlsi3An5S66Y2k3Bkhlbf3U5b7iF1ny6CKEM9G3CHcreGcCSyezv+AizIt+iQhw71maPtOnQ93X9XkO6AjbNClDfo2iNSKbDaH01bXyPduHBdl+T5zYJ0OUIRUw9XOO7hf+HkzVGbJ35Y4BaZdCCv7NRXBGkP9M46hVGMnCgiOGJn1uqYQMYFRZj4cQTZ7mnQNsR6IU1sOJ5kexYFcOmZWahsMry46m/2OlnAjia/FpN2u8N9nSEK1MmhE+tJxEWj/46uwl56FHLV8y78jRpDg+zFPGsus5hV/Nmf3rwoxWEYo+sjzOoxuvRqM2he5rTavrcUKWw7TYTkGL47fMMIM/vGZH6fqcOBG4RIj+exrNpR+3RN1HqdylA9kCCCJlOr8NoUiHzHhkNzeoVMcWypzYbKMbzrCV6PIGcnjyLOVviIy07f9nUK6QRIyRGVNpwgMSeub1HXw1vnEe5MEMdHRKJ1NP46Vfchcv2JCjuSdFuYDeyLLZzVHjbQTziNIAuC1Al8QZtqT1BXxFiJCOWJI9MxatqM5vrAgsSlvSWa7MUuiGmL7AIrdKgcpLhXEP28OqXzS68jyaIikjqRSVGTmgM3CDIJ5fONuCDIEOZn3C6IEXI+/kub/OsiyFSCOl3/oCARJt2dQBGgTE0K8mkj9XM3CDL9xslJ7asd1vS+SjGuv0FyIR3QS/cJMhXyCl0eXqhBTtbqkQQZ08gsxfQoo3+lGIm0prbufOH1Yq5iFOpd1a6LWgd+VKDpe/SUEprqqBe+qyvUrelD1Q1r6vegF86MT6YUVeh59cQ9gqiTHKgctsjtgujCm+o0mdK49RwoHVbTiGfRc53/ijn75fU4gkgkh+Ui1dMF58nv+f6IxBZ4wtvPT4eizceC1A1NYWiK1GkxmlGZSOtJJ8wfil43QDQWmj0V/dJ8X3jY00fuEaSjtOLpb5lLeOFYP3xyhyDqnorUjW+LXhpTsCvPBSGGAlmvqUxwFrweQ5Dfi0ovvk8prVERTF0N8mg1bvwzwYJcQP8vgtLjmGBUNKRQP/wD7JlgQS4xS48qvQQIk/IzHT0RLAizCAvCLMKCMIuwIMwiVwV5f3/XjXw996U8mDIKwjCXYEGYBYC/A9ddz6w2t64AAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NClick ClickType="Single" DisplayName="Click 'Edit'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="http://crm.aacsl.co.uk/index.php?module=Accounts&amp;view=Detail&amp;record=6021&amp;app=PROJECT" DesignTimeRectangle="1312, 186, 44, 27" ElementType="Button" FriendlyName="'Edit'" FullSelectorArgument="&lt;webctrl id='Accounts_detailView_basicAction_LBL_EDIT' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl id='Accounts_detailView_basicAction_LBL_EDIT' tag='BUTTON' type='' aaname='Edit' check:text='Edit' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADAAAAAfCAYAAACh+E5kAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHsSURBVFhH7Zi/S8NQEMf9nzJl6uTm4qaLizhoMwnqLKgFKyLdMoggboUaRXQSwR9gQCo6uFjEamNBLdgmNfqS9ut7SVsTG7WVSIzkwYemd/cOPlyvhfYg5Cf8Arlcznpgr2GDHZeApmmhIRIImkggaP6ngKqqoSES6I4SLmUZlyWv3M/wRSCfHgXHcS4SslftLTJjY8jcsmcZYr8Iua2mO3wRUCQBwuaDdb95asSrVoEkCJAU9kxQq9dAGrlTcQLpvLO2M/wTkBTPXP5AxHCMToXvxejKFtZaAjISXIJOoIjd6V7wremxWHufz/hdgeIOJmNxbChWa5TlJQzwTYEsklwSWVWHUXvAJhWzh/g+lU7wFKhUKl1RoALuHZjDMY0/7s2AT53BeNFonYZnkkN6kAoU2L0s5rl5ZK0eBfujZcW7wzcB9w6YIDR+sx6nkyk6ahs78CcFpEJb/Gl/Fn3L547YFaSREAlUSzsY56cgXdvv7/YX7R3wENgW+rB08n63U3wTcO8Ah7ljmns2cH+UxBD7FuJiGF69wOGCl4AO7SxF5WhdjP42fOj/Fb4I6Ebduus8JmE5FTox0czWzVcQsw5DZzlCN8XeFdaj2qoz8ero/R2eAuVyOTREAkETCQTN/xQIG+xEf+4Ge4A3AE/XOEDlyVIAAAAASUVORK5CYII=" InformativeScreenshot="db07844699f2ac7cc53449ece297ab17.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Organisations - OLATUNJI SUKURAT' /&gt;" SearchSteps="FuzzySelector, Image">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                      <uix:Target DesignTimeRectangle="1232, 192, 66, 16" ElementType="Text" FriendlyName="'Follow'" FullSelectorArgument="&lt;webctrl aaname='Follow' parentid='starToggle' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Follow' parentid='starToggle' tag='DIV' type='' check:text='Follow' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEYAAAAUCAYAAAAwaEt4AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJvSURBVFhH7ZXPa9pgGMf9n3Lqaaee6iknPWw9a3Je7VFWV4k77Sa47bKxVsFpD5UedDA7mHaYHmQbk4EWrbIuHSaaWE397jWxKiZRqOm8RPjA++P5vsInb564Op0OHIw4YixwxFjgkiQJDkYcMRasX4zQhGA2XjM2iqkh4aNAUbPso2BaO6UYphAuGsfrxkYxDaRYFkdXmPndom9aO6UUoRApGcfrxnYxqYbJXi2PqG8TG+QWbWz68IYXJnuWYiwyQjaIrSg/zgvIBsn+fmE8l8BHtxDMTs+/L/9BTAXvHtOInIn6JbrKYY9+ikxT3zcXY52Rr7PYZZKoaWefgaNZsEwMvDavIcmwyLRk7bxVcImiCHuoEzFzPeb5F4jl9/AEcvjbl9EhdR2lj18JD5ijqpYrcRS4kn7GZLwoI1cQ9+7g5JLU8TG4Q6c4jTzBQZnM/3zEnjeBiqKftwo2i5nrMWof4lcOVISHPFPbSJGnnKprY1MxCzM9fHvtBvdZRPnAAzbdhJQPgUkSaUUOj16eozeTuy+2i0nV59Z/xuFlPqA6s/bj0Av2eIGYJZmb8xegYxnttUm3FHSFLAI7JygcehDKS5PMKjy8mN4FEts0wp8u9Xn1GM/oAHLXijY3FbMkI0l5hNxuuNk0WqPXRm4hzTDwMwFkha6eWZGHF0Ouvvr7DK/8d18YP95+lzGQ9X1TMUsyYpd8jXYp8hq1oGj/oeAisQ3KG0flrmZFbBSjYDAcYmDS+CTSPNXhuO9gCPVm+lT76qgVGceLMqJIJN2S1YF+g0b0RsVD1Zb+MsLVbrfhYMQRY4EjxgJHjClt/APFjFS1WqV3dgAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                      <uix:Target DesignTimeRectangle="1359, 186, 59, 27" ElementType="Button" FriendlyName="'More'" FullSelectorArgument="&lt;webctrl aaname='More  ' parentid='page' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='More  ' parentid='page' tag='BUTTON' type='' check:text='More' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAD8AAAAfCAYAAABQ8xXpAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALrSURBVFhH7ZS/TxphHMb7P910E5OTLmWpi7hUE4SlLjUuBpWYwtB2tLHSoQ0J16aSDtpBm4gdRHM6+COppBWC2Cag5Y47uAN5+r7HXXlPqTbhBgP3kGe47/f5vpfP8b7vA/SxXHiqTCbTF2Zlg69UKj1tF56RC0/lwncY6CW78Ixs8LIs97RdeEYuPNXd8NtY4DjwoRRK13tZAX7S8wtZe/2euQt4EdHxGcwMz+FLyd47iY9hbHwUwZUzW/2+uTt4LoqEMIqnn8+Z+iHivjAEIcjAl3AohDDi4cBxHoyEVnFi5rOCH6H1E6wvjMDDPcK7Q1rPIrXoxwBPdtaAH7G9krmOs+4afj8nYPTJJ5xb9b0l+JaPkVtpw5dSs/AEkvheoytLOH4bwMPFPaN3RnJD3sd4kS6TXhMNjX6QCXijOyRJ41uIeGeRura7nPCt8JIk3WIRES4CsXaJtckA3p+26uKSD8tHGvIGfJ7UitiYG0LsuI6aIkOSVWjKFsL8c2yTPM1xBLShq5CNdU/xITCFjUsdqiyhourYj3KIpNl3251IJMiOorvK7unp6Y55y93DSyouVifhi38jtW088wnIkH+vDZ/Dx0AQKwVmVqG7hs624INJcmz+rrtL1r0JEhGZ+Q6+/gHuAqd2AF6CerGOqeE4xNQcxoQcaqTWhv+NzTCPyC4zW9zEPP+yDW/krP4BXg+F8dU4Im01dGb+H7Y+wP+AUzsCL6kVpMNeDA4GkPxVM/ptKAVyOgzPhICDIp0rQHxDznTsCLotZ62r4SjmhXdhEwWzViycomDMOmtn4E1AfnINF9VWn4VSyHn+kZyHz7ztffMbyDc0Y6vfhJehNfLYikwYtz3H8Rjwv8LOT6vvnLuA19EgP/rv0WdFvwKu6lDN52q9iWa9amYVaPUrcpe31CS5KrnMbuZMy1XoDStN1CTvUZm+Q74Vvlwu97RdeEYuPJUL32Ggl+zCM7LB94NZ/YXvR/UxPPAH9Wity2kXH5EAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+            </uix:NClick>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-8, -8, 1552, 697" BrowserType="Edge" IconBase64="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" InformativeScreenshot="1e07a3e59f2ed9a257118269631f42bd.png" Selector="&lt;html app='msedge.exe' title='Organisations'/&gt;" Url="http://crm.aacsl.co.uk/index.php?module=Accounts&amp;parent=&amp;page=&amp;view=List&amp;viewname=55&amp;orderby=&amp;sortorder=&amp;app=PROJECT&amp;tag_params=%5B%5D&amp;nolistcache=0&amp;list_headers=&amp;tag=" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>

@@ -1,0 +1,9 @@
+Hello Bot Supervisor,
+
+I have experienced a Checkpoint error, as such I am unable to determine the status of the Input File I need to run payroll.
+
+Kindly contact Sinnergy Support Desk to look into the issue. And do have a lovely day ahead. Thank you.
+
+
+Regards,
+SinnergyBot

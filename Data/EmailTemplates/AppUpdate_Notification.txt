@@ -1,0 +1,12 @@
+Hello Bot Supervisor,
+
+While I attempted to run the payroll process, the Moneysoft Payroll Manager application indicated that there is need for an update of the application.
+
+Please find attached a screenshot of the message. Kindly resolve and run the process again.
+
+
+Thank you.
+
+
+Regards,
+SinnergyBot
