@@ -29,7 +29,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1548,3331</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>979,3646</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Treat_Single_Organization_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="28">
@@ -94,7 +94,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="WF to handle straight-through running of the payroll process for one organization&#xA;&#xA;1. Set the Year Band based on the name of the payroll file in question&#xA;2. Open the payroll file&#xA;3. Obtain current job status values of the company in question from the Work Log file&#xA;4. If yet to be done, perform HMRC Submission; optional (**Note: some clients send Email reports right after submission to HMRC); and then save the RTI FPS PDF file. &#xA;5. In the event of a repeat run where HMRC Submission is done yet RTI FPS PDF is not logged as saved, save the RTI FPS PDF file. Also, send Email reports if this is the client's preference.&#xA;6. If yet to be done, save the Employee Payslip PDF file right after sending the associated email reports&#xA;7. If yet to be done, save the Employer's P30 Payslip PPDF file&#xA;8. Confirm that these four core tasks i.e. HMRC Submission, RTI FPS PDF Saved, Employees Payslip PDF Saved, and P30 Employers Payslip are all of th status 'DONE'&#xA;9. Close the Payroll app and file.&#xA;10. If client uses CRM, update the record on the portal for the organization in question&#xA;11. Update the final status column on the Work Log file as 'DONE'" DisplayName="Treat_Single_Organization" sap:VirtualizedContainerService.HintSize="728,2966" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="WF to handle straight-through running of the payroll process for one organization&#xA;&#xA;1. Set the Year Band based on the name of the payroll file in question&#xA;2. Open the payroll file&#xA;3. Obtain current job status values of the company in question from the Work Log file&#xA;4. If yet to be done, perform HMRC Submission; optional (**Note: some clients send Email reports right after submission to HMRC); and then save the RTI FPS PDF file. &#xA;5. In the event of a repeat run where HMRC Submission is done yet RTI FPS PDF is not logged as saved, save the RTI FPS PDF file. Also, send Email reports if this is the client's preference.&#xA;6. If yet to be done, save the Employee Payslip PDF file right after sending the associated email reports&#xA;7. If yet to be done, save the Employer's P30 Payslip PPDF file&#xA;8. Confirm that these four core tasks i.e. HMRC Submission, RTI FPS PDF Saved, Employees Payslip PDF Saved, and P30 Employers Payslip are all of th status 'DONE'&#xA;9. Close the Payroll app and file.&#xA;10. If client uses CRM, update the record on the portal for the organization in question&#xA;11. Update the final status column on the Work Log file as 'DONE'" DisplayName="Treat_Single_Organization" sap:VirtualizedContainerService.HintSize="683,3481" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="MsPayrollAppExePath" />
       <Variable x:TypeArguments="x:String" Name="YearBand" />
@@ -112,7 +112,7 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Preliminaries" sap:VirtualizedContainerService.HintSize="686,618" sap2010:WorkflowViewState.IdRef="Sequence_5">
+    <Sequence DisplayName="Preliminaries" sap:VirtualizedContainerService.HintSize="641,618" sap2010:WorkflowViewState.IdRef="Sequence_5">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -121,10 +121,11 @@
       </sap:WorkflowViewStateService.ViewState>
       <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="CommentOut_4">
         <ui:CommentOut.Body>
-          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,314" sap2010:WorkflowViewState.IdRef="Sequence_9">
+          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_9">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <ui:MultipleAssign DisplayName=" TO DELETE" sap:VirtualizedContainerService.HintSize="334,222" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
@@ -231,10 +232,10 @@
       </ui:InvokeCode>
       <ui:ShouldStop DisplayName="Should Stop" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="ShouldStop_1" />
     </Sequence>
-    <Sequence DisplayName="Pre HMRC Submission" sap:VirtualizedContainerService.HintSize="686,66" sap2010:WorkflowViewState.IdRef="Sequence_6">
+    <Sequence DisplayName="Open Payroll and Validate Saved PDf Files" sap:VirtualizedContainerService.HintSize="641,766" sap2010:WorkflowViewState.IdRef="Sequence_6">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
@@ -246,6 +247,12 @@
           <InArgument x:TypeArguments="x:String" x:Key="in_OrganizationName">[in_OrganizationName]</InArgument>
           <InOutArgument x:TypeArguments="x:String" x:Key="io_IsSentLicenseRenewalMailNotification">[io_IsSentLicenseRenewalMailNotification]</InOutArgument>
         </ui:InvokeWorkflowFile.Arguments>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
       </ui:InvokeWorkflowFile>
       <Assign DisplayName="View/File Button Row" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_1">
         <Assign.To>
@@ -289,11 +296,11 @@
       </Assign>
       <ui:ShouldStop DisplayName="Should Stop" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="ShouldStop_2" />
     </Sequence>
-    <ui:Comment sap:VirtualizedContainerService.HintSize="686,93" sap2010:WorkflowViewState.IdRef="Comment_2" Text="// [Optional] Confirm the actual steps for &quot;Send RTI FPS Email Reports&quot; as used by LeoBS" />
-    <If Condition="[IsHmrcSubmissionDone &lt;&gt;&quot;DONE&quot;]" DisplayName="IF YET TO DO: HMRC Submission" sap:VirtualizedContainerService.HintSize="686,270" sap2010:WorkflowViewState.IdRef="If_5">
+    <ui:Comment sap:VirtualizedContainerService.HintSize="641,93" sap2010:WorkflowViewState.IdRef="Comment_2" Text="// [Optional] Confirm the actual steps for &quot;Send RTI FPS Email Reports&quot; as used by LeoBS" />
+    <If Condition="[IsHmrcSubmissionDone &lt;&gt;&quot;DONE&quot;]" DisplayName="IF YET TO DO: HMRC Submission" sap:VirtualizedContainerService.HintSize="641,51" sap2010:WorkflowViewState.IdRef="If_5">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
@@ -328,10 +335,10 @@
         </Assign>
       </If.Else>
     </If>
-    <If Condition="[IsRtiFpsPdfSaved &lt;&gt;&quot;DONE&quot;]" DisplayName="IF YET TO DO: RTI FPS PDF Saved" sap:VirtualizedContainerService.HintSize="686,270" sap2010:WorkflowViewState.IdRef="If_6">
+    <If Condition="[IsRtiFpsPdfSaved &lt;&gt;&quot;DONE&quot;]" DisplayName="IF YET TO DO: RTI FPS PDF Saved" sap:VirtualizedContainerService.HintSize="641,51" sap2010:WorkflowViewState.IdRef="If_6">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
@@ -366,8 +373,8 @@
         </Assign>
       </If.Else>
     </If>
-    <ui:ShouldStop DisplayName="Should Stop" sap:VirtualizedContainerService.HintSize="686,22" sap2010:WorkflowViewState.IdRef="ShouldStop_3" />
-    <If Condition="[IsEmployeePayslipPdfSaved.ToUpper &lt;&gt; &quot;DONE&quot;]" DisplayName="IF YET TO SAVE: Employee Payslip" sap:VirtualizedContainerService.HintSize="686,270" sap2010:WorkflowViewState.IdRef="If_1">
+    <ui:ShouldStop DisplayName="Should Stop" sap:VirtualizedContainerService.HintSize="641,22" sap2010:WorkflowViewState.IdRef="ShouldStop_3" />
+    <If Condition="[IsEmployeePayslipPdfSaved.ToUpper &lt;&gt; &quot;DONE&quot;]" DisplayName="IF YET TO SAVE: Employee Payslip" sap:VirtualizedContainerService.HintSize="641,270" sap2010:WorkflowViewState.IdRef="If_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -391,6 +398,7 @@
             <InArgument x:TypeArguments="x:String" x:Key="in_RobotCvApiKey">[in_Config("RobotCvApiKey").ToString]</InArgument>
             <InArgument x:TypeArguments="x:String" x:Key="in_RobotCvServerUrl">[in_Config("RobotCvServerUrl").ToString]</InArgument>
             <OutArgument x:TypeArguments="x:String" x:Key="out_IsEmployeePayslipPdfSaved">[IsEmployeePayslipPdfSaved]</OutArgument>
+            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
           </ui:InvokeWorkflowFile.Arguments>
         </ui:InvokeWorkflowFile>
       </If.Then>
@@ -405,11 +413,11 @@
         </Assign>
       </If.Else>
     </If>
-    <ui:ShouldStop DisplayName="Should Stop" sap:VirtualizedContainerService.HintSize="686,22" sap2010:WorkflowViewState.IdRef="ShouldStop_4" />
-    <If Condition="[IsP30PdfSaved.ToUpper &lt;&gt; &quot;DONE&quot;]" DisplayName="IF YET TO SAVE: P30 Employer's Payslip" sap:VirtualizedContainerService.HintSize="686,270" sap2010:WorkflowViewState.IdRef="If_2">
+    <ui:ShouldStop DisplayName="Should Stop" sap:VirtualizedContainerService.HintSize="641,22" sap2010:WorkflowViewState.IdRef="ShouldStop_4" />
+    <If Condition="[IsP30PdfSaved.ToUpper &lt;&gt; &quot;DONE&quot;]" DisplayName="IF YET TO SAVE: P30 Employer's Payslip" sap:VirtualizedContainerService.HintSize="641,51" sap2010:WorkflowViewState.IdRef="If_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
@@ -444,32 +452,26 @@
         </Assign>
       </If.Else>
     </If>
-    <ui:InvokeCode ContinueOnError="{x:Null}" Code="'If (in_IsHmrcSubmissionDone.Equals(&quot;DONE&quot;) AndAlso in_IsRtiFpsPdfSaved.Equals(&quot;DONE&quot;) AndAlso in_IsEmployeePayslipPdfSaved.Equals(&quot;DONE&quot;) AndAlso in_IsP30PdfSaved.Equals(&quot;DONE&quot;)) Then&#xD;&#xA;Try&#xD;&#xA;&#x9;If ( ({in_IsHmrcSubmissionDone, in_IsRtiFpsPdfSaved, in_IsEmployeePayslipPdfSaved, in_IsP30PdfSaved}).Contains(Nothing) ) Then&#xD;&#xA;&#x9;&#x9;out_ShouldProceed = &quot;NO&quot;&#xD;&#xA;&#x9;Else&#xD;&#xA;&#x9;&#x9;out_ShouldProceed = &quot;YES&quot;&#xD;&#xA;&#x9;End If&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;Console.WriteLine(String.Format(&quot;[{0}] - Job Epilogue Checkpoint: Should bot update row Status? [{1}]&quot;, in_OrganizationName, out_ShouldProceed))&#xD;&#xA;Catch ex As Exception&#xD;&#xA;&#x9;Console.WriteLine(ex.Message)&#xD;&#xA;&#x9;out_ShouldProceed = &quot;ERROR&quot;&#xD;&#xA;End Try&#xD;&#xA;" DisplayName="Checkpoint 4: Update Log Status &amp; CRM" sap:VirtualizedContainerService.HintSize="686,164" sap2010:WorkflowViewState.IdRef="InvokeCode_2">
+    <ui:InvokeCode ContinueOnError="{x:Null}" Code="'If (in_IsHmrcSubmissionDone.Equals(&quot;DONE&quot;) AndAlso in_IsRtiFpsPdfSaved.Equals(&quot;DONE&quot;) AndAlso in_IsEmployeePayslipPdfSaved.Equals(&quot;DONE&quot;) AndAlso in_IsP30PdfSaved.Equals(&quot;DONE&quot;)) Then&#xD;&#xA;Try&#xD;&#xA;&#x9;If ( ({in_IsHmrcSubmissionDone, in_IsRtiFpsPdfSaved, in_IsEmployeePayslipPdfSaved, in_IsP30PdfSaved}).Contains(Nothing) ) Then&#xD;&#xA;&#x9;&#x9;out_ShouldProceed = &quot;NO&quot;&#xD;&#xA;&#x9;Else&#xD;&#xA;&#x9;&#x9;out_ShouldProceed = &quot;YES&quot;&#xD;&#xA;&#x9;End If&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;Console.WriteLine(String.Format(&quot;[{0}] - Job Epilogue Checkpoint: Should bot update row Status? [{1}]&quot;, in_OrganizationName, out_ShouldProceed))&#xD;&#xA;Catch ex As Exception&#xD;&#xA;&#x9;Console.WriteLine(ex.Message)&#xD;&#xA;&#x9;out_ShouldProceed = &quot;ERROR&quot;&#xD;&#xA;End Try&#xD;&#xA;" DisplayName="Checkpoint 4: Update Log Status &amp; CRM" sap:VirtualizedContainerService.HintSize="641,51" sap2010:WorkflowViewState.IdRef="InvokeCode_2">
       <ui:InvokeCode.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_OrganizationName">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_OrganizationName" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_IsHmrcSubmissionDone">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IsHmrcSubmissionDone" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_IsRtiFpsPdfSaved">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IsRtiFpsPdfSaved" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_IsEmployeePayslipPdfSaved">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IsEmployeePayslipPdfSaved" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_IsP30PdfSaved">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IsP30PdfSaved" />
-        </InArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_ShouldProceed">
-          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="ShouldProceed" />
-        </OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_OrganizationName">[in_OrganizationName]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_IsHmrcSubmissionDone">[IsHmrcSubmissionDone]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_IsRtiFpsPdfSaved">[IsRtiFpsPdfSaved]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_IsEmployeePayslipPdfSaved">[IsEmployeePayslipPdfSaved]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_IsP30PdfSaved">[IsP30PdfSaved]</InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_ShouldProceed">[ShouldProceed]</OutArgument>
       </ui:InvokeCode.Arguments>
-    </ui:InvokeCode>
-    <Flowchart DisplayName="If there is Need to PROCEED" sap:VirtualizedContainerService.HintSize="686,51" sap2010:WorkflowViewState.IdRef="Flowchart_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:InvokeCode>
+    <Flowchart DisplayName="If there is Need to PROCEED" sap:VirtualizedContainerService.HintSize="634,636" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
           <av:Point x:Key="ShapeLocation">540,12.5</av:Point>
           <av:Size x:Key="ShapeSize">60,75</av:Size>
@@ -520,9 +522,17 @@
                       <av:PointCollection x:Key="ConnectorLocation">100,465.5 100,520 400,520</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Update VTiger CRM" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="CRM VTiger Cloud\Update_CRM_with_Status.xaml">
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Update VTiger CRM" sap:VirtualizedContainerService.HintSize="372,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="CRM VTiger Cloud\Update_CRM_with_Status.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
-                      <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                      <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
+                        <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
+                      </InArgument>
+                      <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Sysfig">
+                        <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Sysfig" />
+                      </InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_OrganisationName">
+                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_OrganizationName" />
+                      </InArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -572,7 +582,7 @@
       <x:Reference>__ReferenceID2</x:Reference>
       <x:Reference>__ReferenceID3</x:Reference>
     </Flowchart>
-    <Sequence DisplayName="Set Delay before Treating the Next Organization" sap:VirtualizedContainerService.HintSize="686,66" sap2010:WorkflowViewState.IdRef="Sequence_8">
+    <Sequence DisplayName="Set Delay before Treating the Next Organization" sap:VirtualizedContainerService.HintSize="641,66" sap2010:WorkflowViewState.IdRef="Sequence_8">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>

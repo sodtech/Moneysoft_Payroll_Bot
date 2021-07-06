@@ -1,0 +1,12 @@
+Hello Bot Supervisor,
+
+You will need to enter a email address for company_name, to avoid disruption in my ability to run the payroll process.
+
+For more details, please find attached a screenshot of the message.
+
+
+Thank you.
+
+
+Regards,
+SinnergyBot

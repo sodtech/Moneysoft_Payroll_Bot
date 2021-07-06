@@ -5,7 +5,7 @@ While attempting to run payroll for OrganizationName, I encountered the followin
 ExceptionMessage
 
 
-Also attached is a screenshot of the stat of the job/task as at when this error happened. If this situation is something you cannot resolve yourself, kindly forward this to Sinnergy Support Desk. Thank you.
+Also attached is a screenshot of the state of the job/task as at when this error happened. If this situation is something you cannot resolve yourself, kindly forward this to Sinnergy Support Desk. Thank you.
 
 
 Regards,

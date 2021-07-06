@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>643,1092</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>703,1238</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>User_License_Notice_Dialog_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="52">
@@ -69,10 +69,9 @@
       <AssemblyReference>UiPath.Mail</AssemblyReference>
       <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="WF to handle the User License dalo that may pop-up during App launch." DisplayName="User_License_Notice_Dialog" sap:VirtualizedContainerService.HintSize="604,927" sap2010:WorkflowViewState.IdRef="Sequence_6">
+  <Sequence sap2010:Annotation.AnnotationText="WF to handle the User License dalo that may pop-up during App launch." DisplayName="User_License_Notice_Dialog" sap:VirtualizedContainerService.HintSize="604,1073" sap2010:WorkflowViewState.IdRef="Sequence_6">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="UserLicenseExists" />
     </Sequence.Variables>
@@ -88,9 +87,9 @@
         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e65535af-d878-4438-b904-69041d36b8a1" InformativeScreenshot="99bca5ada12de10ebd306cbd4640bb21" Selector="&lt;wnd app='pm3.exe' cls='Tdlg_ulc_expired' title='Payroll Manager User Licence' /&gt;" TimeoutMS="3000" WaitForReady="INTERACTIVE" />
       </ui:UiElementExists.Target>
     </ui:UiElementExists>
-    <If Condition="[UserLicenseExists]" DisplayName="If UserLicense Exists" sap:VirtualizedContainerService.HintSize="562,658" sap2010:WorkflowViewState.IdRef="If_2">
+    <If Condition="[UserLicenseExists]" DisplayName="If UserLicense Exists" sap:VirtualizedContainerService.HintSize="562,804" sap2010:WorkflowViewState.IdRef="If_2">
       <If.Then>
-        <Sequence DisplayName="User License Renewal Protocol" sap:VirtualizedContainerService.HintSize="526,481" sap2010:WorkflowViewState.IdRef="Sequence_5">
+        <Sequence DisplayName="User License Renewal Protocol" sap:VirtualizedContainerService.HintSize="526,627" sap2010:WorkflowViewState.IdRef="Sequence_5">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -154,6 +153,28 @@
                 <ui:Target.TimeoutMS>
                   <InArgument x:TypeArguments="x:Int32" />
                 </ui:Target.TimeoutMS>
+              </ui:Target>
+            </ui:Click.Target>
+          </ui:Click>
+          <ui:Click AlterIfDisabled="{x:Null}" CursorMotionType="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click User Code License " sap:VirtualizedContainerService.HintSize="484,106" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="True" SimulateClick="False">
+            <ui:Click.CursorPosition>
+              <ui:CursorPosition Position="Center">
+                <ui:CursorPosition.OffsetX>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetX>
+                <ui:CursorPosition.OffsetY>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetY>
+              </ui:CursorPosition>
+            </ui:Click.CursorPosition>
+            <ui:Click.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="71c5e00c-afe3-43ec-b493-4f308ad6d76c" InformativeScreenshot="1b61166e03395421e001878d1a14e55b" Selector="&lt;wnd app='pm3.exe' cls='Tdlg_askbox' title='User Licence Code' /&gt;&lt;wnd cls='TButton' title='OK' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
               </ui:Target>
             </ui:Click.Target>
           </ui:Click>

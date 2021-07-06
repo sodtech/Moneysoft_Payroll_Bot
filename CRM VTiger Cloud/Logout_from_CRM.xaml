@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>978,801</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>979,801</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Logout_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="42">
@@ -216,19 +216,5 @@
     <x:Reference>__ReferenceID0</x:Reference>
     <x:Reference>__ReferenceID1</x:Reference>
     <x:Reference>__ReferenceID2</x:Reference>
-    <FlowStep>
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <av:Point x:Key="ShapeLocation">10,34.5</av:Point>
-          <av:Size x:Key="ShapeSize">200,51</av:Size>
-          <av:PointCollection x:Key="ConnectorLocation">309.895,278.5 309.895,318.5</av:PointCollection>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-      <ui:UiElementExists DisplayName="User Avatar Exists" Exists="[UserAvatarExists]" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
-        <ui:UiElementExists.Target>
-          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4aff82f0-c29f-4910-a665-800a5ff9829b" InformativeScreenshot="91b32fc5e590f4e892c0d77bce4edc2e" Selector="[&quot;&lt;html app='msedge.exe' title='Organisations' url='&quot;+in_CrmBaseUrl+&quot;' /&gt;&lt;webctrl parentid='page' tag='DIV' parentclass='search-link*' /&gt;&lt;nav up='2' /&gt;&lt;webctrl parentid='navbar' tag='SPAN' class='*user' parentclass='userName*' /&gt;&quot;]" TimeoutMS="2000" WaitForReady="INTERACTIVE" />
-        </ui:UiElementExists.Target>
-      </ui:UiElementExists>
-    </FlowStep>
   </Flowchart>
 </Activity>
