@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>978,940</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>703,900</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Navigate_to_PAYE_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -108,7 +108,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:CommentOut>
-    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Edge" DisplayName="CRM Organisation Page" sap:VirtualizedContainerService.HintSize="434,552" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="2349ad294cf725d40780eecb76bfae22" Selector="&lt;html app='msedge.exe' title='Organisations' url='http://crm.aacsl.co.uk/index.php*' /&gt;">
+    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="CRM Organisation Page" sap:VirtualizedContainerService.HintSize="434,552" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="2349ad294cf725d40780eecb76bfae22" Selector="&lt;html app='chrome.exe' title='Organisations' url='http://crm.aacsl.co.uk/index.php*' /&gt;">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>

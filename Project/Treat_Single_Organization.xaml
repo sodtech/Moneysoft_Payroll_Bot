@@ -29,7 +29,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>979,3646</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>979,3336</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Treat_Single_Organization_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="28">
@@ -91,10 +91,9 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="WF to handle straight-through running of the payroll process for one organization&#xA;&#xA;1. Set the Year Band based on the name of the payroll file in question&#xA;2. Open the payroll file&#xA;3. Obtain current job status values of the company in question from the Work Log file&#xA;4. If yet to be done, perform HMRC Submission; optional (**Note: some clients send Email reports right after submission to HMRC); and then save the RTI FPS PDF file. &#xA;5. In the event of a repeat run where HMRC Submission is done yet RTI FPS PDF is not logged as saved, save the RTI FPS PDF file. Also, send Email reports if this is the client's preference.&#xA;6. If yet to be done, save the Employee Payslip PDF file right after sending the associated email reports&#xA;7. If yet to be done, save the Employer's P30 Payslip PPDF file&#xA;8. Confirm that these four core tasks i.e. HMRC Submission, RTI FPS PDF Saved, Employees Payslip PDF Saved, and P30 Employers Payslip are all of th status 'DONE'&#xA;9. Close the Payroll app and file.&#xA;10. If client uses CRM, update the record on the portal for the organization in question&#xA;11. Update the final status column on the Work Log file as 'DONE'" DisplayName="Treat_Single_Organization" sap:VirtualizedContainerService.HintSize="683,3481" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="WF to handle straight-through running of the payroll process for one organization&#xA;&#xA;1. Set the Year Band based on the name of the payroll file in question&#xA;2. Open the payroll file&#xA;3. Obtain current job status values of the company in question from the Work Log file&#xA;4. If yet to be done, perform HMRC Submission; optional (**Note: some clients send Email reports right after submission to HMRC); and then save the RTI FPS PDF file. &#xA;5. In the event of a repeat run where HMRC Submission is done yet RTI FPS PDF is not logged as saved, save the RTI FPS PDF file. Also, send Email reports if this is the client's preference.&#xA;6. If yet to be done, save the Employee Payslip PDF file right after sending the associated email reports&#xA;7. If yet to be done, save the Employer's P30 Payslip PPDF file&#xA;8. Confirm that these four core tasks i.e. HMRC Submission, RTI FPS PDF Saved, Employees Payslip PDF Saved, and P30 Employers Payslip are all of th status 'DONE'&#xA;9. Close the Payroll app and file.&#xA;10. If client uses CRM, update the record on the portal for the organization in question&#xA;11. Update the final status column on the Work Log file as 'DONE'" DisplayName="Treat_Single_Organization" sap:VirtualizedContainerService.HintSize="683,3171" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="MsPayrollAppExePath" />
       <Variable x:TypeArguments="x:String" Name="YearBand" />
@@ -297,87 +296,104 @@
       <ui:ShouldStop DisplayName="Should Stop" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="ShouldStop_2" />
     </Sequence>
     <ui:Comment sap:VirtualizedContainerService.HintSize="641,93" sap2010:WorkflowViewState.IdRef="Comment_2" Text="// [Optional] Confirm the actual steps for &quot;Send RTI FPS Email Reports&quot; as used by LeoBS" />
-    <If Condition="[IsHmrcSubmissionDone &lt;&gt;&quot;DONE&quot;]" DisplayName="IF YET TO DO: HMRC Submission" sap:VirtualizedContainerService.HintSize="641,51" sap2010:WorkflowViewState.IdRef="If_5">
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="641,51" sap2010:WorkflowViewState.IdRef="CommentOut_5">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="242,234" sap2010:WorkflowViewState.IdRef="Sequence_10">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <If Condition="[IsHmrcSubmissionDone &lt;&gt;&quot;DONE&quot;]" DisplayName="IF YET TO DO: HMRC Submission" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="If_5">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="HMRC Submission with RTI FPS PDF" sap:VirtualizedContainerService.HintSize="379,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="MoneysoftPayroll\HmrcSubmission_with_RtiFpsPdf.xaml">
+                <ui:InvokeWorkflowFile.Arguments>
+                  <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_MsPayrollAppExePath">[MsPayrollAppExePath]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_PayrollFilePath">[in_PayrollFilePath]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_OrganizationCategory">[in_OrganizationCategory]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_OrganizationName">[in_OrganizationName]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_PayeFolderPath">[in_PayeFolderPath]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_FolderNameRti">[in_Sysfig("FolderNameRti").ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_YearBand">[YearBand]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_WorkLogFilePath">[in_WorkLogFilePath]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_WorkLogSheetName">[in_Config("SheetName_WorkLog").ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:Int32" x:Key="in_LogSheetRowNumber">[in_LogSheetRowNumber]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_SendRtiFpsEmailReport">[in_Sysfig("SendRtiFpsEmailReport").ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_HmrcSubmissionSuccessResponse">[in_Sysfig("HmrcSubmissionSuccessResponse").ToString]</InArgument>
+                  <OutArgument x:TypeArguments="x:String" x:Key="out_IsRtiFpsPdfSaved">[IsRtiFpsPdfSaved]</OutArgument>
+                </ui:InvokeWorkflowFile.Arguments>
+              </ui:InvokeWorkflowFile>
+            </If.Then>
+            <If.Else>
+              <Assign DisplayName="Checkpoint 1A: RTI FPS PDF" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[IsHmrcSubmissionDone]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">DONE</InArgument>
+                </Assign.Value>
+              </Assign>
+            </If.Else>
+          </If>
+          <If Condition="[IsRtiFpsPdfSaved &lt;&gt;&quot;DONE&quot;]" DisplayName="IF YET TO DO: RTI FPS PDF Saved" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="If_6">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Save RTI FPS File" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="MoneysoftPayroll\Save_RTI_FPS_File.xaml">
+                <ui:InvokeWorkflowFile.Arguments>
+                  <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_MsPayrollAppExePath">[MsPayrollAppExePath]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_PayrollFilePath">[in_PayrollFilePath]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_OrganizationCategory">[in_OrganizationCategory]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_OrganizationName">[in_OrganizationName]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_PayeFolderPath">[in_PayeFolderPath]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_FolderNameRti">[in_Sysfig("FolderNameRti").ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_YearBand">[YearBand]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_WorkLogFilePath">[in_WorkLogFilePath]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_WorkLogSheetName">[in_Config("SheetName_WorkLog").ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:Int32" x:Key="in_LogSheetRowNumber">[in_LogSheetRowNumber]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_SendRtiFpsEmailReport">[in_Sysfig("SendRtiFpsEmailReport").ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_ViewFileButtonRow">[ViewFileButtonRow]</InArgument>
+                  <OutArgument x:TypeArguments="x:String" x:Key="out_IsRtiFpsPdfSaved">[IsRtiFpsPdfSaved]</OutArgument>
+                </ui:InvokeWorkflowFile.Arguments>
+              </ui:InvokeWorkflowFile>
+            </If.Then>
+            <If.Else>
+              <Assign DisplayName="Checkpoint 1B: RTI FPS PDF Saved" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_10">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[IsRtiFpsPdfSaved]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">DONE</InArgument>
+                </Assign.Value>
+              </Assign>
+            </If.Else>
+          </If>
+        </Sequence>
+      </ui:CommentOut.Body>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <If.Then>
-        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="HMRC Submission with RTI FPS PDF" sap:VirtualizedContainerService.HintSize="379,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="MoneysoftPayroll\HmrcSubmission_with_RtiFpsPdf.xaml">
-          <ui:InvokeWorkflowFile.Arguments>
-            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-            <InArgument x:TypeArguments="x:String" x:Key="in_MsPayrollAppExePath">[MsPayrollAppExePath]</InArgument>
-            <InArgument x:TypeArguments="x:String" x:Key="in_PayrollFilePath">[in_PayrollFilePath]</InArgument>
-            <InArgument x:TypeArguments="x:String" x:Key="in_OrganizationCategory">[in_OrganizationCategory]</InArgument>
-            <InArgument x:TypeArguments="x:String" x:Key="in_OrganizationName">[in_OrganizationName]</InArgument>
-            <InArgument x:TypeArguments="x:String" x:Key="in_PayeFolderPath">[in_PayeFolderPath]</InArgument>
-            <InArgument x:TypeArguments="x:String" x:Key="in_FolderNameRti">[in_Sysfig("FolderNameRti").ToString]</InArgument>
-            <InArgument x:TypeArguments="x:String" x:Key="in_YearBand">[YearBand]</InArgument>
-            <InArgument x:TypeArguments="x:String" x:Key="in_WorkLogFilePath">[in_WorkLogFilePath]</InArgument>
-            <InArgument x:TypeArguments="x:String" x:Key="in_WorkLogSheetName">[in_Config("SheetName_WorkLog").ToString]</InArgument>
-            <InArgument x:TypeArguments="x:Int32" x:Key="in_LogSheetRowNumber">[in_LogSheetRowNumber]</InArgument>
-            <InArgument x:TypeArguments="x:String" x:Key="in_SendRtiFpsEmailReport">[in_Sysfig("SendRtiFpsEmailReport").ToString]</InArgument>
-            <InArgument x:TypeArguments="x:String" x:Key="in_HmrcSubmissionSuccessResponse">[in_Sysfig("HmrcSubmissionSuccessResponse").ToString]</InArgument>
-            <OutArgument x:TypeArguments="x:String" x:Key="out_IsRtiFpsPdfSaved">[IsRtiFpsPdfSaved]</OutArgument>
-          </ui:InvokeWorkflowFile.Arguments>
-        </ui:InvokeWorkflowFile>
-      </If.Then>
-      <If.Else>
-        <Assign DisplayName="Checkpoint 1A: RTI FPS PDF" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_3">
-          <Assign.To>
-            <OutArgument x:TypeArguments="x:String">[IsHmrcSubmissionDone]</OutArgument>
-          </Assign.To>
-          <Assign.Value>
-            <InArgument x:TypeArguments="x:String">DONE</InArgument>
-          </Assign.Value>
-        </Assign>
-      </If.Else>
-    </If>
-    <If Condition="[IsRtiFpsPdfSaved &lt;&gt;&quot;DONE&quot;]" DisplayName="IF YET TO DO: RTI FPS PDF Saved" sap:VirtualizedContainerService.HintSize="641,51" sap2010:WorkflowViewState.IdRef="If_6">
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-      <If.Then>
-        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Save RTI FPS File" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="MoneysoftPayroll\Save_RTI_FPS_File.xaml">
-          <ui:InvokeWorkflowFile.Arguments>
-            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-            <InArgument x:TypeArguments="x:String" x:Key="in_MsPayrollAppExePath">[MsPayrollAppExePath]</InArgument>
-            <InArgument x:TypeArguments="x:String" x:Key="in_PayrollFilePath">[in_PayrollFilePath]</InArgument>
-            <InArgument x:TypeArguments="x:String" x:Key="in_OrganizationCategory">[in_OrganizationCategory]</InArgument>
-            <InArgument x:TypeArguments="x:String" x:Key="in_OrganizationName">[in_OrganizationName]</InArgument>
-            <InArgument x:TypeArguments="x:String" x:Key="in_PayeFolderPath">[in_PayeFolderPath]</InArgument>
-            <InArgument x:TypeArguments="x:String" x:Key="in_FolderNameRti">[in_Sysfig("FolderNameRti").ToString]</InArgument>
-            <InArgument x:TypeArguments="x:String" x:Key="in_YearBand">[YearBand]</InArgument>
-            <InArgument x:TypeArguments="x:String" x:Key="in_WorkLogFilePath">[in_WorkLogFilePath]</InArgument>
-            <InArgument x:TypeArguments="x:String" x:Key="in_WorkLogSheetName">[in_Config("SheetName_WorkLog").ToString]</InArgument>
-            <InArgument x:TypeArguments="x:Int32" x:Key="in_LogSheetRowNumber">[in_LogSheetRowNumber]</InArgument>
-            <InArgument x:TypeArguments="x:String" x:Key="in_SendRtiFpsEmailReport">[in_Sysfig("SendRtiFpsEmailReport").ToString]</InArgument>
-            <InArgument x:TypeArguments="x:String" x:Key="in_ViewFileButtonRow">[ViewFileButtonRow]</InArgument>
-            <OutArgument x:TypeArguments="x:String" x:Key="out_IsRtiFpsPdfSaved">[IsRtiFpsPdfSaved]</OutArgument>
-          </ui:InvokeWorkflowFile.Arguments>
-        </ui:InvokeWorkflowFile>
-      </If.Then>
-      <If.Else>
-        <Assign DisplayName="Checkpoint 1B: RTI FPS PDF Saved" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_10">
-          <Assign.To>
-            <OutArgument x:TypeArguments="x:String">[IsRtiFpsPdfSaved]</OutArgument>
-          </Assign.To>
-          <Assign.Value>
-            <InArgument x:TypeArguments="x:String">DONE</InArgument>
-          </Assign.Value>
-        </Assign>
-      </If.Else>
-    </If>
+    </ui:CommentOut>
     <ui:ShouldStop DisplayName="Should Stop" sap:VirtualizedContainerService.HintSize="641,22" sap2010:WorkflowViewState.IdRef="ShouldStop_3" />
-    <If Condition="[IsEmployeePayslipPdfSaved.ToUpper &lt;&gt; &quot;DONE&quot;]" DisplayName="IF YET TO SAVE: Employee Payslip" sap:VirtualizedContainerService.HintSize="641,270" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[IsEmployeePayslipPdfSaved.ToUpper &lt;&gt; &quot;DONE&quot;]" DisplayName="IF YET TO SAVE: Employee Payslip" sap:VirtualizedContainerService.HintSize="641,51" sap2010:WorkflowViewState.IdRef="If_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
@@ -452,7 +468,7 @@
         </Assign>
       </If.Else>
     </If>
-    <ui:InvokeCode ContinueOnError="{x:Null}" Code="'If (in_IsHmrcSubmissionDone.Equals(&quot;DONE&quot;) AndAlso in_IsRtiFpsPdfSaved.Equals(&quot;DONE&quot;) AndAlso in_IsEmployeePayslipPdfSaved.Equals(&quot;DONE&quot;) AndAlso in_IsP30PdfSaved.Equals(&quot;DONE&quot;)) Then&#xD;&#xA;Try&#xD;&#xA;&#x9;If ( ({in_IsHmrcSubmissionDone, in_IsRtiFpsPdfSaved, in_IsEmployeePayslipPdfSaved, in_IsP30PdfSaved}).Contains(Nothing) ) Then&#xD;&#xA;&#x9;&#x9;out_ShouldProceed = &quot;NO&quot;&#xD;&#xA;&#x9;Else&#xD;&#xA;&#x9;&#x9;out_ShouldProceed = &quot;YES&quot;&#xD;&#xA;&#x9;End If&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;Console.WriteLine(String.Format(&quot;[{0}] - Job Epilogue Checkpoint: Should bot update row Status? [{1}]&quot;, in_OrganizationName, out_ShouldProceed))&#xD;&#xA;Catch ex As Exception&#xD;&#xA;&#x9;Console.WriteLine(ex.Message)&#xD;&#xA;&#x9;out_ShouldProceed = &quot;ERROR&quot;&#xD;&#xA;End Try&#xD;&#xA;" DisplayName="Checkpoint 4: Update Log Status &amp; CRM" sap:VirtualizedContainerService.HintSize="641,51" sap2010:WorkflowViewState.IdRef="InvokeCode_2">
+    <ui:InvokeCode ContinueOnError="{x:Null}" Code="'If (in_IsHmrcSubmissionDone.Equals(&quot;DONE&quot;) AndAlso in_IsRtiFpsPdfSaved.Equals(&quot;DONE&quot;) AndAlso in_IsEmployeePayslipPdfSaved.Equals(&quot;DONE&quot;) AndAlso in_IsP30PdfSaved.Equals(&quot;DONE&quot;)) Then&#xA;Try&#xA;&#x9;If ( ({in_IsHmrcSubmissionDone, in_IsRtiFpsPdfSaved, in_IsEmployeePayslipPdfSaved, in_IsP30PdfSaved}).Contains(Nothing) ) Then&#xA;&#x9;&#x9;out_ShouldProceed = &quot;NO&quot;&#xA;&#x9;Else&#xA;&#x9;&#x9;out_ShouldProceed = &quot;YES&quot;&#xA;&#x9;End If&#xA;&#x9;&#xA;&#x9;Console.WriteLine(String.Format(&quot;[{0}] - Job Epilogue Checkpoint: Should bot update row Status? [{1}]&quot;, in_OrganizationName, out_ShouldProceed))&#xA;Catch ex As Exception&#xA;&#x9;Console.WriteLine(ex.Message)&#xA;&#x9;out_ShouldProceed = &quot;ERROR&quot;&#xA;End Try&#xA;" DisplayName="Checkpoint 4: Update Log Status &amp; CRM" sap:VirtualizedContainerService.HintSize="641,51" sap2010:WorkflowViewState.IdRef="InvokeCode_2">
       <ui:InvokeCode.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="in_OrganizationName">[in_OrganizationName]</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="in_IsHmrcSubmissionDone">[IsHmrcSubmissionDone]</InArgument>
@@ -524,15 +540,9 @@
                   </sap:WorkflowViewStateService.ViewState>
                   <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Update VTiger CRM" sap:VirtualizedContainerService.HintSize="372,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="CRM VTiger Cloud\Update_CRM_with_Status.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
-                      <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-                        <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
-                      </InArgument>
-                      <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Sysfig">
-                        <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Sysfig" />
-                      </InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_OrganisationName">
-                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_OrganizationName" />
-                      </InArgument>
+                      <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+                      <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Sysfig">[in_Sysfig]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_OrganisationName">[in_OrganizationName]</InArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
