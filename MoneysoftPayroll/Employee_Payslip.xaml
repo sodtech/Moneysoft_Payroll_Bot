@@ -49,7 +49,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>634,3804</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>830,2076</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Employers_RTI_Schedule_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="84">
@@ -140,6 +140,7 @@
       <AssemblyReference>UiPath.CV.Activities</AssemblyReference>
       <AssemblyReference>dipoleDIAMOND_Reuseables</AssemblyReference>
       <AssemblyReference>Microsoft.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <sap:WorkflowViewStateService.ViewState>
@@ -148,7 +149,7 @@
       <x:Boolean x:Key="ShouldCollapseAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence sap2010:Annotation.AnnotationText="Workflow to do the following:&#xA;1. Generate Employee payslip as a report&#xA;2. Email the payslip report, ad then&#xA;3. Save the payslip as a PDF file&#xA;&#xA;Pre-requistes:&#xA;1. Payroll file fo the organization in question already open and visible as the active screen.&#xA;&#xA;STEPS:&#xA;1. Check if the Pay Details window is already open; if it is not, use Ctrl+D (or click on the Pay Details icon, 3d from the left, on the main toolbar o the app).&#xA;2. On the Pay Details window, click on the 'Produce payslip' icon, 3rd from the left on the main toolbar, to open the Employee Payslip window.&#xA;3A. On the man toolbar of the Employee Payslip window, click on the 'E-mail report' icon,4th from the left&#xA;3B. On the 'E-mail reports' dialog, select  the “E-mail to the employer (separate PDFs, employer password)”, which is the 3rd radio button.&#xA;3C. Click on “OK” to launch the Email Templates dialog.&#xA;3D. Click on “OK” to launch the Moneysoft Emailer dialog at which point the app sends the specified email and when successful. it returns a sent successfully message via the Moneysoft Emailer message box.&#xA;3E. A check should be done If the message is not sent successfully. An email should be sent to the user.&#xA;4A. On the man toolbar of the Employee Payslip window, click on the 'Save as a PDF' button, which is the 3rd icon from the left, to open the “Save report to a PDF file” dialog with a file name in the format NameOfOrganisation - Employee Payslip for MM-YYYY for X within a specified directory.&#xA;4B. Save the file using the default name to a specified directory i.e. Payslips&#xA;4C. Close the  “Employee Payslip” window.&#xA;&#xA;" DisplayName="Employee_Payslip" sap:VirtualizedContainerService.HintSize="644,3639" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Workflow to do the following:&#xA;1. Generate Employee payslip as a report&#xA;2. Email the payslip report, ad then&#xA;3. Save the payslip as a PDF file&#xA;&#xA;Pre-requistes:&#xA;1. Payroll file fo the organization in question already open and visible as the active screen.&#xA;&#xA;STEPS:&#xA;1. Check if the Pay Details window is already open; if it is not, use Ctrl+D (or click on the Pay Details icon, 3d from the left, on the main toolbar o the app).&#xA;2. On the Pay Details window, click on the 'Produce payslip' icon, 3rd from the left on the main toolbar, to open the Employee Payslip window.&#xA;3A. On the man toolbar of the Employee Payslip window, click on the 'E-mail report' icon,4th from the left&#xA;3B. On the 'E-mail reports' dialog, select  the “E-mail to the employer (separate PDFs, employer password)”, which is the 3rd radio button.&#xA;3C. Click on “OK” to launch the Email Templates dialog.&#xA;3D. Click on “OK” to launch the Moneysoft Emailer dialog at which point the app sends the specified email and when successful. it returns a sent successfully message via the Moneysoft Emailer message box.&#xA;3E. A check should be done If the message is not sent successfully. An email should be sent to the user.&#xA;4A. On the man toolbar of the Employee Payslip window, click on the 'Save as a PDF' button, which is the 3rd icon from the left, to open the “Save report to a PDF file” dialog with a file name in the format NameOfOrganisation - Employee Payslip for MM-YYYY for X within a specified directory.&#xA;4B. Save the file using the default name to a specified directory i.e. Payslips&#xA;4C. Close the  “Employee Payslip” window.&#xA;&#xA;" DisplayName="Employee_Payslip" sap:VirtualizedContainerService.HintSize="476,1871" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="PayslipPdfFilePath" />
     </Sequence.Variables>
@@ -159,7 +160,7 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="602,51" sap2010:WorkflowViewState.IdRef="CommentOut_13">
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="434,51" sap2010:WorkflowViewState.IdRef="CommentOut_13">
       <ui:CommentOut.Body>
         <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,562" sap2010:WorkflowViewState.IdRef="Sequence_62">
           <sap:WorkflowViewStateService.ViewState>
@@ -293,20 +294,20 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:CommentOut>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="602,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[String.Format(&quot;About to generate Employee Payslip file for {0}...&quot;, in_OrganizationName)]">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[String.Format(&quot;About to generate Employee Payslip file for {0}...&quot;, in_OrganizationName)]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsPinned">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:LogMessage>
-    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Open Payroll Manager App" sap:VirtualizedContainerService.HintSize="602,2802" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" Version="V1">
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Open Payroll Manager App" sap:VirtualizedContainerService.HintSize="434,959" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" Version="V1">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="568,2473" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="242,630" sap2010:WorkflowViewState.IdRef="Sequence_5">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:Boolean" Name="EmailerOkExists" />
             </Sequence.Variables>
@@ -316,512 +317,579 @@
                 <x:Boolean x:Key="IsPinned">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Sequence DisplayName="Pay Details window" sap:VirtualizedContainerService.HintSize="526,584" sap2010:WorkflowViewState.IdRef="Sequence_60">
-              <Sequence.Variables>
-                <Variable x:TypeArguments="x:Boolean" Name="PayDetailsAlreadyOpen" />
-              </Sequence.Variables>
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-              <ui:UiElementExists DisplayName="Pay Details Already Open" Exists="[PayDetailsAlreadyOpen]" sap:VirtualizedContainerService.HintSize="484,106" sap2010:WorkflowViewState.IdRef="UiElementExists_3">
-                <ui:UiElementExists.Target>
-                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="99e6b928-fc41-486f-bf7d-28030e9b5476" InformativeScreenshot="951f4d53949cc38d680111dbd76dc7eb" Selector="&lt;wnd cls='Twin_paydetails' title='Pay Details' /&gt;" TimeoutMS="2000">
-                    <ui:Target.WaitForReady>
-                      <InArgument x:TypeArguments="ui:WaitForReady" />
-                    </ui:Target.WaitForReady>
-                  </ui:Target>
-                </ui:UiElementExists.Target>
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsPinned">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-              </ui:UiElementExists>
-              <If Condition="[Not PayDetailsAlreadyOpen]" DisplayName="IF: Pay Details NOT Open" sap:VirtualizedContainerService.HintSize="484,344" sap2010:WorkflowViewState.IdRef="If_8">
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsPinned">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <If.Then>
-                  <uix:NClick ClickType="Single" DisplayName="Click Pay Details" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left">
-                    <uix:NClick.Target>
-                      <uix:TargetAnchorable DesignTimeRectangle="58, 55, 23, 22" ElementType="Button" FriendlyName="'push button'" FullSelectorArgument="&lt;wnd cls='Ttoolbar' /&gt;&lt;ctrl name='maintoolbar' role='tool bar' /&gt;&lt;ctrl idx='7' role='push button' /&gt;" FuzzySelectorArgument="&lt;wnd cls='Ttoolbar' /&gt;&lt;ctrl name='maintoolbar' role='tool bar' /&gt;&lt;ctrl automationid='' role='push button' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABsAAAAaCAYAAABGiCfwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACxSURBVEhL7ZFRCoMwEESbm3u0HCk3SHm1A2OICMnG9sOBh6LLPjO+Sin1Lh5ZCL+XpZSm6O2EU5mybdv3rtac8+fKa0H0nITJXNKiDMmQCL7cF/dghtmQk/li4pUurZG44DgzUeNVhapPTJ3sSkaQKP8v82oQtlI98zmYOhkLFIkIIuU4EyCTyFFcPCRTLdBWeMY+t+hkLftc0D/zunTvIjIkm6G3E7qyVTyyEG6UlfoGemUaGpvf6kwAAAAASUVORK5CYII=" InformativeScreenshot="4da1c1d5df19a78594fa541dbd05f0d6.png" ScopeSelectorArgument="&lt;wnd app='pm3.exe' cls='Tpaymain' title='Payroll Manager 100  -  Bot testing file 02  -  2020-21' /&gt;" SearchSteps="FuzzySelector, Image" WaitForReadyArgument="Complete">
-                        <uix:TargetAnchorable.Anchors>
-                          <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
-                            <uix:Target DesignTimeRectangle="40, 31, 33, 19" FriendlyName="'Pay'" FullSelectorArgument="&lt;ctrl automationid='MenuBar' name='Application' role='menu bar' /&gt;&lt;ctrl name='Pay' role='menu item' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='MenuBar' name='Application' role='menu bar' /&gt;&lt;ctrl name='Pay' role='menu item' automationid='' check:text='Pay' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACUAAAAXCAYAAACMLIalAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADcSURBVEhL7ZTbDcMgDEU9lwdiHkZgCpZhiSgL3IKFU6I2laFB4iNHQuGpHHGdEBbkkbLySFl5pKwYpSIcEehoDJ/q0gQ6pN4iyTOIPWZ5DUl9ju/lFqnommhdzDMJngnSVaKT27Vwc3zNviLRWBXxk+QPBgvd5ZmGInCsqXw5o/tyv6MGB+NrSB58vLzEdr5RzgN9WvlfqtaKLIlgs6+M2eVbujh7wf9Staglui8C8hFYi6lilBqnp8CVuVISX/9PdpKURtpXS8r0+Eagfd+xWqNt27BaoxAC1moBL9c/dO20ZdcSAAAAAElFTkSuQmCC" SearchSteps="Selector, FuzzySelector, Image" />
-                            <uix:Target DesignTimeRectangle="73, 31, 47, 19" FriendlyName="'Forms'" FullSelectorArgument="&lt;ctrl automationid='MenuBar' name='Application' role='menu bar' /&gt;&lt;ctrl name='Forms' role='menu item' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='MenuBar' name='Application' role='menu bar' /&gt;&lt;ctrl name='Forms' role='menu item' automationid='' check:text='Forms' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADMAAAAXCAYAAACmnHcKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADeSURBVFhH7ZTRDcQgCIady4GYxxGcwmVcwrgAJ4qtNk2j13vgjH9CUqAiX1AVLqQNI1UbRqo2jFQNwjgEpVA1po3nnBxNwGgU2H+nDdPJG9TN8QPHcV4DoFMcksc13Pk//esN5a9H16PRdzWf9fWdKRuU+LFZBqvQJXc2yDW0Sa2SC7nOkc8+QfP3KEGjd5PJzXMDLActaLtmwudpzz4yMmFY9QiODunlnaH49ZhVuNnm7/cgoNEJ/fgBeNN84/N9KtZP/kmDMP+hDSNVa8HEGHEVUyEEXMWUtRbXMIsf2WYXnvwY4UgAAAAASUVORK5CYII=" SearchSteps="Selector, FuzzySelector, Image" />
-                          </scg:List>
-                        </uix:TargetAnchorable.Anchors>
-                      </uix:TargetAnchorable>
-                    </uix:NClick.Target>
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="CommentOut_14">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap2010:WorkflowViewState.IdRef="Sequence_64">
+                  <Sequence DisplayName="Pay Details window" sap:VirtualizedContainerService.HintSize="526,66" sap2010:WorkflowViewState.IdRef="Sequence_60">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="x:Boolean" Name="PayDetailsAlreadyOpen" />
+                    </Sequence.Variables>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsPinned">True</x:Boolean>
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                  </uix:NClick>
-                </If.Then>
-              </If>
-            </Sequence>
-            <p:CVScope ContinueOnError="{x:Null}" DelayBefore="{x:Null}" ApiKey="[in_RobotCvApiKey]" CvMethod="ElementDetection, OCR" DesignTimeCacheId="21d81fee-ee0e-413a-a329-10dd5c5543d1" DisplayName="Pay Details dialog" sap:VirtualizedContainerService.HintSize="526,51" sap2010:WorkflowViewState.IdRef="CVScope_1" Server="[in_RobotCvServerUrl]" Version="V2">
-              <p:CVScope.Body>
-                <ActivityAction x:TypeArguments="x:Object">
-                  <ActivityAction.Argument>
-                    <DelegateInArgument x:TypeArguments="x:Object" Name="CVSessionData" />
-                  </ActivityAction.Argument>
-                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,228" sap2010:WorkflowViewState.IdRef="Sequence_23">
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                    <p:CvClickWithDescriptor CursorMotionType="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" Descriptor="[&quot;Target: Icon (54,35,20,18)&quot; +&#xA;&quot;Anchor: Text 'Pay Details' (28,12,60,16)&quot;]" DesignTimeCacheId="21d81fee-ee0e-413a-a329-10dd5c5543d1" DesignTimeScaleFactor="1" DisplayName="Click Produce Payslip" sap:VirtualizedContainerService.HintSize="334,136" sap2010:WorkflowViewState.IdRef="CvClickWithDescriptor_5" InformativeScreenshot="7ae038b5bea26f414bebdd8c91f9d6c6" KeyModifiers="None" MouseButton="BTN_LEFT" Version="V2">
-                      <p:CvClickWithDescriptor.CursorPosition>
-                        <ui:CursorPosition Position="Center">
-                          <ui:CursorPosition.OffsetX>
-                            <InArgument x:TypeArguments="x:Int32" />
-                          </ui:CursorPosition.OffsetX>
-                          <ui:CursorPosition.OffsetY>
-                            <InArgument x:TypeArguments="x:Int32" />
-                          </ui:CursorPosition.OffsetY>
-                        </ui:CursorPosition>
-                      </p:CvClickWithDescriptor.CursorPosition>
-                      <p:CvClickWithDescriptor.DesignTimeDescriptor>
-                        <uc:CvDescriptor>
-                          <uc:CvDescriptor.Anchors>
-                            <x:Array Type="uc:CvElementDescriptor">
-                              <uc:CvElementDescriptor DesignTimeArea="28, 12, 60, 16" ElementType="Text" Text="Pay Details" />
-                            </x:Array>
-                          </uc:CvDescriptor.Anchors>
-                          <uc:CvDescriptor.Target>
-                            <uc:CvElementDescriptor DesignTimeArea="54, 35, 20, 18" ElementType="Icon" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwwAADsMBx2+oZAAAAH9JREFUOE/d0FsOgCAMRFGW3iV3B9UpNjxS4mD48uOGRNuDsaiqnewHoEihinkaNMtrqPj8ErRSbw0sQ/t3FIh6qC62xuck6D2Lq5bggMwlUPQJFJwJhpYgliIWQ1v/8A1DNOhfew/PwBwFAvPzFBjVYSYSRBhmwiwF7nQYVLsA05F4U1f2AOwAAAAASUVORK5CYII=" />
-                          </uc:CvDescriptor.Target>
-                        </uc:CvDescriptor>
-                      </p:CvClickWithDescriptor.DesignTimeDescriptor>
-                      <p:CvClickWithDescriptor.Target>
-                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="a07c8340-6f07-41d5-a7cd-3cb58e05433d">
-                          <ui:Target.TimeoutMS>
-                            <InArgument x:TypeArguments="x:Int32" />
-                          </ui:Target.TimeoutMS>
+                    <ui:UiElementExists DisplayName="Pay Details Already Open" Exists="[PayDetailsAlreadyOpen]" sap:VirtualizedContainerService.HintSize="484,106" sap2010:WorkflowViewState.IdRef="UiElementExists_3">
+                      <ui:UiElementExists.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="99e6b928-fc41-486f-bf7d-28030e9b5476" InformativeScreenshot="951f4d53949cc38d680111dbd76dc7eb" Selector="&lt;wnd cls='Twin_paydetails' title='Pay Details' /&gt;" TimeoutMS="2000">
                           <ui:Target.WaitForReady>
                             <InArgument x:TypeArguments="ui:WaitForReady" />
                           </ui:Target.WaitForReady>
                         </ui:Target>
-                      </p:CvClickWithDescriptor.Target>
+                      </ui:UiElementExists.Target>
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsPinned">True</x:Boolean>
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                    </p:CvClickWithDescriptor>
+                    </ui:UiElementExists>
+                    <If Condition="[Not PayDetailsAlreadyOpen]" DisplayName="IF: Pay Details NOT Open" sap:VirtualizedContainerService.HintSize="484,344" sap2010:WorkflowViewState.IdRef="If_8">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <If.Then>
+                        <uix:NClick ClickType="Single" DisplayName="Click Pay Details" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left">
+                          <uix:NClick.Target>
+                            <uix:TargetAnchorable DesignTimeRectangle="58, 55, 23, 22" ElementType="Button" FriendlyName="'push button'" FullSelectorArgument="&lt;wnd cls='Ttoolbar' /&gt;&lt;ctrl name='maintoolbar' role='tool bar' /&gt;&lt;ctrl idx='7' role='push button' /&gt;" FuzzySelectorArgument="&lt;wnd cls='Ttoolbar' /&gt;&lt;ctrl name='maintoolbar' role='tool bar' /&gt;&lt;ctrl automationid='' role='push button' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABsAAAAaCAYAAABGiCfwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACxSURBVEhL7ZFRCoMwEESbm3u0HCk3SHm1A2OICMnG9sOBh6LLPjO+Sin1Lh5ZCL+XpZSm6O2EU5mybdv3rtac8+fKa0H0nITJXNKiDMmQCL7cF/dghtmQk/li4pUurZG44DgzUeNVhapPTJ3sSkaQKP8v82oQtlI98zmYOhkLFIkIIuU4EyCTyFFcPCRTLdBWeMY+t+hkLftc0D/zunTvIjIkm6G3E7qyVTyyEG6UlfoGemUaGpvf6kwAAAAASUVORK5CYII=" InformativeScreenshot="4da1c1d5df19a78594fa541dbd05f0d6.png" ScopeSelectorArgument="&lt;wnd app='pm3.exe' cls='Tpaymain' title='Payroll Manager 100  -  Bot testing file 02  -  2020-21' /&gt;" SearchSteps="FuzzySelector, Image" WaitForReadyArgument="Complete">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
+                                  <uix:Target DesignTimeRectangle="40, 31, 33, 19" FriendlyName="'Pay'" FullSelectorArgument="&lt;ctrl automationid='MenuBar' name='Application' role='menu bar' /&gt;&lt;ctrl name='Pay' role='menu item' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='MenuBar' name='Application' role='menu bar' /&gt;&lt;ctrl name='Pay' role='menu item' automationid='' check:text='Pay' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACUAAAAXCAYAAACMLIalAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADcSURBVEhL7ZTbDcMgDEU9lwdiHkZgCpZhiSgL3IKFU6I2laFB4iNHQuGpHHGdEBbkkbLySFl5pKwYpSIcEehoDJ/q0gQ6pN4iyTOIPWZ5DUl9ju/lFqnommhdzDMJngnSVaKT27Vwc3zNviLRWBXxk+QPBgvd5ZmGInCsqXw5o/tyv6MGB+NrSB58vLzEdr5RzgN9WvlfqtaKLIlgs6+M2eVbujh7wf9Staglui8C8hFYi6lilBqnp8CVuVISX/9PdpKURtpXS8r0+Eagfd+xWqNt27BaoxAC1moBL9c/dO20ZdcSAAAAAElFTkSuQmCC" SearchSteps="Selector, FuzzySelector, Image" />
+                                  <uix:Target DesignTimeRectangle="73, 31, 47, 19" FriendlyName="'Forms'" FullSelectorArgument="&lt;ctrl automationid='MenuBar' name='Application' role='menu bar' /&gt;&lt;ctrl name='Forms' role='menu item' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='MenuBar' name='Application' role='menu bar' /&gt;&lt;ctrl name='Forms' role='menu item' automationid='' check:text='Forms' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADMAAAAXCAYAAACmnHcKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADeSURBVFhH7ZTRDcQgCIady4GYxxGcwmVcwrgAJ4qtNk2j13vgjH9CUqAiX1AVLqQNI1UbRqo2jFQNwjgEpVA1po3nnBxNwGgU2H+nDdPJG9TN8QPHcV4DoFMcksc13Pk//esN5a9H16PRdzWf9fWdKRuU+LFZBqvQJXc2yDW0Sa2SC7nOkc8+QfP3KEGjd5PJzXMDLActaLtmwudpzz4yMmFY9QiODunlnaH49ZhVuNnm7/cgoNEJ/fgBeNN84/N9KtZP/kmDMP+hDSNVa8HEGHEVUyEEXMWUtRbXMIsf2WYXnvwY4UgAAAAASUVORK5CYII=" SearchSteps="Selector, FuzzySelector, Image" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NClick.Target>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </uix:NClick>
+                      </If.Then>
+                    </If>
+                    <p:CVScope ContinueOnError="{x:Null}" DelayBefore="{x:Null}" ApiKey="[in_RobotCvApiKey]" CvMethod="ElementDetection, OCR" DesignTimeCacheId="21d81fee-ee0e-413a-a329-10dd5c5543d1" DisplayName="Pay Details dialog" sap:VirtualizedContainerService.HintSize="484,51" sap2010:WorkflowViewState.IdRef="CVScope_1" Server="[in_RobotCvServerUrl]" Version="V2">
+                      <p:CVScope.Body>
+                        <ActivityAction x:TypeArguments="x:Object">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="x:Object" Name="CVSessionData" />
+                          </ActivityAction.Argument>
+                          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,228" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <p:CvClickWithDescriptor CursorMotionType="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" Descriptor="[&quot;Target: Icon (54,35,20,18)&quot; +&#xA;&quot;Anchor: Text 'Pay Details' (28,12,60,16)&quot;]" DesignTimeCacheId="21d81fee-ee0e-413a-a329-10dd5c5543d1" DesignTimeScaleFactor="1" DisplayName="Click Produce Payslip" sap:VirtualizedContainerService.HintSize="400,136" sap2010:WorkflowViewState.IdRef="CvClickWithDescriptor_5" InformativeScreenshot="7ae038b5bea26f414bebdd8c91f9d6c6" KeyModifiers="None" MouseButton="BTN_LEFT" Version="V2">
+                              <p:CvClickWithDescriptor.CursorPosition>
+                                <ui:CursorPosition Position="Center">
+                                  <ui:CursorPosition.OffsetX>
+                                    <InArgument x:TypeArguments="x:Int32" />
+                                  </ui:CursorPosition.OffsetX>
+                                  <ui:CursorPosition.OffsetY>
+                                    <InArgument x:TypeArguments="x:Int32" />
+                                  </ui:CursorPosition.OffsetY>
+                                </ui:CursorPosition>
+                              </p:CvClickWithDescriptor.CursorPosition>
+                              <p:CvClickWithDescriptor.DesignTimeDescriptor>
+                                <uc:CvDescriptor>
+                                  <uc:CvDescriptor.Anchors>
+                                    <x:Array Type="uc:CvElementDescriptor">
+                                      <uc:CvElementDescriptor DesignTimeArea="28, 12, 60, 16" ElementType="Text" Text="Pay Details" />
+                                    </x:Array>
+                                  </uc:CvDescriptor.Anchors>
+                                  <uc:CvDescriptor.Target>
+                                    <uc:CvElementDescriptor DesignTimeArea="54, 35, 20, 18" ElementType="Icon" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwwAADsMBx2+oZAAAAH9JREFUOE/d0FsOgCAMRFGW3iV3B9UpNjxS4mD48uOGRNuDsaiqnewHoEihinkaNMtrqPj8ErRSbw0sQ/t3FIh6qC62xuck6D2Lq5bggMwlUPQJFJwJhpYgliIWQ1v/8A1DNOhfew/PwBwFAvPzFBjVYSYSRBhmwiwF7nQYVLsA05F4U1f2AOwAAAAASUVORK5CYII=" />
+                                  </uc:CvDescriptor.Target>
+                                </uc:CvDescriptor>
+                              </p:CvClickWithDescriptor.DesignTimeDescriptor>
+                              <p:CvClickWithDescriptor.Target>
+                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="a07c8340-6f07-41d5-a7cd-3cb58e05433d">
+                                  <ui:Target.TimeoutMS>
+                                    <InArgument x:TypeArguments="x:Int32" />
+                                  </ui:Target.TimeoutMS>
+                                  <ui:Target.WaitForReady>
+                                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                                  </ui:Target.WaitForReady>
+                                </ui:Target>
+                              </p:CvClickWithDescriptor.Target>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </p:CvClickWithDescriptor>
+                          </Sequence>
+                        </ActivityAction>
+                      </p:CVScope.Body>
+                      <p:CVScope.DesignTimeCache>
+                        <uc:CVCache CvUiElements="{x:Null}" OcrTexts="{x:Null}" />
+                      </p:CVScope.DesignTimeCache>
+                      <p:CVScope.DesignTimeCacheContainer>
+                        <uc:CvCacheContainer>
+                          <uc:CvCacheContainer.Caches>
+                            <scg:List x:TypeArguments="uc:CVCache" Capacity="1">
+                              <uc:CVCache DisplayName="Payslip Details Dialog" Id="21d81fee-ee0e-413a-a329-10dd5c5543d1" InformativeScreenshot="200b7addd2bd2f56ab4bf17f7f48c5a9" LogicalPosition="2, 132" OcrText="P Pay Details D X F S O 4 X Abc Basic Hourly Additions Deductions Pensions Attachments SSP SMP Holiday Pay Adjustments Rounding Loans Notes Tax &amp;NIC Tax NI Basic Pay Hourly Additions Deductions SSP, SMP, Notes Code Let Pay SPP &amp; SAP Apr-2020 1250L A 1250.00 May-2020 1250L A 1250.00 Jun-2020 1250L A 1250.00 Jul-2020 1250L A 1250.00 Aug-2020 1250L A 1250.00 Sep-2020 1250L A 1250.00 Oct-2020 1250L A 1250.00 Nov-2020 1250L A 1250.00 Dec-2020 1250L A 1250.00 Jan-2021 1250L A 1250.00 Feb-2021 1250L A 1250.00 Mar 2021 1250L A 1250.00 Click Basic Pay 1250.00 Income Tax 41.40 Pension 0.00 here for Hourly pay 0.00 Other Additions 0.00 Nat Ins 54.96 Other Deductions ctivate ICIOWVS 0.00 explanation Statutory Pay 0.00 Total pay 1250.00 Net pay Go to Settings 1153.64" Position="2, 132" ScreenshotGuid="443810ae-b860-4e1d-b22a-2d1d073a1c52" ServerVersion="1">
+                                <uc:CVCache.CvTables>
+                                  <x:Array Type="uc:CvTableInfo">
+                                    <uc:CvTableInfo>
+                                      <uc:CvTableInfo.Columns>
+                                        <x:Array Type="x:Int32">
+                                          <x:Int32>16</x:Int32>
+                                          <x:Int32>113</x:Int32>
+                                          <x:Int32>194</x:Int32>
+                                          <x:Int32>225</x:Int32>
+                                          <x:Int32>321</x:Int32>
+                                          <x:Int32>417</x:Int32>
+                                          <x:Int32>513</x:Int32>
+                                          <x:Int32>608</x:Int32>
+                                          <x:Int32>704</x:Int32>
+                                          <x:Int32>907</x:Int32>
+                                        </x:Array>
+                                      </uc:CvTableInfo.Columns>
+                                      <uc:CvTableInfo.Rows>
+                                        <x:Array Type="x:Int32">
+                                          <x:Int32>120</x:Int32>
+                                          <x:Int32>153</x:Int32>
+                                          <x:Int32>173</x:Int32>
+                                          <x:Int32>192</x:Int32>
+                                          <x:Int32>211</x:Int32>
+                                          <x:Int32>230</x:Int32>
+                                          <x:Int32>249</x:Int32>
+                                          <x:Int32>268</x:Int32>
+                                          <x:Int32>287</x:Int32>
+                                          <x:Int32>306</x:Int32>
+                                          <x:Int32>325</x:Int32>
+                                          <x:Int32>344</x:Int32>
+                                          <x:Int32>363</x:Int32>
+                                          <x:Int32>384</x:Int32>
+                                        </x:Array>
+                                      </uc:CvTableInfo.Rows>
+                                    </uc:CvTableInfo>
+                                  </x:Array>
+                                </uc:CVCache.CvTables>
+                                <uc:CVCache.CvUiElements>
+                                  <scg:List x:TypeArguments="uc:CvElementInfo" Capacity="256">
+                                    <uc:CvElementInfo Category="InputBox" Region="969, 443, 166, 19" />
+                                    <uc:CvElementInfo Category="InputBox" Region="271, 444, 166, 19" />
+                                    <uc:CvElementInfo Category="InputBox" Region="969, 466, 165, 18" />
+                                    <uc:CvElementInfo Category="InputBox" Region="619, 487, 167, 20" />
+                                    <uc:CvElementInfo Category="InputBox" Region="270, 488, 167, 19" />
+                                    <uc:CvElementInfo Category="Icon" Region="283, 34, 21, 20" />
+                                    <uc:CvElementInfo Category="Button" Region="407, 96, 70, 23" />
+                                    <uc:CvElementInfo Category="InputBox" Region="620, 466, 167, 19" />
+                                    <uc:CvElementInfo Category="InputBox" Region="271, 467, 166, 17" />
+                                    <uc:CvElementInfo Category="Button" Region="689, 96, 62, 22" />
+                                    <uc:CvElementInfo Category="CloseButton" Region="1474, 9, 33, 19" />
+                                    <uc:CvElementInfo Category="Button" Region="347, 96, 63, 21" />
+                                    <uc:CvElementInfo Category="MinimizeButton" Region="1405, 9, 34, 20" />
+                                    <uc:CvElementInfo Category="Button" Region="606, 96, 43, 22" />
+                                    <uc:CvElementInfo Category="Icon" Region="33, 35, 17, 18" />
+                                    <uc:CvElementInfo Category="Icon" Region="169, 33, 21, 21" />
+                                    <uc:CvElementInfo Category="MaximizeButton" Region="1440, 9, 33, 20" />
+                                    <uc:CvElementInfo Category="Button" Region="99, 95, 57, 22" />
+                                    <uc:CvElementInfo Category="Button" Region="548, 96, 58, 23" />
+                                    <uc:CvElementInfo Category="Button" Region="155, 96, 66, 22" />
+                                    <uc:CvElementInfo Category="Button" Region="478, 95, 72, 23" />
+                                    <uc:CvElementInfo Category="Button" Region="648, 96, 42, 22" />
+                                    <uc:CvElementInfo Category="Button" Region="219, 96, 56, 21" />
+                                    <uc:CvElementInfo Category="Icon" Region="192, 34, 20, 20" />
+                                    <uc:CvElementInfo Category="Icon" Region="260, 33, 22, 22" />
+                                    <uc:CvElementInfo Category="Button" Region="274, 95, 73, 23" />
+                                    <uc:CvElementInfo Category="Button" Region="12, 93, 45, 25" />
+                                    <uc:CvElementInfo Category="Icon" Region="237, 33, 22, 22" />
+                                    <uc:CvElementInfo Category="Icon" Region="54, 35, 20, 18" />
+                                    <uc:CvElementInfo Category="Icon" Region="11, 35, 17, 19" />
+                                    <uc:CvElementInfo Category="Button" Region="58, 95, 43, 22" />
+                                    <uc:CvElementInfo Category="InputBox" Region="1319, 488, 165, 19" />
+                                    <uc:CvElementInfo Category="Icon" Region="214, 34, 19, 20" />
+                                    <uc:CvElementInfo Category="InputBox" Region="1318, 444, 166, 18" />
+                                    <uc:CvElementInfo Category="Icon" Region="125, 35, 16, 18" />
+                                    <uc:CvElementInfo Category="Button" Region="19, 442, 72, 65" />
+                                    <uc:CvElementInfo Category="Icon" Region="8, 9, 19, 19" />
+                                    <uc:CvElementInfo Category="InputBox" Region="1319, 465, 166, 20" />
+                                    <uc:CvElementInfo Category="Icon" Region="78, 33, 19, 21" />
+                                    <uc:CvElementInfo Category="Icon" Region="103, 35, 15, 17" />
+                                    <uc:CvElementInfo Category="Icon" Region="147, 34, 19, 19" />
+                                    <uc:CvElementInfo Category="Button" Region="28, 66, 44, 21" />
+                                    <uc:CvElementInfo Category="ArrowButton" Region="16, 66, 15, 20" />
+                                    <uc:CvElementInfo Category="Cell" Region="225, 363, 96, 21" />
+                                    <uc:CvElementInfo Category="Cell" Region="704, 363, 203, 21" />
+                                    <uc:CvElementInfo Category="Cell" Region="608, 363, 96, 21" />
+                                    <uc:CvElementInfo Category="Cell" Region="417, 363, 96, 21" />
+                                    <uc:CvElementInfo Category="Cell" Region="513, 363, 95, 21" />
+                                    <uc:CvElementInfo Category="Cell" Region="321, 363, 96, 21" />
+                                    <uc:CvElementInfo Category="Cell" Region="194, 173, 31, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="225, 344, 96, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="194, 268, 31, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="704, 287, 203, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="704, 306, 203, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="704, 249, 203, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="194, 249, 31, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="704, 211, 203, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="194, 325, 31, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="113, 192, 81, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="194, 344, 31, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="113, 363, 81, 21" />
+                                    <uc:CvElementInfo Category="Cell" Region="194, 211, 31, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="194, 363, 31, 21" />
+                                    <uc:CvElementInfo Category="Cell" Region="113, 287, 81, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="113, 230, 81, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="704, 344, 203, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="704, 230, 203, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="16, 153, 97, 20" />
+                                    <uc:CvElementInfo Category="Cell" Region="704, 192, 203, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="113, 211, 81, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="113, 249, 81, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="704, 325, 203, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="194, 192, 31, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="225, 287, 96, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="225, 230, 96, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="194, 287, 31, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="225, 325, 96, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="704, 268, 203, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="608, 211, 96, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="113, 306, 81, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="417, 211, 96, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="513, 211, 95, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="225, 192, 96, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="113, 325, 81, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="16, 344, 97, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="225, 211, 96, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="113, 268, 81, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="321, 211, 96, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="113, 173, 81, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="225, 306, 96, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="194, 230, 31, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="608, 306, 96, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="513, 287, 95, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="608, 287, 96, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="417, 287, 96, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="608, 192, 96, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="608, 230, 96, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="321, 287, 96, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="417, 325, 96, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="513, 325, 95, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="225, 268, 96, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="16, 363, 97, 21" />
+                                    <uc:CvElementInfo Category="Cell" Region="513, 306, 95, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="513, 192, 95, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="417, 306, 96, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="513, 268, 95, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="608, 325, 96, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="417, 268, 96, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="225, 173, 96, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="417, 192, 96, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="321, 325, 96, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="321, 306, 96, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="225, 249, 96, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="417, 249, 96, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="513, 249, 95, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="417, 230, 96, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="608, 268, 96, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="321, 230, 96, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="417, 344, 96, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="513, 344, 95, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="513, 230, 95, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="608, 344, 96, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="513, 120, 95, 33" />
+                                    <uc:CvElementInfo Category="Cell" Region="321, 249, 96, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="16, 325, 97, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="608, 249, 96, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="194, 306, 31, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="321, 192, 96, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="321, 268, 96, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="321, 344, 96, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="16, 173, 97, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="16, 249, 97, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="608, 173, 96, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="704, 173, 203, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="513, 173, 95, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="113, 344, 81, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="417, 173, 96, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="16, 268, 97, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="16, 192, 97, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="225, 153, 96, 20" />
+                                    <uc:CvElementInfo Category="Cell" Region="321, 173, 96, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="321, 120, 96, 33" />
+                                    <uc:CvElementInfo Category="Cell" Region="113, 153, 81, 20" />
+                                    <uc:CvElementInfo Category="Cell" Region="16, 230, 97, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="194, 153, 31, 20" />
+                                    <uc:CvElementInfo Category="Cell" Region="16, 211, 97, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="417, 120, 96, 33" />
+                                    <uc:CvElementInfo Category="Cell" Region="225, 120, 96, 33" />
+                                    <uc:CvElementInfo Category="Cell" Region="16, 306, 97, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="16, 287, 97, 19" />
+                                    <uc:CvElementInfo Category="Cell" Region="16, 120, 97, 33" />
+                                    <uc:CvElementInfo Category="Cell" Region="113, 120, 81, 33" />
+                                    <uc:CvElementInfo Category="Cell" Region="194, 120, 31, 33" />
+                                    <uc:CvElementInfo Category="Cell" Region="704, 120, 203, 33" />
+                                    <uc:CvElementInfo Category="Cell" Region="417, 153, 96, 20" />
+                                    <uc:CvElementInfo Category="Cell" Region="608, 120, 96, 33" />
+                                    <uc:CvElementInfo Category="Cell" Region="321, 153, 96, 20" />
+                                    <uc:CvElementInfo Category="Cell" Region="513, 153, 95, 20" />
+                                    <uc:CvElementInfo Category="Cell" Region="704, 153, 203, 20" />
+                                    <uc:CvElementInfo Category="Cell" Region="608, 153, 96, 20" />
+                                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="1485, 65, 15, 21" />
+                                    <uc:CvElementInfo Category="CloseButton" Confidence="Runtime" Region="31, 70, 13, 14" />
+                                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="9, 10, 17, 19" />
+                                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="147, 35, 19, 19" />
+                                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="16, 66, 15, 20" />
+                                    <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="874, 124, 629, 304" />
+                                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="229, 132, 16, 16" />
+                                    <uc:CvElementInfo Category="CheckBox" Confidence="Runtime" Region="79, 35, 17, 18" />
+                                    <uc:CvElementInfo Category="ArrowButton" Confidence="Runtime" Region="103, 35, 14, 16" />
+                                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="14, 64, 17, 23" />
+                                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="54, 35, 20, 18" />
+                                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="1317, 465, 167, 19" />
+                                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="30, 68, 15, 18" />
+                                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="169, 34, 21, 19" />
+                                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="125, 34, 18, 19" />
+                                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="197, 124, 30, 28" />
+                                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="1484, 65, 20, 25" />
+                                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="80, 35, 16, 20" />
+                                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="9, 34, 19, 22" />
+                                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="1318, 487, 168, 21" />
+                                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="17, 440, 74, 66" />
+                                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="20, 491, 73, 20" />
+                                    <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="565, 64, 941, 25" />
+                                    <uc:CvElementInfo Category="ArrowButton" Region="1483, 64, 19, 25" />
+                                  </scg:List>
+                                </uc:CVCache.CvUiElements>
+                                <uc:CVCache.OcrTexts>
+                                  <scg:List x:TypeArguments="uc:OcrTextInfo" Capacity="256">
+                                    <uc:OcrTextInfo Region="11, 12, 12, 13" Text="P" />
+                                    <uc:OcrTextInfo Region="28, 12, 22, 16" Text="Pay" />
+                                    <uc:OcrTextInfo Region="51, 12, 37, 14" Text="Details" />
+                                    <uc:OcrTextInfo Region="1413, 11, 16, 14" Text="D" />
+                                    <uc:OcrTextInfo Region="1481, 10, 17, 15" Text="X" />
+                                    <uc:OcrTextInfo Region="103, 35, 13, 15" Text="F" />
+                                    <uc:OcrTextInfo Region="128, 36, 11, 14" Text="S" />
+                                    <uc:OcrTextInfo Region="150, 37, 12, 13" Text="O" />
+                                    <uc:OcrTextInfo Region="18, 66, 11, 17" Text="4" />
+                                    <uc:OcrTextInfo Region="33, 70, 10, 13" Text="X" />
+                                    <uc:OcrTextInfo Region="43, 69, 25, 14" Text="Abc" />
+                                    <uc:OcrTextInfo Region="21, 97, 28, 13" Text="Basic" />
+                                    <uc:OcrTextInfo Region="60, 98, 35, 15" Text="Hourly" />
+                                    <uc:OcrTextInfo Region="103, 98, 47, 14" Text="Additions" />
+                                    <uc:OcrTextInfo Region="159, 98, 56, 13" Text="Deductions" />
+                                    <uc:OcrTextInfo Region="224, 99, 45, 12" Text="Pensions" />
+                                    <uc:OcrTextInfo Region="279, 98, 64, 14" Text="Attachments" />
+                                    <uc:OcrTextInfo Region="350, 99, 21, 12" Text="SSP" />
+                                    <uc:OcrTextInfo Region="380, 99, 24, 12" Text="SMP" />
+                                    <uc:OcrTextInfo Region="414, 98, 37, 15" Text="Holiday" />
+                                    <uc:OcrTextInfo Region="451, 99, 22, 14" Text="Pay" />
+                                    <uc:OcrTextInfo Region="481, 99, 63, 14" Text="Adjustments" />
+                                    <uc:OcrTextInfo Region="554, 99, 46, 14" Text="Rounding" />
+                                    <uc:OcrTextInfo Region="611, 99, 32, 12" Text="Loans" />
+                                    <uc:OcrTextInfo Region="653, 99, 32, 13" Text="Notes" />
+                                    <uc:OcrTextInfo Region="692, 99, 22, 12" Text="Tax" />
+                                    <uc:OcrTextInfo Region="718, 99, 27, 12" Text="&amp;NIC" />
+                                    <uc:OcrTextInfo Region="116, 126, 24, 13" Text="Tax" />
+                                    <uc:OcrTextInfo Region="202, 125, 16, 13" Text="NI" />
+                                    <uc:OcrTextInfo Region="261, 126, 33, 13" Text="Basic" />
+                                    <uc:OcrTextInfo Region="295, 126, 25, 15" Text="Pay" />
+                                    <uc:OcrTextInfo Region="373, 126, 43, 14" Text="Hourly" />
+                                    <uc:OcrTextInfo Region="450, 125, 62, 15" Text="Additions" />
+                                    <uc:OcrTextInfo Region="537, 126, 71, 14" Text="Deductions" />
+                                    <uc:OcrTextInfo Region="638, 126, 30, 14" Text="SSP," />
+                                    <uc:OcrTextInfo Region="670, 126, 32, 13" Text="SMP," />
+                                    <uc:OcrTextInfo Region="708, 125, 39, 15" Text="Notes" />
+                                    <uc:OcrTextInfo Region="116, 140, 34, 13" Text="Code" />
+                                    <uc:OcrTextInfo Region="198, 139, 24, 13" Text="Let" />
+                                    <uc:OcrTextInfo Region="391, 140, 25, 15" Text="Pay" />
+                                    <uc:OcrTextInfo Region="635, 140, 27, 13" Text="SPP" />
+                                    <uc:OcrTextInfo Region="662, 139, 13, 14" Text="&amp;" />
+                                    <uc:OcrTextInfo Region="676, 140, 27, 13" Text="SAP" />
+                                    <uc:OcrTextInfo Region="49, 158, 63, 16" Text="Apr-2020" />
+                                    <uc:OcrTextInfo Region="116, 159, 37, 14" Text="1250L" />
+                                    <uc:OcrTextInfo Region="205, 160, 11, 13" Text="A" />
+                                    <uc:OcrTextInfo Region="272, 160, 47, 13" Text="1250.00" />
+                                    <uc:OcrTextInfo Region="47, 178, 64, 16" Text="May-2020" />
+                                    <uc:OcrTextInfo Region="116, 178, 38, 14" Text="1250L" />
+                                    <uc:OcrTextInfo Region="204, 178, 12, 13" Text="A" />
+                                    <uc:OcrTextInfo Region="271, 178, 48, 13" Text="1250.00" />
+                                    <uc:OcrTextInfo Region="50, 197, 61, 13" Text="Jun-2020" />
+                                    <uc:OcrTextInfo Region="116, 197, 37, 13" Text="1250L" />
+                                    <uc:OcrTextInfo Region="205, 197, 10, 13" Text="A" />
+                                    <uc:OcrTextInfo Region="272, 197, 47, 14" Text="1250.00" />
+                                    <uc:OcrTextInfo Region="54, 215, 58, 14" Text="Jul-2020" />
+                                    <uc:OcrTextInfo Region="117, 216, 36, 14" Text="1250L" />
+                                    <uc:OcrTextInfo Region="205, 216, 11, 13" Text="A" />
+                                    <uc:OcrTextInfo Region="271, 217, 48, 13" Text="1250.00" />
+                                    <uc:OcrTextInfo Region="47, 235, 65, 16" Text="Aug-2020" />
+                                    <uc:OcrTextInfo Region="116, 235, 37, 13" Text="1250L" />
+                                    <uc:OcrTextInfo Region="205, 236, 11, 12" Text="A" />
+                                    <uc:OcrTextInfo Region="271, 235, 48, 14" Text="1250.00" />
+                                    <uc:OcrTextInfo Region="48, 253, 64, 16" Text="Sep-2020" />
+                                    <uc:OcrTextInfo Region="116, 254, 37, 14" Text="1250L" />
+                                    <uc:OcrTextInfo Region="205, 255, 11, 12" Text="A" />
+                                    <uc:OcrTextInfo Region="272, 254, 48, 14" Text="1250.00" />
+                                    <uc:OcrTextInfo Region="50, 273, 62, 13" Text="Oct-2020" />
+                                    <uc:OcrTextInfo Region="116, 273, 37, 13" Text="1250L" />
+                                    <uc:OcrTextInfo Region="205, 273, 11, 13" Text="A" />
+                                    <uc:OcrTextInfo Region="271, 273, 48, 13" Text="1250.00" />
+                                    <uc:OcrTextInfo Region="51, 292, 61, 13" Text="Nov-2020" />
+                                    <uc:OcrTextInfo Region="116, 292, 36, 13" Text="1250L" />
+                                    <uc:OcrTextInfo Region="205, 293, 11, 12" Text="A" />
+                                    <uc:OcrTextInfo Region="272, 292, 48, 14" Text="1250.00" />
+                                    <uc:OcrTextInfo Region="51, 311, 60, 13" Text="Dec-2020" />
+                                    <uc:OcrTextInfo Region="116, 311, 37, 14" Text="1250L" />
+                                    <uc:OcrTextInfo Region="205, 312, 11, 12" Text="A" />
+                                    <uc:OcrTextInfo Region="271, 312, 48, 13" Text="1250.00" />
+                                    <uc:OcrTextInfo Region="50, 330, 62, 14" Text="Jan-2021" />
+                                    <uc:OcrTextInfo Region="116, 330, 37, 13" Text="1250L" />
+                                    <uc:OcrTextInfo Region="205, 331, 11, 12" Text="A" />
+                                    <uc:OcrTextInfo Region="271, 330, 48, 14" Text="1250.00" />
+                                    <uc:OcrTextInfo Region="50, 348, 61, 15" Text="Feb-2021" />
+                                    <uc:OcrTextInfo Region="116, 349, 37, 13" Text="1250L" />
+                                    <uc:OcrTextInfo Region="205, 349, 11, 13" Text="A" />
+                                    <uc:OcrTextInfo Region="272, 349, 48, 14" Text="1250.00" />
+                                    <uc:OcrTextInfo Region="49, 368, 27, 13" Text="Mar" />
+                                    <uc:OcrTextInfo Region="77, 368, 34, 13" Text="2021" />
+                                    <uc:OcrTextInfo Region="117, 368, 36, 13" Text="1250L" />
+                                    <uc:OcrTextInfo Region="205, 369, 11, 12" Text="A" />
+                                    <uc:OcrTextInfo Region="271, 369, 49, 12" Text="1250.00" />
+                                    <uc:OcrTextInfo Region="44, 451, 24, 13" Text="Click" />
+                                    <uc:OcrTextInfo Region="97, 447, 27, 12" Text="Basic" />
+                                    <uc:OcrTextInfo Region="124, 447, 21, 14" Text="Pay" />
+                                    <uc:OcrTextInfo Region="393, 447, 41, 12" Text="1250.00" />
+                                    <uc:OcrTextInfo Region="796, 448, 37, 11" Text="Income" />
+                                    <uc:OcrTextInfo Region="832, 447, 22, 12" Text="Tax" />
+                                    <uc:OcrTextInfo Region="1102, 447, 30, 13" Text="41.40" />
+                                    <uc:OcrTextInfo Region="1144, 447, 40, 13" Text="Pension" />
+                                    <uc:OcrTextInfo Region="1456, 447, 26, 13" Text="0.00" />
+                                    <uc:OcrTextInfo Region="35, 465, 25, 12" Text="here" />
+                                    <uc:OcrTextInfo Region="61, 465, 16, 12" Text="for" />
+                                    <uc:OcrTextInfo Region="97, 469, 34, 13" Text="Hourly" />
+                                    <uc:OcrTextInfo Region="132, 471, 20, 12" Text="pay" />
+                                    <uc:OcrTextInfo Region="409, 469, 26, 13" Text="0.00" />
+                                    <uc:OcrTextInfo Region="446, 468, 31, 13" Text="Other" />
+                                    <uc:OcrTextInfo Region="478, 469, 46, 12" Text="Additions" />
+                                    <uc:OcrTextInfo Region="759, 469, 24, 13" Text="0.00" />
+                                    <uc:OcrTextInfo Region="795, 469, 22, 12" Text="Nat" />
+                                    <uc:OcrTextInfo Region="815, 469, 18, 12" Text="Ins" />
+                                    <uc:OcrTextInfo Region="1103, 469, 30, 12" Text="54.96" />
+                                    <uc:OcrTextInfo Region="1144, 468, 31, 13" Text="Other" />
+                                    <uc:OcrTextInfo Region="1176, 468, 55, 13" Text="Deductions" />
+                                    <uc:OcrTextInfo Region="1229, 460, 60, 17" Text="ctivate" />
+                                    <uc:OcrTextInfo Region="1322, 466, 53, 11" Text="ICIOWVS" />
+                                    <uc:OcrTextInfo Region="1457, 469, 24, 13" Text="0.00" />
+                                    <uc:OcrTextInfo Region="27, 479, 58, 13" Text="explanation" />
+                                    <uc:OcrTextInfo Region="98, 491, 48, 13" Text="Statutory" />
+                                    <uc:OcrTextInfo Region="147, 492, 21, 13" Text="Pay" />
+                                    <uc:OcrTextInfo Region="409, 491, 26, 12" Text="0.00" />
+                                    <uc:OcrTextInfo Region="446, 490, 33, 14" Text="Total" />
+                                    <uc:OcrTextInfo Region="479, 493, 24, 13" Text="pay" />
+                                    <uc:OcrTextInfo Region="736, 491, 48, 12" Text="1250.00" />
+                                    <uc:OcrTextInfo Region="1145, 491, 22, 13" Text="Net" />
+                                    <uc:OcrTextInfo Region="1167, 493, 24, 13" Text="pay" />
+                                    <uc:OcrTextInfo Region="1216, 485, 20, 12" Text="Go" />
+                                    <uc:OcrTextInfo Region="1237, 484, 17, 14" Text="to" />
+                                    <uc:OcrTextInfo Region="1255, 484, 57, 17" Text="Settings" />
+                                    <uc:OcrTextInfo Region="1434, 491, 48, 12" Text="1153.64" />
+                                  </scg:List>
+                                </uc:CVCache.OcrTexts>
+                              </uc:CVCache>
+                            </scg:List>
+                          </uc:CvCacheContainer.Caches>
+                        </uc:CvCacheContainer>
+                      </p:CVScope.DesignTimeCacheContainer>
+                      <p:CVScope.OCREngine>
+                        <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd:Rectangle, x:String))">
+                          <ActivityFunc.Argument>
+                            <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+                          </ActivityFunc.Argument>
+                          <p1:UiPathScreenOCR Endpoint="{x:Null}" Output="{x:Null}" Text="{x:Null}" ApiKey="[in_RobotCvApiKey]" ComputeSkewAngle="False" ExtractWords="True" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="UiPathScreenOCR_1" Image="[Image]" Language="en" Profile="Screen" Scale="1" />
+                        </ActivityFunc>
+                      </p:CVScope.OCREngine>
+                      <p:CVScope.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="cfcb350b-e4b2-400d-a38b-aa65622dac7e" InformativeScreenshot="fc70370c4f03c8cce9f7455f3d98766e" Selector="&lt;wnd cls='Twin*' title='Pay*' /&gt;" WaitForReady="COMPLETE">
+                          <ui:Target.TimeoutMS>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:Target.TimeoutMS>
+                        </ui:Target>
+                      </p:CVScope.Target>
+                      <p:CVScope.UseLocalServer>
+                        <InArgument x:TypeArguments="x:Boolean" />
+                      </p:CVScope.UseLocalServer>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </p:CVScope>
                   </Sequence>
-                </ActivityAction>
-              </p:CVScope.Body>
-              <p:CVScope.DesignTimeCache>
-                <uc:CVCache CvUiElements="{x:Null}" OcrTexts="{x:Null}" />
-              </p:CVScope.DesignTimeCache>
-              <p:CVScope.DesignTimeCacheContainer>
-                <uc:CvCacheContainer>
-                  <uc:CvCacheContainer.Caches>
-                    <scg:List x:TypeArguments="uc:CVCache" Capacity="1">
-                      <uc:CVCache DisplayName="Payslip Details Dialog" Id="21d81fee-ee0e-413a-a329-10dd5c5543d1" InformativeScreenshot="200b7addd2bd2f56ab4bf17f7f48c5a9" LogicalPosition="2, 132" OcrText="P Pay Details D X F S O 4 X Abc Basic Hourly Additions Deductions Pensions Attachments SSP SMP Holiday Pay Adjustments Rounding Loans Notes Tax &amp;NIC Tax NI Basic Pay Hourly Additions Deductions SSP, SMP, Notes Code Let Pay SPP &amp; SAP Apr-2020 1250L A 1250.00 May-2020 1250L A 1250.00 Jun-2020 1250L A 1250.00 Jul-2020 1250L A 1250.00 Aug-2020 1250L A 1250.00 Sep-2020 1250L A 1250.00 Oct-2020 1250L A 1250.00 Nov-2020 1250L A 1250.00 Dec-2020 1250L A 1250.00 Jan-2021 1250L A 1250.00 Feb-2021 1250L A 1250.00 Mar 2021 1250L A 1250.00 Click Basic Pay 1250.00 Income Tax 41.40 Pension 0.00 here for Hourly pay 0.00 Other Additions 0.00 Nat Ins 54.96 Other Deductions ctivate ICIOWVS 0.00 explanation Statutory Pay 0.00 Total pay 1250.00 Net pay Go to Settings 1153.64" Position="2, 132" ScreenshotGuid="443810ae-b860-4e1d-b22a-2d1d073a1c52" ServerVersion="1">
-                        <uc:CVCache.CvTables>
-                          <x:Array Type="uc:CvTableInfo">
-                            <uc:CvTableInfo>
-                              <uc:CvTableInfo.Columns>
-                                <x:Array Type="x:Int32">
-                                  <x:Int32>16</x:Int32>
-                                  <x:Int32>113</x:Int32>
-                                  <x:Int32>194</x:Int32>
-                                  <x:Int32>225</x:Int32>
-                                  <x:Int32>321</x:Int32>
-                                  <x:Int32>417</x:Int32>
-                                  <x:Int32>513</x:Int32>
-                                  <x:Int32>608</x:Int32>
-                                  <x:Int32>704</x:Int32>
-                                  <x:Int32>907</x:Int32>
-                                </x:Array>
-                              </uc:CvTableInfo.Columns>
-                              <uc:CvTableInfo.Rows>
-                                <x:Array Type="x:Int32">
-                                  <x:Int32>120</x:Int32>
-                                  <x:Int32>153</x:Int32>
-                                  <x:Int32>173</x:Int32>
-                                  <x:Int32>192</x:Int32>
-                                  <x:Int32>211</x:Int32>
-                                  <x:Int32>230</x:Int32>
-                                  <x:Int32>249</x:Int32>
-                                  <x:Int32>268</x:Int32>
-                                  <x:Int32>287</x:Int32>
-                                  <x:Int32>306</x:Int32>
-                                  <x:Int32>325</x:Int32>
-                                  <x:Int32>344</x:Int32>
-                                  <x:Int32>363</x:Int32>
-                                  <x:Int32>384</x:Int32>
-                                </x:Array>
-                              </uc:CvTableInfo.Rows>
-                            </uc:CvTableInfo>
-                          </x:Array>
-                        </uc:CVCache.CvTables>
-                        <uc:CVCache.CvUiElements>
-                          <scg:List x:TypeArguments="uc:CvElementInfo" Capacity="256">
-                            <uc:CvElementInfo Category="InputBox" Region="969, 443, 166, 19" />
-                            <uc:CvElementInfo Category="InputBox" Region="271, 444, 166, 19" />
-                            <uc:CvElementInfo Category="InputBox" Region="969, 466, 165, 18" />
-                            <uc:CvElementInfo Category="InputBox" Region="619, 487, 167, 20" />
-                            <uc:CvElementInfo Category="InputBox" Region="270, 488, 167, 19" />
-                            <uc:CvElementInfo Category="Icon" Region="283, 34, 21, 20" />
-                            <uc:CvElementInfo Category="Button" Region="407, 96, 70, 23" />
-                            <uc:CvElementInfo Category="InputBox" Region="620, 466, 167, 19" />
-                            <uc:CvElementInfo Category="InputBox" Region="271, 467, 166, 17" />
-                            <uc:CvElementInfo Category="Button" Region="689, 96, 62, 22" />
-                            <uc:CvElementInfo Category="CloseButton" Region="1474, 9, 33, 19" />
-                            <uc:CvElementInfo Category="Button" Region="347, 96, 63, 21" />
-                            <uc:CvElementInfo Category="MinimizeButton" Region="1405, 9, 34, 20" />
-                            <uc:CvElementInfo Category="Button" Region="606, 96, 43, 22" />
-                            <uc:CvElementInfo Category="Icon" Region="33, 35, 17, 18" />
-                            <uc:CvElementInfo Category="Icon" Region="169, 33, 21, 21" />
-                            <uc:CvElementInfo Category="MaximizeButton" Region="1440, 9, 33, 20" />
-                            <uc:CvElementInfo Category="Button" Region="99, 95, 57, 22" />
-                            <uc:CvElementInfo Category="Button" Region="548, 96, 58, 23" />
-                            <uc:CvElementInfo Category="Button" Region="155, 96, 66, 22" />
-                            <uc:CvElementInfo Category="Button" Region="478, 95, 72, 23" />
-                            <uc:CvElementInfo Category="Button" Region="648, 96, 42, 22" />
-                            <uc:CvElementInfo Category="Button" Region="219, 96, 56, 21" />
-                            <uc:CvElementInfo Category="Icon" Region="192, 34, 20, 20" />
-                            <uc:CvElementInfo Category="Icon" Region="260, 33, 22, 22" />
-                            <uc:CvElementInfo Category="Button" Region="274, 95, 73, 23" />
-                            <uc:CvElementInfo Category="Button" Region="12, 93, 45, 25" />
-                            <uc:CvElementInfo Category="Icon" Region="237, 33, 22, 22" />
-                            <uc:CvElementInfo Category="Icon" Region="54, 35, 20, 18" />
-                            <uc:CvElementInfo Category="Icon" Region="11, 35, 17, 19" />
-                            <uc:CvElementInfo Category="Button" Region="58, 95, 43, 22" />
-                            <uc:CvElementInfo Category="InputBox" Region="1319, 488, 165, 19" />
-                            <uc:CvElementInfo Category="Icon" Region="214, 34, 19, 20" />
-                            <uc:CvElementInfo Category="InputBox" Region="1318, 444, 166, 18" />
-                            <uc:CvElementInfo Category="Icon" Region="125, 35, 16, 18" />
-                            <uc:CvElementInfo Category="Button" Region="19, 442, 72, 65" />
-                            <uc:CvElementInfo Category="Icon" Region="8, 9, 19, 19" />
-                            <uc:CvElementInfo Category="InputBox" Region="1319, 465, 166, 20" />
-                            <uc:CvElementInfo Category="Icon" Region="78, 33, 19, 21" />
-                            <uc:CvElementInfo Category="Icon" Region="103, 35, 15, 17" />
-                            <uc:CvElementInfo Category="Icon" Region="147, 34, 19, 19" />
-                            <uc:CvElementInfo Category="Button" Region="28, 66, 44, 21" />
-                            <uc:CvElementInfo Category="ArrowButton" Region="16, 66, 15, 20" />
-                            <uc:CvElementInfo Category="Cell" Region="225, 363, 96, 21" />
-                            <uc:CvElementInfo Category="Cell" Region="704, 363, 203, 21" />
-                            <uc:CvElementInfo Category="Cell" Region="608, 363, 96, 21" />
-                            <uc:CvElementInfo Category="Cell" Region="417, 363, 96, 21" />
-                            <uc:CvElementInfo Category="Cell" Region="513, 363, 95, 21" />
-                            <uc:CvElementInfo Category="Cell" Region="321, 363, 96, 21" />
-                            <uc:CvElementInfo Category="Cell" Region="194, 173, 31, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="225, 344, 96, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="194, 268, 31, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="704, 287, 203, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="704, 306, 203, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="704, 249, 203, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="194, 249, 31, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="704, 211, 203, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="194, 325, 31, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="113, 192, 81, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="194, 344, 31, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="113, 363, 81, 21" />
-                            <uc:CvElementInfo Category="Cell" Region="194, 211, 31, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="194, 363, 31, 21" />
-                            <uc:CvElementInfo Category="Cell" Region="113, 287, 81, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="113, 230, 81, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="704, 344, 203, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="704, 230, 203, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="16, 153, 97, 20" />
-                            <uc:CvElementInfo Category="Cell" Region="704, 192, 203, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="113, 211, 81, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="113, 249, 81, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="704, 325, 203, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="194, 192, 31, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="225, 287, 96, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="225, 230, 96, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="194, 287, 31, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="225, 325, 96, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="704, 268, 203, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="608, 211, 96, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="113, 306, 81, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="417, 211, 96, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="513, 211, 95, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="225, 192, 96, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="113, 325, 81, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="16, 344, 97, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="225, 211, 96, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="113, 268, 81, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="321, 211, 96, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="113, 173, 81, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="225, 306, 96, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="194, 230, 31, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="608, 306, 96, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="513, 287, 95, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="608, 287, 96, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="417, 287, 96, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="608, 192, 96, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="608, 230, 96, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="321, 287, 96, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="417, 325, 96, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="513, 325, 95, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="225, 268, 96, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="16, 363, 97, 21" />
-                            <uc:CvElementInfo Category="Cell" Region="513, 306, 95, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="513, 192, 95, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="417, 306, 96, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="513, 268, 95, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="608, 325, 96, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="417, 268, 96, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="225, 173, 96, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="417, 192, 96, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="321, 325, 96, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="321, 306, 96, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="225, 249, 96, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="417, 249, 96, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="513, 249, 95, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="417, 230, 96, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="608, 268, 96, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="321, 230, 96, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="417, 344, 96, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="513, 344, 95, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="513, 230, 95, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="608, 344, 96, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="513, 120, 95, 33" />
-                            <uc:CvElementInfo Category="Cell" Region="321, 249, 96, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="16, 325, 97, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="608, 249, 96, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="194, 306, 31, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="321, 192, 96, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="321, 268, 96, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="321, 344, 96, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="16, 173, 97, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="16, 249, 97, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="608, 173, 96, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="704, 173, 203, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="513, 173, 95, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="113, 344, 81, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="417, 173, 96, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="16, 268, 97, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="16, 192, 97, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="225, 153, 96, 20" />
-                            <uc:CvElementInfo Category="Cell" Region="321, 173, 96, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="321, 120, 96, 33" />
-                            <uc:CvElementInfo Category="Cell" Region="113, 153, 81, 20" />
-                            <uc:CvElementInfo Category="Cell" Region="16, 230, 97, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="194, 153, 31, 20" />
-                            <uc:CvElementInfo Category="Cell" Region="16, 211, 97, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="417, 120, 96, 33" />
-                            <uc:CvElementInfo Category="Cell" Region="225, 120, 96, 33" />
-                            <uc:CvElementInfo Category="Cell" Region="16, 306, 97, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="16, 287, 97, 19" />
-                            <uc:CvElementInfo Category="Cell" Region="16, 120, 97, 33" />
-                            <uc:CvElementInfo Category="Cell" Region="113, 120, 81, 33" />
-                            <uc:CvElementInfo Category="Cell" Region="194, 120, 31, 33" />
-                            <uc:CvElementInfo Category="Cell" Region="704, 120, 203, 33" />
-                            <uc:CvElementInfo Category="Cell" Region="417, 153, 96, 20" />
-                            <uc:CvElementInfo Category="Cell" Region="608, 120, 96, 33" />
-                            <uc:CvElementInfo Category="Cell" Region="321, 153, 96, 20" />
-                            <uc:CvElementInfo Category="Cell" Region="513, 153, 95, 20" />
-                            <uc:CvElementInfo Category="Cell" Region="704, 153, 203, 20" />
-                            <uc:CvElementInfo Category="Cell" Region="608, 153, 96, 20" />
-                            <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="1485, 65, 15, 21" />
-                            <uc:CvElementInfo Category="CloseButton" Confidence="Runtime" Region="31, 70, 13, 14" />
-                            <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="9, 10, 17, 19" />
-                            <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="147, 35, 19, 19" />
-                            <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="16, 66, 15, 20" />
-                            <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="874, 124, 629, 304" />
-                            <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="229, 132, 16, 16" />
-                            <uc:CvElementInfo Category="CheckBox" Confidence="Runtime" Region="79, 35, 17, 18" />
-                            <uc:CvElementInfo Category="ArrowButton" Confidence="Runtime" Region="103, 35, 14, 16" />
-                            <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="14, 64, 17, 23" />
-                            <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="54, 35, 20, 18" />
-                            <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="1317, 465, 167, 19" />
-                            <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="30, 68, 15, 18" />
-                            <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="169, 34, 21, 19" />
-                            <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="125, 34, 18, 19" />
-                            <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="197, 124, 30, 28" />
-                            <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="1484, 65, 20, 25" />
-                            <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="80, 35, 16, 20" />
-                            <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="9, 34, 19, 22" />
-                            <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="1318, 487, 168, 21" />
-                            <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="17, 440, 74, 66" />
-                            <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="20, 491, 73, 20" />
-                            <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="565, 64, 941, 25" />
-                            <uc:CvElementInfo Category="ArrowButton" Region="1483, 64, 19, 25" />
-                          </scg:List>
-                        </uc:CVCache.CvUiElements>
-                        <uc:CVCache.OcrTexts>
-                          <scg:List x:TypeArguments="uc:OcrTextInfo" Capacity="256">
-                            <uc:OcrTextInfo Region="11, 12, 12, 13" Text="P" />
-                            <uc:OcrTextInfo Region="28, 12, 22, 16" Text="Pay" />
-                            <uc:OcrTextInfo Region="51, 12, 37, 14" Text="Details" />
-                            <uc:OcrTextInfo Region="1413, 11, 16, 14" Text="D" />
-                            <uc:OcrTextInfo Region="1481, 10, 17, 15" Text="X" />
-                            <uc:OcrTextInfo Region="103, 35, 13, 15" Text="F" />
-                            <uc:OcrTextInfo Region="128, 36, 11, 14" Text="S" />
-                            <uc:OcrTextInfo Region="150, 37, 12, 13" Text="O" />
-                            <uc:OcrTextInfo Region="18, 66, 11, 17" Text="4" />
-                            <uc:OcrTextInfo Region="33, 70, 10, 13" Text="X" />
-                            <uc:OcrTextInfo Region="43, 69, 25, 14" Text="Abc" />
-                            <uc:OcrTextInfo Region="21, 97, 28, 13" Text="Basic" />
-                            <uc:OcrTextInfo Region="60, 98, 35, 15" Text="Hourly" />
-                            <uc:OcrTextInfo Region="103, 98, 47, 14" Text="Additions" />
-                            <uc:OcrTextInfo Region="159, 98, 56, 13" Text="Deductions" />
-                            <uc:OcrTextInfo Region="224, 99, 45, 12" Text="Pensions" />
-                            <uc:OcrTextInfo Region="279, 98, 64, 14" Text="Attachments" />
-                            <uc:OcrTextInfo Region="350, 99, 21, 12" Text="SSP" />
-                            <uc:OcrTextInfo Region="380, 99, 24, 12" Text="SMP" />
-                            <uc:OcrTextInfo Region="414, 98, 37, 15" Text="Holiday" />
-                            <uc:OcrTextInfo Region="451, 99, 22, 14" Text="Pay" />
-                            <uc:OcrTextInfo Region="481, 99, 63, 14" Text="Adjustments" />
-                            <uc:OcrTextInfo Region="554, 99, 46, 14" Text="Rounding" />
-                            <uc:OcrTextInfo Region="611, 99, 32, 12" Text="Loans" />
-                            <uc:OcrTextInfo Region="653, 99, 32, 13" Text="Notes" />
-                            <uc:OcrTextInfo Region="692, 99, 22, 12" Text="Tax" />
-                            <uc:OcrTextInfo Region="718, 99, 27, 12" Text="&amp;NIC" />
-                            <uc:OcrTextInfo Region="116, 126, 24, 13" Text="Tax" />
-                            <uc:OcrTextInfo Region="202, 125, 16, 13" Text="NI" />
-                            <uc:OcrTextInfo Region="261, 126, 33, 13" Text="Basic" />
-                            <uc:OcrTextInfo Region="295, 126, 25, 15" Text="Pay" />
-                            <uc:OcrTextInfo Region="373, 126, 43, 14" Text="Hourly" />
-                            <uc:OcrTextInfo Region="450, 125, 62, 15" Text="Additions" />
-                            <uc:OcrTextInfo Region="537, 126, 71, 14" Text="Deductions" />
-                            <uc:OcrTextInfo Region="638, 126, 30, 14" Text="SSP," />
-                            <uc:OcrTextInfo Region="670, 126, 32, 13" Text="SMP," />
-                            <uc:OcrTextInfo Region="708, 125, 39, 15" Text="Notes" />
-                            <uc:OcrTextInfo Region="116, 140, 34, 13" Text="Code" />
-                            <uc:OcrTextInfo Region="198, 139, 24, 13" Text="Let" />
-                            <uc:OcrTextInfo Region="391, 140, 25, 15" Text="Pay" />
-                            <uc:OcrTextInfo Region="635, 140, 27, 13" Text="SPP" />
-                            <uc:OcrTextInfo Region="662, 139, 13, 14" Text="&amp;" />
-                            <uc:OcrTextInfo Region="676, 140, 27, 13" Text="SAP" />
-                            <uc:OcrTextInfo Region="49, 158, 63, 16" Text="Apr-2020" />
-                            <uc:OcrTextInfo Region="116, 159, 37, 14" Text="1250L" />
-                            <uc:OcrTextInfo Region="205, 160, 11, 13" Text="A" />
-                            <uc:OcrTextInfo Region="272, 160, 47, 13" Text="1250.00" />
-                            <uc:OcrTextInfo Region="47, 178, 64, 16" Text="May-2020" />
-                            <uc:OcrTextInfo Region="116, 178, 38, 14" Text="1250L" />
-                            <uc:OcrTextInfo Region="204, 178, 12, 13" Text="A" />
-                            <uc:OcrTextInfo Region="271, 178, 48, 13" Text="1250.00" />
-                            <uc:OcrTextInfo Region="50, 197, 61, 13" Text="Jun-2020" />
-                            <uc:OcrTextInfo Region="116, 197, 37, 13" Text="1250L" />
-                            <uc:OcrTextInfo Region="205, 197, 10, 13" Text="A" />
-                            <uc:OcrTextInfo Region="272, 197, 47, 14" Text="1250.00" />
-                            <uc:OcrTextInfo Region="54, 215, 58, 14" Text="Jul-2020" />
-                            <uc:OcrTextInfo Region="117, 216, 36, 14" Text="1250L" />
-                            <uc:OcrTextInfo Region="205, 216, 11, 13" Text="A" />
-                            <uc:OcrTextInfo Region="271, 217, 48, 13" Text="1250.00" />
-                            <uc:OcrTextInfo Region="47, 235, 65, 16" Text="Aug-2020" />
-                            <uc:OcrTextInfo Region="116, 235, 37, 13" Text="1250L" />
-                            <uc:OcrTextInfo Region="205, 236, 11, 12" Text="A" />
-                            <uc:OcrTextInfo Region="271, 235, 48, 14" Text="1250.00" />
-                            <uc:OcrTextInfo Region="48, 253, 64, 16" Text="Sep-2020" />
-                            <uc:OcrTextInfo Region="116, 254, 37, 14" Text="1250L" />
-                            <uc:OcrTextInfo Region="205, 255, 11, 12" Text="A" />
-                            <uc:OcrTextInfo Region="272, 254, 48, 14" Text="1250.00" />
-                            <uc:OcrTextInfo Region="50, 273, 62, 13" Text="Oct-2020" />
-                            <uc:OcrTextInfo Region="116, 273, 37, 13" Text="1250L" />
-                            <uc:OcrTextInfo Region="205, 273, 11, 13" Text="A" />
-                            <uc:OcrTextInfo Region="271, 273, 48, 13" Text="1250.00" />
-                            <uc:OcrTextInfo Region="51, 292, 61, 13" Text="Nov-2020" />
-                            <uc:OcrTextInfo Region="116, 292, 36, 13" Text="1250L" />
-                            <uc:OcrTextInfo Region="205, 293, 11, 12" Text="A" />
-                            <uc:OcrTextInfo Region="272, 292, 48, 14" Text="1250.00" />
-                            <uc:OcrTextInfo Region="51, 311, 60, 13" Text="Dec-2020" />
-                            <uc:OcrTextInfo Region="116, 311, 37, 14" Text="1250L" />
-                            <uc:OcrTextInfo Region="205, 312, 11, 12" Text="A" />
-                            <uc:OcrTextInfo Region="271, 312, 48, 13" Text="1250.00" />
-                            <uc:OcrTextInfo Region="50, 330, 62, 14" Text="Jan-2021" />
-                            <uc:OcrTextInfo Region="116, 330, 37, 13" Text="1250L" />
-                            <uc:OcrTextInfo Region="205, 331, 11, 12" Text="A" />
-                            <uc:OcrTextInfo Region="271, 330, 48, 14" Text="1250.00" />
-                            <uc:OcrTextInfo Region="50, 348, 61, 15" Text="Feb-2021" />
-                            <uc:OcrTextInfo Region="116, 349, 37, 13" Text="1250L" />
-                            <uc:OcrTextInfo Region="205, 349, 11, 13" Text="A" />
-                            <uc:OcrTextInfo Region="272, 349, 48, 14" Text="1250.00" />
-                            <uc:OcrTextInfo Region="49, 368, 27, 13" Text="Mar" />
-                            <uc:OcrTextInfo Region="77, 368, 34, 13" Text="2021" />
-                            <uc:OcrTextInfo Region="117, 368, 36, 13" Text="1250L" />
-                            <uc:OcrTextInfo Region="205, 369, 11, 12" Text="A" />
-                            <uc:OcrTextInfo Region="271, 369, 49, 12" Text="1250.00" />
-                            <uc:OcrTextInfo Region="44, 451, 24, 13" Text="Click" />
-                            <uc:OcrTextInfo Region="97, 447, 27, 12" Text="Basic" />
-                            <uc:OcrTextInfo Region="124, 447, 21, 14" Text="Pay" />
-                            <uc:OcrTextInfo Region="393, 447, 41, 12" Text="1250.00" />
-                            <uc:OcrTextInfo Region="796, 448, 37, 11" Text="Income" />
-                            <uc:OcrTextInfo Region="832, 447, 22, 12" Text="Tax" />
-                            <uc:OcrTextInfo Region="1102, 447, 30, 13" Text="41.40" />
-                            <uc:OcrTextInfo Region="1144, 447, 40, 13" Text="Pension" />
-                            <uc:OcrTextInfo Region="1456, 447, 26, 13" Text="0.00" />
-                            <uc:OcrTextInfo Region="35, 465, 25, 12" Text="here" />
-                            <uc:OcrTextInfo Region="61, 465, 16, 12" Text="for" />
-                            <uc:OcrTextInfo Region="97, 469, 34, 13" Text="Hourly" />
-                            <uc:OcrTextInfo Region="132, 471, 20, 12" Text="pay" />
-                            <uc:OcrTextInfo Region="409, 469, 26, 13" Text="0.00" />
-                            <uc:OcrTextInfo Region="446, 468, 31, 13" Text="Other" />
-                            <uc:OcrTextInfo Region="478, 469, 46, 12" Text="Additions" />
-                            <uc:OcrTextInfo Region="759, 469, 24, 13" Text="0.00" />
-                            <uc:OcrTextInfo Region="795, 469, 22, 12" Text="Nat" />
-                            <uc:OcrTextInfo Region="815, 469, 18, 12" Text="Ins" />
-                            <uc:OcrTextInfo Region="1103, 469, 30, 12" Text="54.96" />
-                            <uc:OcrTextInfo Region="1144, 468, 31, 13" Text="Other" />
-                            <uc:OcrTextInfo Region="1176, 468, 55, 13" Text="Deductions" />
-                            <uc:OcrTextInfo Region="1229, 460, 60, 17" Text="ctivate" />
-                            <uc:OcrTextInfo Region="1322, 466, 53, 11" Text="ICIOWVS" />
-                            <uc:OcrTextInfo Region="1457, 469, 24, 13" Text="0.00" />
-                            <uc:OcrTextInfo Region="27, 479, 58, 13" Text="explanation" />
-                            <uc:OcrTextInfo Region="98, 491, 48, 13" Text="Statutory" />
-                            <uc:OcrTextInfo Region="147, 492, 21, 13" Text="Pay" />
-                            <uc:OcrTextInfo Region="409, 491, 26, 12" Text="0.00" />
-                            <uc:OcrTextInfo Region="446, 490, 33, 14" Text="Total" />
-                            <uc:OcrTextInfo Region="479, 493, 24, 13" Text="pay" />
-                            <uc:OcrTextInfo Region="736, 491, 48, 12" Text="1250.00" />
-                            <uc:OcrTextInfo Region="1145, 491, 22, 13" Text="Net" />
-                            <uc:OcrTextInfo Region="1167, 493, 24, 13" Text="pay" />
-                            <uc:OcrTextInfo Region="1216, 485, 20, 12" Text="Go" />
-                            <uc:OcrTextInfo Region="1237, 484, 17, 14" Text="to" />
-                            <uc:OcrTextInfo Region="1255, 484, 57, 17" Text="Settings" />
-                            <uc:OcrTextInfo Region="1434, 491, 48, 12" Text="1153.64" />
-                          </scg:List>
-                        </uc:CVCache.OcrTexts>
-                      </uc:CVCache>
-                    </scg:List>
-                  </uc:CvCacheContainer.Caches>
-                </uc:CvCacheContainer>
-              </p:CVScope.DesignTimeCacheContainer>
-              <p:CVScope.OCREngine>
-                <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd:Rectangle, x:String))">
-                  <ActivityFunc.Argument>
-                    <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
-                  </ActivityFunc.Argument>
-                  <p1:UiPathScreenOCR Endpoint="{x:Null}" Output="{x:Null}" Text="{x:Null}" ApiKey="[in_RobotCvApiKey]" ComputeSkewAngle="False" ExtractWords="True" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="UiPathScreenOCR_1" Image="[Image]" Language="en" Profile="Screen" Scale="1" />
-                </ActivityFunc>
-              </p:CVScope.OCREngine>
-              <p:CVScope.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="cfcb350b-e4b2-400d-a38b-aa65622dac7e" InformativeScreenshot="fc70370c4f03c8cce9f7455f3d98766e" Selector="&lt;wnd cls='Twin*' title='Pay*' /&gt;" WaitForReady="COMPLETE">
-                  <ui:Target.TimeoutMS>
-                    <InArgument x:TypeArguments="x:Int32" />
-                  </ui:Target.TimeoutMS>
-                </ui:Target>
-              </p:CVScope.Target>
-              <p:CVScope.UseLocalServer>
-                <InArgument x:TypeArguments="x:Boolean" />
-              </p:CVScope.UseLocalServer>
+                </Sequence>
+              </ui:CommentOut.Body>
+            </ui:CommentOut>
+            <Sequence DisplayName="Employee PaySlip" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_65">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-            </p:CVScope>
-            <p:CVScope ContinueOnError="{x:Null}" DelayBefore="{x:Null}" ApiKey="[in_RobotCvApiKey]" CvMethod="ElementDetection, OCR" DesignTimeCacheId="21d81fee-ee0e-413a-a329-10dd5c5543d1" DisplayName="Employee Payslip dialog 1" sap:VirtualizedContainerService.HintSize="434,377" sap2010:WorkflowViewState.IdRef="CVScope_2" Server="[in_RobotCvServerUrl]" Version="V2">
+              <uix:NClick ClickType="Single" DisplayName="Click Employee PaySlip" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="NClick_24" KeyModifiers="None" MouseButton="Left">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable DesignTimeRectangle="104, 55, 23, 22" ElementType="Button" FriendlyName="'push button'" FullSelectorArgument="&lt;wnd cls='Ttoolbar' /&gt;&lt;ctrl name='maintoolbar' role='tool bar' /&gt;&lt;ctrl idx='9' role='push button' /&gt;" FuzzySelectorArgument="&lt;wnd cls='Ttoolbar' /&gt;&lt;ctrl name='maintoolbar' role='tool bar' /&gt;&lt;ctrl automationid='' role='push button' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABsAAAAaCAYAAABGiCfwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABkSURBVEhL7c0xCsAwDEPRHD1H9g3cSWAclZg0DaVoeJvQb2bmpyi2xTdivbcl7AumMfeaxzGc5OMsbtkXTGPxjMk79gWlGI6YvGFfUI5VKDZQLFJs8O/YCvYFt7E3KLbFwZj5BcfDdvLn2+oEAAAAAElFTkSuQmCC" InformativeScreenshot="1bd2610c28600a6d582a8e4df321ab1e.png" ScopeSelectorArgument="&lt;wnd app='pm3.exe' cls='Tpaymain' title='Payroll Manager*' /&gt;" SearchSteps="FuzzySelector, Image">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target DesignTimeRectangle="73, 31, 47, 19" FriendlyName="'Forms'" FullSelectorArgument="&lt;ctrl automationid='MenuBar' name='Application' role='menu bar' /&gt;&lt;ctrl name='Forms' role='menu item' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='MenuBar' name='Application' role='menu bar' /&gt;&lt;ctrl name='Forms' role='menu item' automationid='' check:text='Forms' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADMAAAAXCAYAAACmnHcKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADeSURBVFhH7ZTRDcQgCIady4GYxxGcwmVcwrgAJ4qtNk2j13vgjH9CUqAiX1AVLqQNI1UbRqo2jFQNwjgEpVA1po3nnBxNwGgU2H+nDdPJG9TN8QPHcV4DoFMcksc13Pk//esN5a9H16PRdzWf9fWdKRuU+LFZBqvQJXc2yDW0Sa2SC7nOkc8+QfP3KEGjd5PJzXMDLActaLtmwudpzz4yMmFY9QiODunlnaH49ZhVuNnm7/cgoNEJ/fgBeNN84/N9KtZP/kmDMP+hDSNVa8HEGHEVUyEEXMWUtRbXMIsf2WYXnvwY4UgAAAAASUVORK5CYII=" SearchSteps="Selector, FuzzySelector, Image" />
+                        <uix:Target DesignTimeRectangle="120, 31, 57, 19" FriendlyName="'Analysis'" FullSelectorArgument="&lt;ctrl automationid='MenuBar' name='Application' role='menu bar' /&gt;&lt;ctrl name='Analysis' role='menu item' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='MenuBar' name='Application' role='menu bar' /&gt;&lt;ctrl name='Analysis' role='menu item' automationid='' check:text='Analysis' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAD0AAAAXCAYAAAC4VUe5AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFnSURBVFhH7ZaBsYMgDIYzFwMxDyM4hcu4hOcCKQmkBkTFWnv28LvjnohA/p+EPsAGeUS3wiO6FR7RrXBYdG8Bwfaxd4YeLRh0Q+zWMjg0n8xTHBNNGxqL1pzbNPCh6C9wSPTgDBofpfw9x1+IHtDJCfOJO/9GiAKcRQCf/r5pU7gk4vu5NEQ0rQuYVEzv1+H1w5jMDd9os0rj+9SLToQqAxgKRAmioMH6tzk6YPVM36uIySTuZu8D6/NqqRadpzT1l6cWu3mfTZATKYjmZzHJP4u5fGmlWZPMK47vUymaNprTaG4q0DXRHJh8pzMknbN1X7DBfr/gcb5XPr5PnWg6qaSGCV2LG6L1XDagLJrHNn4ZZjOWoomSWWtUiaYaKy3IDrPqDdHRHM6MRNQy+MX/AElZFLKqOL5P/UX2A94X2MXcRzSnd15C13AD0ZL+aapfya3S+1fANE3YWoNxHLG1Bl3XYVutwxf1PEI1mb84UgAAAABJRU5ErkJggg==" SearchSteps="Selector, FuzzySelector, Image" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NClick.Target>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NClick>
+              <uix:NClick ClickType="Single" ContinueOnError="True" DisplayName="Click  All" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="NClick_25" KeyModifiers="None" MouseButton="Left" Timeout="2">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable DesignTimeRectangle="13, 36, 100, 25" ElementType="Button" FriendlyName="'All'" FullSelectorArgument="&lt;wnd cls='TButton' title='All' /&gt;" FuzzySelectorArgument="&lt;wnd cls='TButton' title='All' check:text='All' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGgAAAAdCAYAAABG8ynTAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADRSURBVGhD7dbRCYMwFIXhu9PdJstklSzgEBnFCcwGt22qGMG2T8WD/A8fQvDJHw+xZVmitQZRBBJHIHGHQNM0QcDXQPM840IEEkcgcQQSRyBxBBJ3/0A1h3uOuj3P3hF2s0A1slvYGIJAQnqEFMk9ch3PCCShZg/PNUqy/uznBFLxmrf1zylpnzkCiTgEKJFsjUUgDa95M3teEAZ95gik4H17S2U422aOQAJOP/46c4VA+CMCiSOQOAKJI5A4Aon7GQjX+xgIeggkjokTtAdq8QARJRt5IX0TOQAAAABJRU5ErkJggg==" InformativeScreenshot="3e53d9ad721ae1646dfe185e1b2d30d1.png" ScopeSelectorArgument="&lt;wnd app='pm3.exe' cls='Tdlg_empsel' title='Select Employees' /&gt;" SearchSteps="Selector, FuzzySelector, Image">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target DesignTimeRectangle="13, 61, 100, 25" ElementType="Button" FriendlyName="'Departments'" FullSelectorArgument="&lt;wnd cls='TButton' title='Departments' /&gt;" FuzzySelectorArgument="&lt;wnd cls='TButton' title='Departments' check:text='Departments' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGgAAAAdCAYAAABG8ynTAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHBSURBVGhD7ZbhtYMgDIXdyW1YhlVYwCEYxQl0Ax4g4CWi7Wm15JyXH98phiSEXMQOy7K4dV0j0zQJDMh6BCqBBH6IQMyRK44hlwLN8yx0RARijgjEHBGIOSIQc0Qg5ohAzHleIKvdOAxuAJRp+N1NWHfUzrbm7uDp/InfCIQbSYI9LpII9CatjaAtCba9XaPTNs8rp8bjW2f1WGy1v3ZaBZtyZrZOQ+yoVJVPmX2+HJTTOnJe9Cf5ta3rulG4PgLNxqnYyPxLfGOzUpOC3Si/cfDLBLsypbnVW4nrYr6YC8bR56oOyFv8wafk3+ONPxCHWj+kr0CpAeXkRZK9ign+cKrRPzeSroG2V+PwizkjjTrO8sT6Ukz2vYk+AmVbaw7niy0JZLwd36yrPGh7NW7FU1/63Iy5X6gOAm2b2K4NHAM0Jl8txB7v/Ya95MiNwvnm+M06aCzkV/47tMWF7xMcoi/5jUDxVGVI8XQ+NOAQs59IAx/s7eOf/LGRxLf4BTv60nFZz9PKS55Lfu0FgtjwpwHr+IbnBfoE2ph/jAjEHJ4CCQURiDkiEHNEIOa8FEjoz6lAAj9EIObIFceQXaDV/QGOkXl3a0ZIwwAAAABJRU5ErkJggg==" SearchSteps="Selector, FuzzySelector, Image" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NClick.Target>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NClick>
+              <uix:NClick ClickType="Single" ContinueOnError="True" DisplayName="Click 'OK'" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="NClick_26" KeyModifiers="None" MouseButton="Left" Timeout="2">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable DesignTimeRectangle="248, 301, 75, 25" ElementType="Button" FriendlyName="'OK'" FullSelectorArgument="&lt;wnd cls='TButton' title='OK' /&gt;" FuzzySelectorArgument="&lt;wnd cls='TButton' title='OK' check:text='OK' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAE8AAAAdCAYAAADrcjF6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAD9SURBVGhD7dbNEYMgEIZheqIbKsmNVmiFKnKmAzrYCInKGjJRdwbXme/wToKsl2f8MzlnQucCniDgCWJ45vFEf2JebNEZRjzmxRafgZQS2gQ8QcATBDxBwBMEPEFq8aK3ZIxZsj6+96Inaz3FeTa4uu/Ceu6oVOJVuBYoBXIzYItX/htLPq7njkwhXoHqgMxo7e+FcCV9eO2VxSqojkLdt5fDle6JV+D89Kzrzo1LH97e23Y6Vp+NLvC5gSnEO/DCSJG8bd7Eg1OJV9p+qiyfIl+3dQO7HBuTWrw7BDxBwBMEPEHAE7QbD/2OebFFZxjxmFe7QMcCniDgnS7TC85RovrzkPyyAAAAAElFTkSuQmCC" InformativeScreenshot="489fbf29b5ee2e18b22d4bf3f881ab1f.png" ScopeSelectorArgument="&lt;wnd app='pm3.exe' cls='Tdlg_empsel' title='Select Employees' /&gt;" SearchSteps="Selector, FuzzySelector, Image">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target DesignTimeRectangle="168, 301, 75, 25" ElementType="Button" FriendlyName="'Help'" FullSelectorArgument="&lt;wnd cls='TButton' title='Help' /&gt;" FuzzySelectorArgument="&lt;wnd cls='TButton' title='Help' check:text='Help' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAE8AAAAdCAYAAADrcjF6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAD+SURBVGhD7dTBDYQgEIVheqIbKtmbrdCKVezZDuhgVgiaGYLrrhMUknf4ozjo4YtqQgiErgU8RcBTJPDM641OEl5iUdmMZMJLLPKGZVlQEfAUAU8R8BQBT9G4ePNE1k4012Y31QdeDeIMB3g54Ck6w4vnxpBJWZpmNk9HR85uc0POs+c0rB+8HYeV8Dw548jzvTtaPm6gce7dei/b37B+8La3rLyWcErYFYfPxb0Rm2E2bAy8cvZ1Djx2LWJU/mNHePGzLZ/VqAHw8jn/bDlaObvpfxfrA09TDf6mgKdofLwHA54i4Cn6GQ8dJ7zEorIZyYQXX6D/Ap4i4F0u0AenhWYtUxBjPgAAAABJRU5ErkJggg==" SearchSteps="Selector, FuzzySelector, Image" />
+                        <uix:Target DesignTimeRectangle="328, 301, 75, 25" ElementType="Button" FriendlyName="'Cancel'" FullSelectorArgument="&lt;wnd cls='TButton' title='Cancel' /&gt;" FuzzySelectorArgument="&lt;wnd cls='TButton' title='Cancel' check:text='Cancel' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAE8AAAAdCAYAAADrcjF6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEySURBVGhD7ZbhDYQgDEbdiW1YhlVYwCEYxQ3coAcEvOIB3llicuT78RItpUmfJbjs+07gHpAnAPIEFPLWdQUXcF8f8rZtAw0gTwDkCYA8AZAnAPIEzC/PGVLKkKutCXlentW0LMsbbet5o5hFnjPKC9NkWczq8n04c8hzZJQi42prWWyeyJSXGjf6Pana5j2W9JGf4iH/iJU1/ltebOzLKQtHOxznJOMQFuJRRPgQXGQgyGT1s7Rp5PWaSKLyJEVJ5z09Ief9ES+zljuI5+TFyWgc29g4W2tJasX5Go/14gN4UF7nwjg1GPNqko731rE9xzyzyAuUF4Mn/apYdikoLzQ23JSXnlmdzwvDU6sxkMflzQTkCYA8AZAnAPIEQJ6AS3mgD/dVyAO/AXkCIO82O70AJjenwEARqYMAAAAASUVORK5CYII=" SearchSteps="Selector, FuzzySelector, Image" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NClick.Target>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NClick>
+            </Sequence>
+            <p:CVScope ContinueOnError="{x:Null}" DelayBefore="{x:Null}" ApiKey="[in_RobotCvApiKey]" CvMethod="ElementDetection, OCR" DesignTimeCacheId="21d81fee-ee0e-413a-a329-10dd5c5543d1" DisplayName="Employee Payslip dialog 1" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="CVScope_2" Server="[in_RobotCvServerUrl]" Version="V2">
               <p:CVScope.Body>
                 <ActivityAction x:TypeArguments="x:Object">
                   <ActivityAction.Argument>
@@ -833,7 +901,7 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Sequence DisplayName="E-mail Report" sap:VirtualizedContainerService.HintSize="947,2005" sap2010:WorkflowViewState.IdRef="Sequence_35">
+                    <Sequence DisplayName="E-mail Report" sap:VirtualizedContainerService.HintSize="947,2004" sap2010:WorkflowViewState.IdRef="Sequence_35">
                       <Sequence.Variables>
                         <Variable x:TypeArguments="x:Boolean" Name="NoEmailExist" />
                       </Sequence.Variables>
@@ -958,7 +1026,7 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </ui:UiElementExists>
-                      <If Condition="[NoEmailExist]" DisplayName="If NoEmailExist" sap:VirtualizedContainerService.HintSize="905,865" sap2010:WorkflowViewState.IdRef="If_9">
+                      <If Condition="[NoEmailExist]" DisplayName="If NoEmailExist" sap:VirtualizedContainerService.HintSize="905,864" sap2010:WorkflowViewState.IdRef="If_9">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsPinned">True</x:Boolean>
@@ -1251,12 +1319,12 @@
               </p:CVScope.UseLocalServer>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </p:CVScope>
-            <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Moneysoft Emailer Window" sap:VirtualizedContainerService.HintSize="526,51" sap2010:WorkflowViewState.IdRef="WindowScope_13" InformativeScreenshot="c16f22c086e522e4a508d14df4c395c4" Selector="&lt;wnd app='pm3.exe' cls='Tdlg_askbox' title='Moneysoft Emailer' /&gt;">
+            <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Moneysoft Emailer Window" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="WindowScope_13" InformativeScreenshot="c16f22c086e522e4a508d14df4c395c4" Selector="&lt;wnd app='pm3.exe' cls='Tdlg_askbox' title='Moneysoft Emailer' /&gt;">
               <ui:WindowScope.Body>
                 <ActivityAction x:TypeArguments="x:Object">
                   <ActivityAction.Argument>
@@ -1334,21 +1402,26 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:WindowScope>
-            <Sequence DisplayName="Save &quot;Employee Payslip&quot; as PDF" sap:VirtualizedContainerService.HintSize="526,970" sap2010:WorkflowViewState.IdRef="Sequence_34">
+            <Sequence DisplayName="Save &quot;Employee Payslip&quot; as PDF" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_34">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <p:CVScope ContinueOnError="{x:Null}" DelayBefore="{x:Null}" ApiKey="[in_RobotCvApiKey]" CvMethod="ElementDetection, OCR" DesignTimeCacheId="21d81fee-ee0e-413a-a329-10dd5c5543d1" DisplayName="Employee Payslip dialog 2" sap:VirtualizedContainerService.HintSize="434,487" sap2010:WorkflowViewState.IdRef="CVScope_4" Server="[in_RobotCvServerUrl]" Version="V2">
+              <p:CVScope ContinueOnError="{x:Null}" DelayBefore="{x:Null}" ApiKey="[in_RobotCvApiKey]" CvMethod="ElementDetection, OCR" DesignTimeCacheId="21d81fee-ee0e-413a-a329-10dd5c5543d1" DisplayName="Employee Payslip dialog 2" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="CVScope_4" Server="[in_RobotCvServerUrl]" Version="V2">
                 <p:CVScope.Body>
                   <ActivityAction x:TypeArguments="x:Object">
                     <ActivityAction.Argument>
                       <DelegateInArgument x:TypeArguments="x:Object" Name="CVSessionData" />
                     </ActivityAction.Argument>
-                    <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_29">
-                      <p:CvClickWithDescriptor CursorMotionType="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" Descriptor="[&quot;Target: Icon (58,34,21,21)&quot; +&#xA;&quot;Anchor: Text 'Employee Payslip' (28,12,95,17)&quot;]" DesignTimeCacheId="21d81fee-ee0e-413a-a329-10dd5c5543d1" DesignTimeScaleFactor="1" DisplayName="Click Save as PDF" sap:VirtualizedContainerService.HintSize="400,136" sap2010:WorkflowViewState.IdRef="CvClickWithDescriptor_4" InformativeScreenshot="39f64917eb324e1b62acd324d8b61026" KeyModifiers="None" MouseButton="BTN_LEFT" Version="V2">
+                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,228" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <p:CvClickWithDescriptor CursorMotionType="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" Descriptor="[&quot;Target: Icon (58,34,21,21)&quot; +&#xA;&quot;Anchor: Text 'Employee Payslip' (28,12,95,17)&quot;]" DesignTimeCacheId="21d81fee-ee0e-413a-a329-10dd5c5543d1" DesignTimeScaleFactor="1" DisplayName="Click Save as PDF" sap:VirtualizedContainerService.HintSize="400,51" sap2010:WorkflowViewState.IdRef="CvClickWithDescriptor_4" InformativeScreenshot="39f64917eb324e1b62acd324d8b61026" KeyModifiers="None" MouseButton="BTN_LEFT" Version="V2">
                         <p:CvClickWithDescriptor.CursorPosition>
                           <ui:CursorPosition Position="Center">
                             <ui:CursorPosition.OffsetX>
@@ -1383,11 +1456,46 @@
                         </p:CvClickWithDescriptor.Target>
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsPinned">True</x:Boolean>
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </p:CvClickWithDescriptor>
+                      <uix:NClick ClickType="Single" ContinueOnError="True" DisplayName="Click 'Save to'" sap:VirtualizedContainerService.HintSize="400,51" sap2010:WorkflowViewState.IdRef="NClick_27" KeyModifiers="None" MouseButton="Left" Timeout="2">
+                        <uix:NClick.Target>
+                          <uix:TargetAnchorable DesignTimeRectangle="8, 31, 235, 17" ElementType="RadioButton" FriendlyName="'Save to'" FullSelectorArgument="&lt;wnd cls='TRadioButton' title='Save to a single PDF file' /&gt;" FuzzySelectorArgument="&lt;wnd cls='TRadioButton' title='Save to a single PDF file' check:fulltext='Save to a single PDF file' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAO8AAAAVCAYAAACuebnGAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAOsSURBVHhe7ZtBTuswEIZzJhZR1yzKNQKcAMQOsQAWEXCULEF02QVd5xqFqoKuQTAvM82YsTNp3ff6KleaSp8S2zNjN5o/dtw0m06n8Pr6CrPZDObzOby/v8PHxwcsFgvDMBLGxGsYe4qJ1zD2FBOvYewpqnhfXl7g4uICjo6OYDAY0BHLk8lEDWIYxu7xxPv29gbX19dwenoKo9GIyp+fn3TEMtbf3NyQyLVghmHsDk+8l5eXcHd3B9/f36B9fn5+4OHhAa6urtRgRktdQp6XUGttu6YqIMsyoqiackpjM/4JJ97xeAxFUZBwUaSrPicnJ90lNCZFmyRIXtZ++zbZVQL+bT+b+AXXLcsKqNT6Vnw9bc7Po4Iiy6GsWx8c0yZjM5LGiff8/BweHx+jxPv8/EzPwDKQSxIqN0lTVF77Vkk9ATcZX2iLM6UmMiyzgGPjk08g6lhfI3mceA8PD+nZNka8uMQeDodeoEK98y+gLnMxO4hZwLPHGUKbceQNgamhzLm9neE9nw3GscpGCqg9lgX7r5gFpV+nXelX2hLttejUC1utrQPGEeNCQl88d+36NTHSxYn34OAAvr6+osSLm1i4Cy0DVZzYq2ZcnFXadrR3AnD1QsRIX5J69csk5VgkwHWzvhiHgxL5t++qeYSouJ82yb3xUv9+311xRXyfoI7G78UQthwP20hwEtEPI2PwuauLvNZGsmxt5nVgYmMysTjCROME8YQsZ2RhS0QmpWzr85FxO4m6FKLXH8fW+oipx6PsM4zPPrKd44WxCSHeTpuCtONzeZT9Esp1M5LFiffs7Ayenp6ixIs/G4XPvD5yhhDLMZlMtPzFZGlswwRzcXqQdqEP9akJpG8cIULEbKf1gWU3Awf1fX4afTZa/SZxEWkX+sbGMJLFiRd3m4+Pj2npvEq8KG78vTfcbc7lMrQnQdySUJRxh/t3Z3opHLcM7QPjOoH6Puqyec042KZw48AbSyP2Sv8ev/Gwb+Wm4LWv+T5h7N56EavPJ0Ta8bmri7zWRrI48eJSGF/QuL+/J4FqHxQ1/s57e3vbCSQ3keTmh3sWbshRqDLpMJHUWVLE6klSjhu7YbVyHMQymZ0Nx/USvrWVZX5MYEJ7b2xtO8cJY4X10i965SAIx4HnYZ3sIyamkQyeePEo37DCOtycwqO9YRWBeI43jP+NJ97w3WbclMJdZTzau806cka3DR9jl6jitX8VGUb6mHgNY08x8RrGnmLiNYy9ZAF/AN90Y5ZagzkPAAAAAElFTkSuQmCC" InformativeScreenshot="01170642d3e6b146b5c37710e445fe02.png" ScopeSelectorArgument="&lt;wnd app='pm3.exe' cls='Tdlg_savepdf' title='Save PDF' /&gt;" SearchSteps="Selector, FuzzySelector, Image">
+                            <uix:TargetAnchorable.Anchors>
+                              <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                <uix:Target DesignTimeRectangle="8, 51, 235, 17" ElementType="RadioButton" FriendlyName="'Save each'" FullSelectorArgument="&lt;wnd cls='TRadioButton' title='Save each individual to a separate PDF file' /&gt;" FuzzySelectorArgument="&lt;wnd cls='TRadioButton' title='Save each individual to a separate PDF file' check:fulltext='Save each individual to a separate PDF file' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAO8AAAAVCAYAAACuebnGAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAATpSURBVHhe7VvPTvMwDN8zgTQ4c4AXgHuBJwBxQxyAwwQ8So8gEHDgAOe9Bn+EYGcQ5Ku9Ojiu3WUb8DHJk35q49iOneSXpqF07u/vw8PDQ3h6egrPz8/h5eUlvL6+hsFg4HA4/jCcvA7HjMLJ63DMKJy8DseMQiXv7e1t2NnZCSsrK2FxcRGvUL67u1OdOByO30dC3sfHx7C/vx82NzfDxcUFlt/e3vAKZZAfHBwgyTVnDofj95CQd3d3NxwdHYWPj4+g/T4/P8PJyUnY29tTnc0M+r3Q7fZCX6ubFNP6nNT+J3JxjIeyCJ1OB1GUVfmXxiSS9+bmJhRFgcQFkl5dXYW1tTXcNsMVyvTb2NhobqEh4DoBQLfXT+v/EnI6d9wBIP1Rdlb9uO0RvtvfLGDc3ECfzc1OpwilKq/JZ9RFuwRlKDrd0OvXNhDXuPFNiEje7e3tcHp6iuS9vr4O8/PzDRCBz8/P8R2YO4oJYLlKqCiT+j+Fn+jcaX1Oam/Z/dIE+i8YNzepD09KKEs5lInAuW2gjSB1ru2UiORdWlrCd1sgLzxpNfKCHH6wxV5eXk4cFeqqNAj9XpetXGyFSvRh9dJWQ74gMBg6altoA/5JXg1Ob9i5vYLJaMXlbbABVnWTOCowfbxqOVL9KHuyY2WzL7k+oh963S+/uAtK2hpjrNp01Dx4XEUoWBzUb215DPt5GJ8ez6jclLhr3199pIyF1NXqGkjnFULawn2s1/t0UkTyzs3Nhff3dyQvbJU18oIcfnCIBffcUUmTu+2JCyteXQ/6kQRRzkgMUDswR6dC9Dkc7IScdYcm7Usf5NfUHQ5clHP92peaY6wfbZ/IqUxo+BP1iTxtC0lRj4OJ2H9MBj5Z35fVa1ZpjQfqsskK/rgegefB+8PSg/tGbiPmg5Bh/hSj1CV/dTwJMbX4uQ+6j7KM2KbAtz15I3CQGIllJ1DwbDDKgq2+XBchOqxNR2tL6zApa9OxdHPkVo659lxO9zn5aXbSpzURpf9EZ7gIJGMibahetom2xjiDXkPf0CM5v+c6iBFzRvMTwcjbqFMgY4F7fuXtIpR+nxCRvFtbW+Hs7AzJC++2GnkvLy+RvPBnI/nOm4KvXmz15YniExESqXRl8tGPAkvHakvTl7I2HUs3S96SY5a9kOfmx+vlPZXVCW6NlQSMbz0RLb2GHGwq/6XRjtSHshWPdW/B0tHkJMvxC+B60jbXx4SI5IXT5vX1ddw6w2kzEHV1dTUsLCzglYgL5Ia/98rT5i49aQFG8HG7wspwwv11Mj2cFObWCWHomG0Z22am2yhzmalbT8Z6cllbsUaOOfaMWG1+NXlE4iftM7Tl40X6mn+hU8Sxgn6F+PPGA3chSrxmHm3xQJ2Rmwrp25QzX5aNBNej+yjLiG0KRPLCVhg+0Dg+PkaCaj/6O+/h4WHDET9E4C/m8V24QhcmMe8QSFJ9AjBfWgcaOmZbQp8OrJI4ZDskk3W8TK8IvD1Nn+c4yr6S40RV5Gp+sj0G0s89sGodK8RwMkYdviAxeSQjl7E2c/Noi8fOrYKMW/Ed5dzOetK3gevRvZTxNnJ8ZiIhL1z5F1Ygg8MpuPoXVo6xkDv5HRMjIa/8thkOpeBUGa7+bbNjLDh5fxwqef2/ihyOvw8nr8Mxo3DyOhwzCievwzGTGIR/ZVysK3zX65EAAAAASUVORK5CYII=" SearchSteps="Selector, FuzzySelector, Image" />
+                              </scg:List>
+                            </uix:TargetAnchorable.Anchors>
+                          </uix:TargetAnchorable>
+                        </uix:NClick.Target>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </uix:NClick>
+                      <uix:NClick ClickType="Single" ContinueOnError="True" DisplayName="Click 'OK'" sap:VirtualizedContainerService.HintSize="400,51" sap2010:WorkflowViewState.IdRef="NClick_28" KeyModifiers="None" MouseButton="Left" Timeout="2">
+                        <uix:NClick.Target>
+                          <uix:TargetAnchorable DesignTimeRectangle="88, 106, 75, 25" ElementType="Button" FriendlyName="'OK'" FullSelectorArgument="&lt;wnd cls='TButton' title='OK' /&gt;" FuzzySelectorArgument="&lt;wnd cls='TButton' title='OK' check:text='OK' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAE8AAAAdCAYAAADrcjF6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFTSURBVGhD7dpNSsQwGMZxgwsFRQSvkstIvYgyYEBB8HMp7nIDT6AYcTGMB3CpEWajm97gdd6UtplppZ0GMhl4Fn9amnTzI/2AdmPzcpvyPEc9Gn+O6eRpRFvXu8RuwBvQ+esF8IZmf76beOL4A3VUWgFvQJ141lq0EPACAl5AwAsIeAEBL6Bk8YySJISoksoUY0aRlIpMOVdnbjzT9bmxShLPwflAVlNWAvp4vC8kKVOfG7ME8RiqBaRE87crhOPSw/NX1lyMmpF243LlcNx64jGcmt3rWufFKz28vpft7Ji7N2Z6fl7EEsRb4oFhDSnpPYkjlyQet/iqUr2KNC5rD7Y6Fqdk8dYh4AUEvICAFxDwAuqNh/6vgTf5egdez9hp+jut8dTLWSWKurufPBR4/OvAzu0+Xb3duI+5bZNREa84htu7OyjwRs+nbgct1+HjEf0BfaptwJJl3kAAAAAASUVORK5CYII=" InformativeScreenshot="24e4fb4036666442a2e0ca6def76f057.png" ScopeSelectorArgument="&lt;wnd app='pm3.exe' cls='Tdlg_savepdf' title='Save PDF' /&gt;" SearchSteps="Selector, FuzzySelector, Image">
+                            <uix:TargetAnchorable.Anchors>
+                              <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                <uix:Target DesignTimeRectangle="8, 106, 75, 25" ElementType="Button" FriendlyName="'Help'" FullSelectorArgument="&lt;wnd cls='TButton' title='Help' /&gt;" FuzzySelectorArgument="&lt;wnd cls='TButton' title='Help' check:text='Help' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAE8AAAAdCAYAAADrcjF6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAESSURBVGhD7dlLCoMwFIXhZk/uJptxKY5FF+FK1JEiou7g1IS2pCEq7cUXnMGP4tUMPnwMfDRNg7Zt0XUd+r7HMAwYxxHTNLGNiCeIeIK+8NI0RZZltjzPWaBVvLIsUVUV6rpmXsQTRDxBxBNEPEHEE3RPvCJGFMUoQrMDOx8vBLGFQ7xXxBO0hWf2lYKyRYgLZ263Gjp6zxV04qyzc9fA++A4WbwEWmkk7rkftNf2DWrmiZ6vdc7fuWvfeRbHh51x3PnXtQbbwdy56+P5s9U58ZxjBiPwHlvCM4+tv9aO3eyDMeei+bMD33em8/EkheAPjHiC7o13csQTRDxBxBO0ice/Z+st4vG/7W8RTxDx/m7CE0vm029LxdrwAAAAAElFTkSuQmCC" SearchSteps="Selector, FuzzySelector, Image" />
+                                <uix:Target DesignTimeRectangle="168, 106, 75, 25" ElementType="Button" FriendlyName="'Cancel'" FullSelectorArgument="&lt;wnd cls='TButton' title='Cancel' /&gt;" FuzzySelectorArgument="&lt;wnd cls='TButton' title='Cancel' check:text='Cancel' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAE8AAAAdCAYAAADrcjF6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEySURBVGhD7ZbtDYQgDIbPndiGZRiFBRyCUdzADXpAQIsH3EeJyZH3x5NoKU36WIKPfd8J/AbkCYA8AYW8dV3BG7ivF3nbtoEGkCcA8gRAngDIEwB5AuaX5wwpZcjV1oTcL89qWpblRNt63ihmkeeM8sI0WRazunwfzhzyHBmlyLjaWhabJzLlpcaNPidV27zHkj7yUzzkH7Gyxn/Li419OGXhaIfjnGQcwkI8iggfgosMBJmsfpY2jbxeE0lUnqQo6bqnJ+S6P+Jl1nIHcZ+8OBmNYxsbZ2stSa04X+OxXnwAN8rrXBiXBmNeTdLx3jq215hnFnmB8mLwpF8Vyy4F5YXGhpvy0jOr83pheGo1BnK7vJmAPAGQJwDyBECeAMgT8FYe6MN9FfLAd0CeAMj7mZ2ecg+o6kOtpQUAAAAASUVORK5CYII=" SearchSteps="Selector, FuzzySelector, Image" />
+                              </scg:List>
+                            </uix:TargetAnchorable.Anchors>
+                          </uix:TargetAnchorable>
+                        </uix:NClick.Target>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </uix:NClick>
                     </Sequence>
                   </ActivityAction>
                 </p:CVScope.Body>
@@ -1549,12 +1657,12 @@
                 </p:CVScope.UseLocalServer>
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                    <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </p:CVScope>
-              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Save Employee Payslip PDF File" sap:VirtualizedContainerService.HintSize="434,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="MoneysoftPayroll\Save_as_PDF_File.xaml">
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Save Employee Payslip PDF File" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="MoneysoftPayroll\Save_as_PDF_File.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
                   <OutArgument x:TypeArguments="x:String" x:Key="out_PdfFilePath">[PayslipPdfFilePath]</OutArgument>
                   <InArgument x:TypeArguments="x:String" x:Key="in_OrganizationName">[in_OrganizationName]</InArgument>
@@ -1565,11 +1673,12 @@
                 </ui:InvokeWorkflowFile.Arguments>
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </ui:InvokeWorkflowFile>
-              <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="434,51" sap2010:WorkflowViewState.IdRef="CommentOut_11">
+              <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="CommentOut_11">
                 <ui:CommentOut.Body>
                   <Sequence DisplayName="Ignored Activities" sap2010:WorkflowViewState.IdRef="Sequence_59">
                     <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Save As dialog" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="WindowScope_14" InformativeScreenshot="abc2ab4619be38162220b6aa0f90a7fd" Selector="&lt;wnd app='pm3.exe' cls='#32770' title='Save report to a PDF file*' /&gt;">
@@ -1725,7 +1834,7 @@
                   </Sequence>
                 </ui:CommentOut.Body>
               </ui:CommentOut>
-              <ui:CloseWindow TimeoutMS="{x:Null}" UseWindow="{x:Null}" ContinueOnError="True" DisplayName="Close Employee Payslip Dialog" sap:VirtualizedContainerService.HintSize="434,106" sap2010:WorkflowViewState.IdRef="CloseWindow_2" InformativeScreenshot="5aa4def7c5affc80f55581aa72bf7e8c" Selector="&lt;wnd cls='Twin_report' title='Employee Payslip' /&gt;" WaitForReady="INTERACTIVE">
+              <ui:CloseWindow TimeoutMS="{x:Null}" UseWindow="{x:Null}" ContinueOnError="True" DisplayName="Close Employee Payslip Dialog" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="CloseWindow_2" InformativeScreenshot="5aa4def7c5affc80f55581aa72bf7e8c" Selector="&lt;wnd cls='Twin_report' title='Employee Payslip' /&gt;" WaitForReady="INTERACTIVE">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1734,11 +1843,11 @@
                 </sap:WorkflowViewStateService.ViewState>
               </ui:CloseWindow>
             </Sequence>
-            <ui:CloseWindow TimeoutMS="{x:Null}" UseWindow="{x:Null}" ContinueOnError="True" DisplayName="Close Pay Details Dialog" sap:VirtualizedContainerService.HintSize="526,106" sap2010:WorkflowViewState.IdRef="CloseWindow_3" InformativeScreenshot="7f691f134f0417f02e8ea6321215ec42" Selector="&lt;wnd cls='Twin_paydetails' title='Pay*' /&gt;" WaitForReady="INTERACTIVE">
+            <ui:CloseWindow TimeoutMS="{x:Null}" UseWindow="{x:Null}" ContinueOnError="True" DisplayName="Close Pay Details Dialog" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="CloseWindow_3" InformativeScreenshot="7f691f134f0417f02e8ea6321215ec42" Selector="&lt;wnd cls='Twin_paydetails' title='Pay*' /&gt;" WaitForReady="INTERACTIVE">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:CloseWindow>
@@ -1755,7 +1864,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </uix:NApplicationCard>
-    <Sequence DisplayName="Validate PDF Saved: Employee Payslip" sap:VirtualizedContainerService.HintSize="602,66" sap2010:WorkflowViewState.IdRef="Sequence_53">
+    <Sequence DisplayName="Validate PDF Saved: Employee Payslip" sap:VirtualizedContainerService.HintSize="434,66" sap2010:WorkflowViewState.IdRef="Sequence_53">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:Boolean" Name="PayslipPdfSaved" />
       </Sequence.Variables>
