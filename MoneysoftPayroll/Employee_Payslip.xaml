@@ -15,6 +15,7 @@
     <x:Property Name="in_RobotCvServerUrl" Type="InArgument(x:String)" />
     <x:Property Name="out_IsEmployeePayslipPdfSaved" Type="OutArgument(x:String)" />
     <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="in_Sysfig" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
   </x:Members>
   <this:Employee_Payslip.in_PayrollFilePath>
     <InArgument x:TypeArguments="x:String" />
@@ -49,10 +50,10 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1089,4385</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1165,4606</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Employers_RTI_Schedule_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="84">
+    <scg:List x:TypeArguments="x:String" Capacity="44">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -96,10 +97,11 @@
       <x:String>UiPath.CV.Activities.Interfaces</x:String>
       <x:String>dipoleDIAMOND_Reuseables.FolderOperations</x:String>
       <x:String>Microsoft.Activities.Expressions</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="78">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="40">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -148,7 +150,7 @@
       <x:Boolean x:Key="ShouldCollapseAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence sap2010:Annotation.AnnotationText="Workflow to do the following:&#xA;1. Generate Employee payslip as a report&#xA;2. Email the payslip report, ad then&#xA;3. Save the payslip as a PDF file&#xA;&#xA;Pre-requistes:&#xA;1. Payroll file fo the organization in question already open and visible as the active screen.&#xA;&#xA;STEPS:&#xA;1. Check if the Pay Details window is already open; if it is not, use Ctrl+D (or click on the Pay Details icon, 3d from the left, on the main toolbar o the app).&#xA;2. On the Pay Details window, click on the 'Produce payslip' icon, 3rd from the left on the main toolbar, to open the Employee Payslip window.&#xA;3A. On the man toolbar of the Employee Payslip window, click on the 'E-mail report' icon,4th from the left&#xA;3B. On the 'E-mail reports' dialog, select  the “E-mail to the employer (separate PDFs, employer password)”, which is the 3rd radio button.&#xA;3C. Click on “OK” to launch the Email Templates dialog.&#xA;3D. Click on “OK” to launch the Moneysoft Emailer dialog at which point the app sends the specified email and when successful. it returns a sent successfully message via the Moneysoft Emailer message box.&#xA;3E. A check should be done If the message is not sent successfully. An email should be sent to the user.&#xA;4A. On the man toolbar of the Employee Payslip window, click on the 'Save as a PDF' button, which is the 3rd icon from the left, to open the “Save report to a PDF file” dialog with a file name in the format NameOfOrganisation - Employee Payslip for MM-YYYY for X within a specified directory.&#xA;4B. Save the file using the default name to a specified directory i.e. Payslips&#xA;4C. Close the  “Employee Payslip” window.&#xA;&#xA;" DisplayName="Employee_Payslip" sap:VirtualizedContainerService.HintSize="1099,4220" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Workflow to do the following:&#xA;1. Generate Employee payslip as a report&#xA;2. Email the payslip report, ad then&#xA;3. Save the payslip as a PDF file&#xA;&#xA;Pre-requistes:&#xA;1. Payroll file fo the organization in question already open and visible as the active screen.&#xA;&#xA;STEPS:&#xA;1. Check if the Pay Details window is already open; if it is not, use Ctrl+D (or click on the Pay Details icon, 3d from the left, on the main toolbar o the app).&#xA;2. On the Pay Details window, click on the 'Produce payslip' icon, 3rd from the left on the main toolbar, to open the Employee Payslip window.&#xA;3A. On the man toolbar of the Employee Payslip window, click on the 'E-mail report' icon,4th from the left&#xA;3B. On the 'E-mail reports' dialog, select  the “E-mail to the employer (separate PDFs, employer password)”, which is the 3rd radio button.&#xA;3C. Click on “OK” to launch the Email Templates dialog.&#xA;3D. Click on “OK” to launch the Moneysoft Emailer dialog at which point the app sends the specified email and when successful. it returns a sent successfully message via the Moneysoft Emailer message box.&#xA;3E. A check should be done If the message is not sent successfully. An email should be sent to the user.&#xA;4A. On the man toolbar of the Employee Payslip window, click on the 'Save as a PDF' button, which is the 3rd icon from the left, to open the “Save report to a PDF file” dialog with a file name in the format NameOfOrganisation - Employee Payslip for MM-YYYY for X within a specified directory.&#xA;4B. Save the file using the default name to a specified directory i.e. Payslips&#xA;4C. Close the  “Employee Payslip” window.&#xA;&#xA;" DisplayName="Employee_Payslip" sap:VirtualizedContainerService.HintSize="1175,4361" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="PayslipPdfFilePath" />
     </Sequence.Variables>
@@ -159,7 +161,7 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1057,51" sap2010:WorkflowViewState.IdRef="CommentOut_18">
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1133,51" sap2010:WorkflowViewState.IdRef="CommentOut_18">
       <ui:CommentOut.Body>
         <Sequence DisplayName="Ignored Activities" sap2010:WorkflowViewState.IdRef="Sequence_69">
           <ui:MultipleAssign DisplayName=" TO DELETE" sap:VirtualizedContainerService.HintSize="1057,51" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
@@ -281,20 +283,20 @@
         </Sequence>
       </ui:CommentOut.Body>
     </ui:CommentOut>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1057,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[String.Format(&quot;About to generate Employee Payslip file for {0}...&quot;, in_OrganizationName)]">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1133,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[String.Format(&quot;About to generate Employee Payslip file for {0}...&quot;, in_OrganizationName)]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsPinned">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:LogMessage>
-    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Open Payroll Manager App" sap:VirtualizedContainerService.HintSize="1057,3443" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" Version="V1">
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Open Payroll Manager App" sap:VirtualizedContainerService.HintSize="1133,3599" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" Version="V1">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1023,3114" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1099,3270" sap2010:WorkflowViewState.IdRef="Sequence_5">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:Boolean" Name="EmailerOkExists" />
             </Sequence.Variables>
@@ -304,7 +306,7 @@
                 <x:Boolean x:Key="IsPinned">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="981,51" sap2010:WorkflowViewState.IdRef="CommentOut_14">
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1057,51" sap2010:WorkflowViewState.IdRef="CommentOut_14">
               <ui:CommentOut.Body>
                 <Sequence DisplayName="Ignored Activities" sap2010:WorkflowViewState.IdRef="Sequence_64">
                   <Sequence DisplayName="Pay Details window" sap:VirtualizedContainerService.HintSize="526,66" sap2010:WorkflowViewState.IdRef="Sequence_60">
@@ -815,7 +817,7 @@
                 </Sequence>
               </ui:CommentOut.Body>
             </ui:CommentOut>
-            <Sequence DisplayName="Employee PaySlip" sap:VirtualizedContainerService.HintSize="981,66" sap2010:WorkflowViewState.IdRef="Sequence_65">
+            <Sequence DisplayName="Employee PaySlip" sap:VirtualizedContainerService.HintSize="1057,66" sap2010:WorkflowViewState.IdRef="Sequence_65">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -876,7 +878,7 @@
                 </sap:WorkflowViewStateService.ViewState>
               </uix:NClick>
             </Sequence>
-            <p:CVScope ContinueOnError="{x:Null}" DelayBefore="{x:Null}" ApiKey="[in_RobotCvApiKey]" CvMethod="ElementDetection, OCR" DesignTimeCacheId="21d81fee-ee0e-413a-a329-10dd5c5543d1" DisplayName="Employee Payslip dialog 1" sap:VirtualizedContainerService.HintSize="981,1882" sap2010:WorkflowViewState.IdRef="CVScope_2" Server="[in_RobotCvServerUrl]" Version="V2">
+            <p:CVScope ContinueOnError="{x:Null}" DelayBefore="{x:Null}" ApiKey="[in_RobotCvApiKey]" CvMethod="ElementDetection, OCR" DesignTimeCacheId="21d81fee-ee0e-413a-a329-10dd5c5543d1" DisplayName="Employee Payslip dialog 1" sap:VirtualizedContainerService.HintSize="1057,2038" sap2010:WorkflowViewState.IdRef="CVScope_2" Server="[in_RobotCvServerUrl]" Version="V2">
               <p:CVScope.Body>
                 <ActivityAction x:TypeArguments="x:Object">
                   <ActivityAction.Argument>
@@ -888,7 +890,7 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Sequence DisplayName="E-mail Report" sap:VirtualizedContainerService.HintSize="713,1531" sap2010:WorkflowViewState.IdRef="Sequence_35">
+                    <Sequence DisplayName="E-mail Report" sap:VirtualizedContainerService.HintSize="1023,1687" sap2010:WorkflowViewState.IdRef="Sequence_35">
                       <Sequence.Variables>
                         <Variable x:TypeArguments="x:Boolean" Name="NoEmailExist" />
                       </Sequence.Variables>
@@ -898,7 +900,7 @@
                           <x:Boolean x:Key="IsPinned">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <p:CvClickWithDescriptor CursorMotionType="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" Descriptor="[&quot;Target: Icon (81,37,22,16)&quot; +&#xA;&quot;Anchor: Text 'Employee Payslip' (28,12,95,17)&quot;]" DesignTimeCacheId="21d81fee-ee0e-413a-a329-10dd5c5543d1" DesignTimeScaleFactor="1" DisplayName="Click Email Report" sap:VirtualizedContainerService.HintSize="671,51" sap2010:WorkflowViewState.IdRef="CvClickWithDescriptor_2" InformativeScreenshot="c2153301002e3a1ba635e2412edd3b45" KeyModifiers="None" MouseButton="BTN_LEFT" Version="V2">
+                      <p:CvClickWithDescriptor CursorMotionType="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" Descriptor="[&quot;Target: Icon (81,37,22,16)&quot; +&#xA;&quot;Anchor: Text 'Employee Payslip' (28,12,95,17)&quot;]" DesignTimeCacheId="21d81fee-ee0e-413a-a329-10dd5c5543d1" DesignTimeScaleFactor="1" DisplayName="Click Email Report" sap:VirtualizedContainerService.HintSize="981,51" sap2010:WorkflowViewState.IdRef="CvClickWithDescriptor_2" InformativeScreenshot="c2153301002e3a1ba635e2412edd3b45" KeyModifiers="None" MouseButton="BTN_LEFT" Version="V2">
                         <p:CvClickWithDescriptor.CursorPosition>
                           <ui:CursorPosition Position="Center">
                             <ui:CursorPosition.OffsetX>
@@ -938,7 +940,7 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </p:CvClickWithDescriptor>
-                      <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Emails Report dialog" sap:VirtualizedContainerService.HintSize="671,51" sap2010:WorkflowViewState.IdRef="WindowScope_2" InformativeScreenshot="3a80150db7e2d1fbdc1fd2c55e22d06a" Selector="&lt;wnd app='pm3.exe' cls='Tdlg_saveemail' title='E-mail reports' /&gt;">
+                      <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Emails Report dialog" sap:VirtualizedContainerService.HintSize="981,51" sap2010:WorkflowViewState.IdRef="WindowScope_2" InformativeScreenshot="3a80150db7e2d1fbdc1fd2c55e22d06a" Selector="&lt;wnd app='pm3.exe' cls='Tdlg_saveemail' title='E-mail reports' /&gt;">
                         <ui:WindowScope.Body>
                           <ActivityAction x:TypeArguments="x:Object">
                             <ActivityAction.Argument>
@@ -998,7 +1000,7 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </ui:WindowScope>
-                      <ui:UiElementExists DisplayName="No Email Found Warning Dialog" Exists="[NoEmailExist]" sap:VirtualizedContainerService.HintSize="671,51" sap2010:WorkflowViewState.IdRef="UiElementExists_4">
+                      <ui:UiElementExists DisplayName="No Email Found Warning Dialog" Exists="[NoEmailExist]" sap:VirtualizedContainerService.HintSize="981,51" sap2010:WorkflowViewState.IdRef="UiElementExists_4">
                         <ui:UiElementExists.Target>
                           <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c43dbafd-d9b6-4918-be23-0ca533c0fe53" InformativeScreenshot="2017965209470bb47de016d2b080f286" Selector="&lt;wnd app='pm3.exe' cls='#32770' title='Warning' /&gt;&lt;wnd aaname='Warning' /&gt;&lt;ctrl name='Warning' role='pane' /&gt;&lt;ctrl name='* * does not have an email address entered!' role='text' /&gt;" TimeoutMS="2000">
                             <ui:Target.WaitForReady>
@@ -1013,7 +1015,7 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </ui:UiElementExists>
-                      <If Condition="[NoEmailExist]" DisplayName="If NoEmailExist" sap:VirtualizedContainerService.HintSize="671,1075" sap2010:WorkflowViewState.IdRef="If_9">
+                      <If Condition="[NoEmailExist]" DisplayName="If NoEmailExist" sap:VirtualizedContainerService.HintSize="981,1231" sap2010:WorkflowViewState.IdRef="If_9">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsPinned">True</x:Boolean>
@@ -1146,41 +1148,154 @@
                           </Sequence>
                         </If.Then>
                         <If.Else>
-                          <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Email Templates" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="WindowScope_9" InformativeScreenshot="8712a9c2bdd384176ff255f2653a78af" Selector="&lt;wnd app='pm3.exe' cls='Tdlg_email_templates' title='Email templates' /&gt;">
+                          <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Email Templates" sap:VirtualizedContainerService.HintSize="510,1074" sap2010:WorkflowViewState.IdRef="WindowScope_9" InformativeScreenshot="8712a9c2bdd384176ff255f2653a78af" Selector="&lt;wnd app='pm3.exe' cls='Tdlg_email_templates' title='Email templates' /&gt;">
                             <ui:WindowScope.Body>
                               <ActivityAction x:TypeArguments="x:Object">
                                 <ActivityAction.Argument>
                                   <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                                 </ActivityAction.Argument>
-                                <uix:NClick ClickType="Single" DisplayName="Click OK To Select Template" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NClick_14" KeyModifiers="None" MouseButton="Left">
-                                  <uix:NClick.Target>
-                                    <uix:TargetAnchorable DesignTimeRectangle="543, 466, 75, 25" ElementType="Button" FriendlyName="'OK'" FullSelectorArgument="&lt;wnd cls='TButton' title='OK' /&gt;" FuzzySelectorArgument="&lt;wnd cls='TButton' title='OK' check:text='OK' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAE8AAAAdCAYAAADrcjF6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADxSURBVGhD7dbbDYQgEIVheqIbmqEVGrAISqEDOpgVNuKwuuvqJDgm5+GPhsvLFy+YnDOhawFPEPAEdXjTNKGDuNcGL6WEvgQ8QcATBDxBwBMEPEHAE6QSL3pLxpiW9fE9Fz1Z6ykua4Or8y6se0emDq/CcaAUyC2AHK/cG0s+rntHpwyvQO2ALGj8ejNcSRcef7K6CqqjUOetCrjS8/AKnJ+/dbvrxqYL79/Xdh6r30YX+nWDU4Z34oeRInnL/sQ3pA6v9HlUaUeRzWvNYNvYuFTiPSXgCQKeIOAJAp4g4Ak6xEO/414dHjoX8AQB73KZXtkvGUjSE2AjAAAAAElFTkSuQmCC" InformativeScreenshot="fe4cc31dccd7b4dfc3865d028146e8e5.png" ScopeSelectorArgument="&lt;wnd app='pm3.exe' cls='Tdlg_email_templates' title='Email templates' /&gt;" SearchSteps="Selector, FuzzySelector, Image" WaitForReadyArgument="Complete">
-                                      <uix:TargetAnchorable.Anchors>
-                                        <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
-                                          <uix:Target DesignTimeRectangle="463, 466, 75, 25" ElementType="Button" FriendlyName="'Help'" FullSelectorArgument="&lt;wnd cls='TButton' title='Help' /&gt;" FuzzySelectorArgument="&lt;wnd cls='TButton' title='Help' check:text='Help' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAE8AAAAdCAYAAADrcjF6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAD+SURBVGhD7dTBDYQgEIVheqIbKtmbrdCKVezZDuhgVgiaGYLrrhMUknf4ozjo4YtqQgiErgU8RcBTJPDM641OEl5iUdmMZMJLLPKGZVlQEfAUAU8R8BQBT9G4ePNE1k4012Y31QdeDeIMB3g54Ck6w4vnxpBJWZpmNk9HR85uc0POs+c0rB+8HYeV8Dw548jzvTtaPm6gce7dei/b37B+8La3rLyWcErYFYfPxb0Rm2E2bAy8cvZ1Djx2LWJU/mNHePGzLZ/VqAHw8jn/bDlaObvpfxfrA09TDf6mgKdofLwHA54i4Cn6GQ8dJ7zEorIZyYQXX6D/Ap4i4F0u0AenhWYtUxBjPgAAAABJRU5ErkJggg==" SearchSteps="Selector, FuzzySelector, Image" />
-                                          <uix:Target DesignTimeRectangle="623, 466, 75, 25" ElementType="Button" FriendlyName="'Cancel'" FullSelectorArgument="&lt;wnd cls='TButton' title='Cancel' /&gt;" FuzzySelectorArgument="&lt;wnd cls='TButton' title='Cancel' check:text='Cancel' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAE8AAAAdCAYAAADrcjF6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEySURBVGhD7ZbhDYQgDEbdiW1YhlVYwCEYxQ3coAcEvOIB3llicuT78RItpUmfJbjs+07gHpAnAPIEFPLWdQUXcF8f8rZtAw0gTwDkCYA8AZAnAPIEzC/PGVLKkKutCXlentW0LMsbbet5o5hFnjPKC9NkWczq8n04c8hzZJQi42prWWyeyJSXGjf6Pana5j2W9JGf4iH/iJU1/ltebOzLKQtHOxznJOMQFuJRRPgQXGQgyGT1s7Rp5PWaSKLyJEVJ5z09Ief9ES+zljuI5+TFyWgc29g4W2tJasX5Go/14gN4UF7nwjg1GPNqko731rE9xzyzyAuUF4Mn/apYdikoLzQ23JSXnlmdzwvDU6sxkMflzQTkCYA8AZAnAPIEQJ6AS3mgD/dVyAO/AXkCIO82O70AJjenwEARqYMAAAAASUVORK5CYII=" SearchSteps="Selector, FuzzySelector, Image" />
-                                        </scg:List>
-                                      </uix:TargetAnchorable.Anchors>
-                                    </uix:TargetAnchorable>
-                                  </uix:NClick.Target>
+                                <Sequence DisplayName="Email Sequence" sap:VirtualizedContainerService.HintSize="476,888" sap2010:WorkflowViewState.IdRef="Sequence_74">
+                                  <Sequence.Variables>
+                                    <Variable x:TypeArguments="x:String" Name="EmailDescription" />
+                                    <Variable x:TypeArguments="x:String" Name="EmailSubject" />
+                                    <Variable x:TypeArguments="x:String" Name="EmailTemplateFilePath" />
+                                    <Variable x:TypeArguments="x:String" Name="EmailTemplateFolderPath" />
+                                    <Variable x:TypeArguments="x:String" Name="EmailBody" />
+                                  </Sequence.Variables>
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                       <x:Boolean x:Key="IsPinned">True</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                </uix:NClick>
+                                  <ui:MultipleAssign DisplayName="Multiple Assign Email" sap:VirtualizedContainerService.HintSize="434,51" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+                                    <ui:MultipleAssign.AssignOperations>
+                                      <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_17">
+                                          <ui:AssignOperation.To>
+                                            <OutArgument x:TypeArguments="x:String">[EmailDescription]</OutArgument>
+                                          </ui:AssignOperation.To>
+                                          <ui:AssignOperation.Value>
+                                            <InArgument x:TypeArguments="x:String">[in_Sysfig("Description").ToString]</InArgument>
+                                          </ui:AssignOperation.Value>
+                                        </ui:AssignOperation>
+                                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_18">
+                                          <ui:AssignOperation.To>
+                                            <OutArgument x:TypeArguments="x:String">[EmailSubject]</OutArgument>
+                                          </ui:AssignOperation.To>
+                                          <ui:AssignOperation.Value>
+                                            <InArgument x:TypeArguments="x:String">[in_Sysfig("Subject").ToString]</InArgument>
+                                          </ui:AssignOperation.Value>
+                                        </ui:AssignOperation>
+                                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_19">
+                                          <ui:AssignOperation.To>
+                                            <OutArgument x:TypeArguments="x:String">[EmailTemplateFolderPath]</OutArgument>
+                                          </ui:AssignOperation.To>
+                                          <ui:AssignOperation.Value>
+                                            <InArgument x:TypeArguments="x:String">[in_Config("EmailTemplateFolderPath").ToString]</InArgument>
+                                          </ui:AssignOperation.Value>
+                                        </ui:AssignOperation>
+                                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_20">
+                                          <ui:AssignOperation.To>
+                                            <OutArgument x:TypeArguments="x:String">[EmailTemplateFilePath]</OutArgument>
+                                          </ui:AssignOperation.To>
+                                          <ui:AssignOperation.Value>
+                                            <InArgument x:TypeArguments="x:String">[path.Combine(EmailTemplateFolderPath,"Email Template Body.txt")]</InArgument>
+                                          </ui:AssignOperation.Value>
+                                        </ui:AssignOperation>
+                                      </scg:List>
+                                    </ui:MultipleAssign.AssignOperations>
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                  </ui:MultipleAssign>
+                                  <ui:ReadTextFile Content="[Emailbody]" DisplayName="Read Text File" FileName="[EmailTemplateFilePath]" sap:VirtualizedContainerService.HintSize="434,51" sap2010:WorkflowViewState.IdRef="ReadTextFile_2">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                  </ui:ReadTextFile>
+                                  <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type in Description" sap:VirtualizedContainerService.HintSize="434,51" sap2010:WorkflowViewState.IdRef="TypeInto_6" Text="[EmailDescription]">
+                                    <ui:TypeInto.Target>
+                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="16863456-b732-4001-acad-a22bc4996eb3" InformativeScreenshot="d61026e15769d8502a46989a0bbbce4e" Selector="&lt;wnd app='pm3.exe' cls='Tdlg_email_templates' title='Email templates' /&gt;&lt;wnd cls='TGroupBox' title='Template details' /&gt;&lt;wnd cls='TEdit' idx='2' /&gt;">
+                                        <ui:Target.TimeoutMS>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:Target.TimeoutMS>
+                                        <ui:Target.WaitForReady>
+                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                        </ui:Target.WaitForReady>
+                                      </ui:Target>
+                                    </ui:TypeInto.Target>
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                  </ui:TypeInto>
+                                  <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type in Subject" sap:VirtualizedContainerService.HintSize="434,51" sap2010:WorkflowViewState.IdRef="TypeInto_7" Text="[EmailSubject]">
+                                    <ui:TypeInto.Target>
+                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="978e1569-5f1b-4969-8d0d-99fca5bdb15e" InformativeScreenshot="740587a6a73f348ce24108874b1acf2b" Selector="&lt;wnd app='pm3.exe' cls='Tdlg_email_templates' title='Email templates' /&gt;&lt;wnd cls='TGroupBox' title='Template details' /&gt;&lt;wnd cls='TEdit' /&gt;">
+                                        <ui:Target.TimeoutMS>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:Target.TimeoutMS>
+                                        <ui:Target.WaitForReady>
+                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                        </ui:Target.WaitForReady>
+                                      </ui:Target>
+                                    </ui:TypeInto.Target>
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                  </ui:TypeInto>
+                                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DeselectAfter="True" DisplayName="Type Into Emai Body" EmptyFieldMode="MultiLine" sap:VirtualizedContainerService.HintSize="434,226" sap2010:WorkflowViewState.IdRef="NTypeInto_2" InteractionMode="WindowMessages" Text="[EmailBody]">
+                                    <uix:NTypeInto.Target>
+                                      <uix:TargetAnchorable DesignTimeRectangle="263, 101, 426, 320" FriendlyName="'Hello, Please'" FullSelectorArgument="&lt;wnd cls='TGroupBox' title='Template details' /&gt;&lt;wnd cls='TMemo' /&gt;" FuzzySelectorArgument="&lt;wnd cls='TGroupBox' title='Template details' /&gt;&lt;wnd cls='TMemo' check:text='Hello,&amp;#xD;&amp;#xA;&amp;#xD;&amp;#xA;&amp;#xD;&amp;#xA;&amp;#xD;&amp;#xA;Please find attached your monthly payslip as usual.&amp;#xD;&amp;#xA;&amp;#xD;&amp;#xA;&amp;#xD;&amp;#xA;&amp;#xD;&amp;#xA;Kindly  let me know if you' /&gt;" ImageBase64="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" InformativeScreenshot="cc2e72097927f7b904264ef268ec81d2.png" ScopeSelectorArgument="&lt;wnd app='pm3.exe' cls='Tdlg_email_templates' title='Email templates' /&gt;" SearchSteps="Selector" WaitForReadyArgument="Interactive" />
+                                    </uix:NTypeInto.Target>
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                  </uix:NTypeInto>
+                                  <uix:NClick ClickType="Single" DisplayName="Click OK To Select Template" sap:VirtualizedContainerService.HintSize="434,166" sap2010:WorkflowViewState.IdRef="NClick_33" KeyModifiers="None" MouseButton="Left">
+                                    <uix:NClick.Target>
+                                      <uix:TargetAnchorable DesignTimeRectangle="543, 466, 75, 25" ElementType="Button" FriendlyName="'OK'" FullSelectorArgument="&lt;wnd cls='TButton' title='OK' /&gt;" FuzzySelectorArgument="&lt;wnd cls='TButton' title='OK' check:text='OK' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAE8AAAAdCAYAAADrcjF6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADxSURBVGhD7dbbDYQgEIVheqIbmqEVGrAISqEDOpgVNuKwuuvqJDgm5+GPhsvLFy+YnDOhawFPEPAEdXjTNKGDuNcGL6WEvgQ8QcATBDxBwBMEPEHAE6QSL3pLxpiW9fE9Fz1Z6ykua4Or8y6se0emDq/CcaAUyC2AHK/cG0s+rntHpwyvQO2ALGj8ejNcSRcef7K6CqqjUOetCrjS8/AKnJ+/dbvrxqYL79/Xdh6r30YX+nWDU4Z34oeRInnL/sQ3pA6v9HlUaUeRzWvNYNvYuFTiPSXgCQKeIOAJAp4g4Ak6xEO/414dHjoX8AQB73KZXtkvGUjSE2AjAAAAAElFTkSuQmCC" InformativeScreenshot="3156a89cef54e1d167cf779250769a40.png" ScopeSelectorArgument="&lt;wnd app='pm3.exe' cls='Tdlg_email_templates' title='Email templates' /&gt;" SearchSteps="Selector, FuzzySelector, Image">
+                                        <uix:TargetAnchorable.Anchors>
+                                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                            <uix:Target DesignTimeRectangle="623, 466, 75, 25" ElementType="Button" FriendlyName="'Cancel'" FullSelectorArgument="&lt;wnd cls='TButton' title='Cancel' /&gt;" FuzzySelectorArgument="&lt;wnd cls='TButton' title='Cancel' check:text='Cancel' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAE8AAAAdCAYAAADrcjF6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEySURBVGhD7ZbhDYQgDEbdiW1YhlVYwCEYxQ3coAcEvOIB3llicuT78RItpUmfJbjs+07gHpAnAPIEFPLWdQUXcF8f8rZtAw0gTwDkCYA8AZAnAPIEzC/PGVLKkKutCXlentW0LMsbbet5o5hFnjPKC9NkWczq8n04c8hzZJQi42prWWyeyJSXGjf6Pana5j2W9JGf4iH/iJU1/ltebOzLKQtHOxznJOMQFuJRRPgQXGQgyGT1s7Rp5PWaSKLyJEVJ5z09Ief9ES+zljuI5+TFyWgc29g4W2tJasX5Go/14gN4UF7nwjg1GPNqko731rE9xzyzyAuUF4Mn/apYdikoLzQ23JSXnlmdzwvDU6sxkMflzQTkCYA8AZAnAPIEQJ6AS3mgD/dVyAO/AXkCIO82O70AJjenwEARqYMAAAAASUVORK5CYII=" SearchSteps="Selector, FuzzySelector, Image" />
+                                          </scg:List>
+                                        </uix:TargetAnchorable.Anchors>
+                                      </uix:TargetAnchorable>
+                                    </uix:NClick.Target>
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                  </uix:NClick>
+                                </Sequence>
                               </ActivityAction>
                             </ui:WindowScope.Body>
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                           </ui:WindowScope>
                         </If.Else>
                       </If>
-                      <ui:RetryScope ContinueOnError="True" DisplayName="Retry Scope: Wait for Emails to be Sent" sap:VirtualizedContainerService.HintSize="671,51" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="2" RetryInterval="00:00:02">
+                      <ui:RetryScope ContinueOnError="True" DisplayName="Retry Scope: Wait for Emails to be Sent" sap:VirtualizedContainerService.HintSize="981,51" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="2" RetryInterval="00:00:02">
                         <ui:RetryScope.ActivityBody>
                           <ActivityAction>
                             <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_31">
@@ -1382,7 +1497,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </p:CVScope>
-            <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" Window="{x:Null}" ContinueOnError="True" DisplayName="Moneysoft Emailer Window" sap:VirtualizedContainerService.HintSize="981,704" sap2010:WorkflowViewState.IdRef="WindowScope_13" InformativeScreenshot="c16f22c086e522e4a508d14df4c395c4" Selector="&lt;wnd app='pm3.exe' cls='Tdlg_askbox' title='Moneysoft Emailer' /&gt;" TimeoutMS="2000">
+            <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" Window="{x:Null}" ContinueOnError="True" DisplayName="Moneysoft Emailer Window" sap:VirtualizedContainerService.HintSize="1057,704" sap2010:WorkflowViewState.IdRef="WindowScope_13" InformativeScreenshot="c16f22c086e522e4a508d14df4c395c4" Selector="&lt;wnd app='pm3.exe' cls='Tdlg_askbox' title='Moneysoft Emailer' /&gt;" TimeoutMS="2000">
               <ui:WindowScope.Body>
                 <ActivityAction x:TypeArguments="x:Object">
                   <ActivityAction.Argument>
@@ -1474,7 +1589,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:WindowScope>
-            <Sequence DisplayName="Save &quot;Employee Payslip&quot; as PDF" sap:VirtualizedContainerService.HintSize="981,66" sap2010:WorkflowViewState.IdRef="Sequence_34">
+            <Sequence DisplayName="Save &quot;Employee Payslip&quot; as PDF" sap:VirtualizedContainerService.HintSize="1057,66" sap2010:WorkflowViewState.IdRef="Sequence_34">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -1915,7 +2030,7 @@
                 </sap:WorkflowViewStateService.ViewState>
               </ui:CloseWindow>
             </Sequence>
-            <ui:CloseWindow TimeoutMS="{x:Null}" UseWindow="{x:Null}" ContinueOnError="True" DisplayName="Close Pay Details Dialog" sap:VirtualizedContainerService.HintSize="981,51" sap2010:WorkflowViewState.IdRef="CloseWindow_3" InformativeScreenshot="7f691f134f0417f02e8ea6321215ec42" Selector="&lt;wnd cls='Twin_paydetails' title='Pay*' /&gt;" WaitForReady="INTERACTIVE">
+            <ui:CloseWindow TimeoutMS="{x:Null}" UseWindow="{x:Null}" ContinueOnError="True" DisplayName="Close Pay Details Dialog" sap:VirtualizedContainerService.HintSize="1057,51" sap2010:WorkflowViewState.IdRef="CloseWindow_3" InformativeScreenshot="7f691f134f0417f02e8ea6321215ec42" Selector="&lt;wnd cls='Twin_paydetails' title='Pay*' /&gt;" WaitForReady="INTERACTIVE">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -1936,7 +2051,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </uix:NApplicationCard>
-    <Sequence DisplayName="Validate PDF Saved: Employee Payslip" sap:VirtualizedContainerService.HintSize="1057,66" sap2010:WorkflowViewState.IdRef="Sequence_53">
+    <Sequence DisplayName="Validate PDF Saved: Employee Payslip" sap:VirtualizedContainerService.HintSize="1133,66" sap2010:WorkflowViewState.IdRef="Sequence_53">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:Boolean" Name="PayslipPdfSaved" />
       </Sequence.Variables>

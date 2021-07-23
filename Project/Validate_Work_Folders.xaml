@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1142,558</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>768,584</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Validate_Work_Folders_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -66,7 +66,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Validate the work folders, as specified in the internal Config, to be used by the Bot for this process." DisplayName="Validate_Work_Folders" sap:VirtualizedContainerService.HintSize="242,357" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Validate the work folders, as specified in the internal Config, to be used by the Bot for this process." DisplayName="Validate_Work_Folders" sap:VirtualizedContainerService.HintSize="242,419" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -77,5 +77,6 @@
     <df:Validate_or_Create_Folder_Directory DisplayName="Validate Exception Folder" FolderPath="[in_Config(&quot;ExceptionFolderPath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Validate_or_Create_Folder_Directory_2" />
     <df:Validate_or_Create_Folder_Directory DisplayName="Validate Incoming Folder" FolderPath="[in_Config(&quot;IncomingFolderPath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Validate_or_Create_Folder_Directory_3" />
     <df:Validate_or_Create_Folder_Directory DisplayName="Validate Processing Folder" FolderPath="[in_Config(&quot;ProcessingFolderPath&quot;).toString]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Validate_or_Create_Folder_Directory_4" />
+    <df:Validate_or_Create_Folder_Directory DisplayName="Validate Email Template Folder" FolderPath="[in_Config(&quot;EmailTemplateFolderPath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Validate_or_Create_Folder_Directory_5" />
   </Sequence>
 </Activity>
