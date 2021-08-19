@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Test" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="768,1396" sap2010:WorkflowViewState.IdRef="Test_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Test" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="804,372" sap2010:WorkflowViewState.IdRef="Test_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="33">
       <x:String>System.Activities</x:String>
@@ -37,7 +37,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="48">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="32">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -72,128 +72,14 @@
       <AssemblyReference>System.Memory</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Test" sap:VirtualizedContainerService.HintSize="518,1231" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Test" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="textgotten" />
+    </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Email Sequence" sap:VirtualizedContainerService.HintSize="476,1139" sap2010:WorkflowViewState.IdRef="Sequence_14">
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-      <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application: Email templates" sap:VirtualizedContainerService.HintSize="434,956" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" Version="V1">
-        <uix:NApplicationCard.Body>
-          <ActivityAction x:TypeArguments="x:Object">
-            <ActivityAction.Argument>
-              <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
-            </ActivityAction.Argument>
-            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,667" sap2010:WorkflowViewState.IdRef="Sequence_17">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-              <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'TEdit'" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="HI">
-                <ui:TypeInto.Target>
-                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="16863456-b732-4001-acad-a22bc4996eb3" InformativeScreenshot="d61026e15769d8502a46989a0bbbce4e" Selector="&lt;wnd app='pm3.exe' cls='Tdlg_email_templates' title='Email templates' /&gt;&lt;wnd cls='TGroupBox' title='Template details' /&gt;&lt;wnd cls='TEdit' idx='2' /&gt;">
-                    <ui:Target.TimeoutMS>
-                      <InArgument x:TypeArguments="x:Int32" />
-                    </ui:Target.TimeoutMS>
-                    <ui:Target.WaitForReady>
-                      <InArgument x:TypeArguments="ui:WaitForReady" />
-                    </ui:Target.WaitForReady>
-                  </ui:Target>
-                </ui:TypeInto.Target>
-              </ui:TypeInto>
-              <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'TEdit'" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_2" Text="Subject">
-                <ui:TypeInto.Target>
-                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="978e1569-5f1b-4969-8d0d-99fca5bdb15e" InformativeScreenshot="740587a6a73f348ce24108874b1acf2b" Selector="&lt;wnd app='pm3.exe' cls='Tdlg_email_templates' title='Email templates' /&gt;&lt;wnd cls='TGroupBox' title='Template details' /&gt;&lt;wnd cls='TEdit' /&gt;">
-                    <ui:Target.TimeoutMS>
-                      <InArgument x:TypeArguments="x:Int32" />
-                    </ui:Target.TimeoutMS>
-                    <ui:Target.WaitForReady>
-                      <InArgument x:TypeArguments="ui:WaitForReady" />
-                    </ui:Target.WaitForReady>
-                  </ui:Target>
-                </ui:TypeInto.Target>
-              </ui:TypeInto>
-              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Hello, Please'" EmptyFieldMode="MultiLine" sap:VirtualizedContainerService.HintSize="334,226" sap2010:WorkflowViewState.IdRef="NTypeInto_1" Text="HI BODY">
-                <uix:NTypeInto.Target>
-                  <uix:TargetAnchorable DesignTimeRectangle="263, 101, 426, 320" FriendlyName="'Hello, Please'" FullSelectorArgument="&lt;wnd cls='TGroupBox' title='Template details' /&gt;&lt;wnd cls='TMemo' /&gt;" FuzzySelectorArgument="&lt;wnd cls='TGroupBox' title='Template details' /&gt;&lt;wnd cls='TMemo' check:text='Hello,&amp;#xD;&amp;#xA;&amp;#xD;&amp;#xA;&amp;#xD;&amp;#xA;&amp;#xD;&amp;#xA;Please find attached your monthly payslip as usual.&amp;#xD;&amp;#xA;&amp;#xD;&amp;#xA;&amp;#xD;&amp;#xA;&amp;#xD;&amp;#xA;Kindly  let me know if you' /&gt;" ImageBase64="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" InformativeScreenshot="cc2e72097927f7b904264ef268ec81d2.png" ScopeSelectorArgument="&lt;wnd app='pm3.exe' cls='Tdlg_email_templates' title='Email templates' /&gt;" SearchSteps="Selector, FuzzySelector, Image" />
-                </uix:NTypeInto.Target>
-              </uix:NTypeInto>
-            </Sequence>
-          </ActivityAction>
-        </uix:NApplicationCard.Body>
-        <uix:NApplicationCard.TargetApp>
-          <uix:TargetApp Area="329, 43, 706, 499" FilePath="C:\Program Files (x86)\Moneysoft\Payroll Manager\pm3.exe" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACySURBVFhH7ZThCoUwCEZ99D3a3mw3s2HQZxjXuT8KJ8jmt8OKiGiMvcBmFnRy3bRkZPMScAjowu+gvImuOy7vAl+r9z5ak1mcySwUmMUitkSCAJd9EkkCcgooP0DgHsIbWYXzwwTmuqsJCueHCkiGVTg/REDgD23LK/DU0o/QU3Z2goD8AzYI6LG/5/4toLMIlHUnTADNeCiBEigBt8B8boFmPLgFVlECDwFtZAObOdD4AZThEKpZraPlAAAAAElFTkSuQmCC" InformativeScreenshot="698272b2dbe73f6c26d461e38cf417bf.png" Selector="&lt;wnd app='pm3.exe' cls='Tdlg_email_templates' title='Email templates'/&gt;" />
-        </uix:NApplicationCard.TargetApp>
-      </uix:NApplicationCard>
-      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="434,51" sap2010:WorkflowViewState.IdRef="CommentOut_1">
-        <ui:CommentOut.Body>
-          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="242,158" sap2010:WorkflowViewState.IdRef="Sequence_15">
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <Sequence DisplayName="Type in Body  Email" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_13">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-              <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey 'TMemo'" sap:VirtualizedContainerService.HintSize="334,154" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="A" KeyModifiers="Ctrl" SpecialKey="False">
-                <ui:SendHotkey.Target>
-                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4043db79-258b-4a9e-a018-1cffa4e02b9c" InformativeScreenshot="24be77d35741a8915faf27ed3c305cd5" Selector="&lt;wnd app='pm3.exe' cls='Tdlg_email_templates' title='Email templates' /&gt;&lt;wnd cls='TGroupBox' title='Template details' /&gt;&lt;wnd cls='TMemo' /&gt;">
-                    <ui:Target.TimeoutMS>
-                      <InArgument x:TypeArguments="x:Int32" />
-                    </ui:Target.TimeoutMS>
-                    <ui:Target.WaitForReady>
-                      <InArgument x:TypeArguments="ui:WaitForReady" />
-                    </ui:Target.WaitForReady>
-                  </ui:Target>
-                </ui:SendHotkey.Target>
-              </ui:SendHotkey>
-              <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey 'TMemo'" sap:VirtualizedContainerService.HintSize="334,154" sap2010:WorkflowViewState.IdRef="SendHotkey_2" Key="back" KeyModifiers="None" SpecialKey="True">
-                <ui:SendHotkey.Target>
-                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4043db79-258b-4a9e-a018-1cffa4e02b9c" InformativeScreenshot="24be77d35741a8915faf27ed3c305cd5" Selector="&lt;wnd app='pm3.exe' cls='Tdlg_email_templates' title='Email templates' /&gt;&lt;wnd cls='TGroupBox' title='Template details' /&gt;&lt;wnd cls='TMemo' /&gt;">
-                    <ui:Target.TimeoutMS>
-                      <InArgument x:TypeArguments="x:Int32" />
-                    </ui:Target.TimeoutMS>
-                    <ui:Target.WaitForReady>
-                      <InArgument x:TypeArguments="ui:WaitForReady" />
-                    </ui:Target.WaitForReady>
-                  </ui:Target>
-                </ui:SendHotkey.Target>
-              </ui:SendHotkey>
-              <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'TEdit'" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_3" Text="BODY">
-                <ui:TypeInto.Target>
-                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="978e1569-5f1b-4969-8d0d-99fca5bdb15e" InformativeScreenshot="e51af28d1acfb2f270f830a60103d83d" Selector="&lt;wnd app='pm3.exe' cls='Tdlg_email_templates' title='Email templates' /&gt;&lt;wnd cls='TGroupBox' title='Template details' /&gt;&lt;wnd cls='TMemo' /&gt;">
-                    <ui:Target.TimeoutMS>
-                      <InArgument x:TypeArguments="x:Int32" />
-                    </ui:Target.TimeoutMS>
-                    <ui:Target.WaitForReady>
-                      <InArgument x:TypeArguments="ui:WaitForReady" />
-                    </ui:Target.WaitForReady>
-                  </ui:Target>
-                </ui:TypeInto.Target>
-              </ui:TypeInto>
-            </Sequence>
-          </Sequence>
-        </ui:CommentOut.Body>
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </ui:CommentOut>
-    </Sequence>
   </Sequence>
 </Activity>
