@@ -1,6 +1,6 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Test" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1040,504" sap2010:WorkflowViewState.IdRef="Test_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Test" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="804,1159" sap2010:WorkflowViewState.IdRef="Test_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="34">
+    <scg:List x:TypeArguments="x:String" Capacity="35">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -35,10 +35,11 @@
       <x:String>System.ComponentModel</x:String>
       <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
       <x:String>System.Runtime.Serialization</x:String>
+      <x:String>Microsoft.Activities.Expressions</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="32">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="33">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -71,9 +72,10 @@
       <AssemblyReference>UiPath.Mail</AssemblyReference>
       <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
       <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>Microsoft.Activities</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Test" sap:VirtualizedContainerService.HintSize="272,153" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Test" sap:VirtualizedContainerService.HintSize="552,994" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="textgotten" />
       <Variable x:TypeArguments="scg:IEnumerable(ui:UiElement)" Name="ViewFileButtonCollection" />
@@ -84,6 +86,247 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="230,61" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[date.Now.Month.ToString]" />
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="510,61" sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="[date.now.Month.ToString]" />
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application: Payroll Manager 100  -  ABAKCOM LTD  -  2021-22" sap:VirtualizedContainerService.HintSize="510,801" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" Version="V1">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="HMRC Submission" sap:VirtualizedContainerService.HintSize="476,512" sap2010:WorkflowViewState.IdRef="Sequence_7">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="ui:Window" Name="RtiFpsMonthWindow" />
+              <Variable x:TypeArguments="x:Boolean" Name="CheckpointHmrc" />
+              <Variable x:TypeArguments="ui:Window" Name="RtiFpsWindow" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NClick ClickType="Single" DisplayName="Click Employer’s RTI schedule" sap:VirtualizedContainerService.HintSize="434,166" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="81, 55, 23, 22" ElementType="Button" FriendlyName="'push button'" FullSelectorArgument="&lt;wnd cls='Ttoolbar' /&gt;&lt;ctrl name='maintoolbar' role='tool bar' /&gt;&lt;ctrl idx='8' role='push button' /&gt;" FuzzySelectorArgument="&lt;wnd cls='Ttoolbar' /&gt;&lt;ctrl name='maintoolbar' role='tool bar' /&gt;&lt;ctrl automationid='' role='push button' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABsAAAAaCAYAAABGiCfwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAC0SURBVEhL7dBBDsMgDERRjs6RuYGbQZpqapGAYxR1kcVXE1T85JTWmj3Vi23pP7Fa67TRPS2EmZVhKxBawnZAKIVFIDTErBzDNAL+/Mj/38/STjE+960wSDbCO861GYQusT6EGzlM39OY9rOBYDzjHT/Hd7mZH6AYEZbG9PkLCcb8nbOmGN87Ihh+FWJ6zzfEfNwAACMUaQljBO9AKIzdhdAyloVQCBudRwp9xmwvtqUHsWYfIC7NThLKg2IAAAAASUVORK5CYII=" InformativeScreenshot="bea93dfb09c5c0b1f8d42a73d5924b90.png" ScopeSelectorArgument="&lt;wnd app='pm3.exe' cls='Tpaymain' title='Payroll Manager 100  -  Bot testing file 02  -  2020-21' /&gt;" SearchSteps="FuzzySelector, Image">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="73, 31, 47, 19" FriendlyName="'Forms'" FullSelectorArgument="&lt;ctrl automationid='MenuBar' name='Application' role='menu bar' /&gt;&lt;ctrl name='Forms' role='menu item' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='MenuBar' name='Application' role='menu bar' /&gt;&lt;ctrl name='Forms' role='menu item' automationid='' check:text='Forms' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADMAAAAXCAYAAACmnHcKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADeSURBVFhH7ZTRDcQgCIady4GYxxGcwmVcwrgAJ4qtNk2j13vgjH9CUqAiX1AVLqQNI1UbRqo2jFQNwjgEpVA1po3nnBxNwGgU2H+nDdPJG9TN8QPHcV4DoFMcksc13Pk//esN5a9H16PRdzWf9fWdKRuU+LFZBqvQJXc2yDW0Sa2SC7nOkc8+QfP3KEGjd5PJzXMDLActaLtmwudpzz4yMmFY9QiODunlnaH49ZhVuNnm7/cgoNEJ/fgBeNN84/N9KtZP/kmDMP+hDSNVa8HEGHEVUyEEXMWUtRbXMIsf2WYXnvwY4UgAAAAASUVORK5CYII=" SearchSteps="Selector, FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NClick>
+            <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Employer's RTI Schedule dialog" sap:VirtualizedContainerService.HintSize="434,212" sap2010:WorkflowViewState.IdRef="WindowScope_1" InformativeScreenshot="4ba100b0056003d7b9e3dafa2d4c4e12" Selector="&lt;wnd app='pm3.exe' cls='Tdlg_rti' title='Employer*RTI Schedule*' /&gt;">
+              <ui:WindowScope.Body>
+                <ActivityAction x:TypeArguments="x:Object">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Click Topmost View/File Button" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="x:Int32" Name="XCounter" />
+                      <Variable x:TypeArguments="x:Int32" Name="XRowNumber" />
+                      <Variable x:TypeArguments="scg:IEnumerable(ui:UiElement)" Name="ViewFileButtonCollection" />
+                    </Sequence.Variables>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:FindChildren Children="[ViewFileButtonCollection]" DisplayName="Find Children: &quot;View/File buttons&quot;" Filter="&lt;wnd cls='TButton' /&gt;" sap:VirtualizedContainerService.HintSize="906,106" sap2010:WorkflowViewState.IdRef="FindChildren_1" Scope="FIND_DESCENDANTS">
+                      <ui:FindChildren.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="45613e0b-bfeb-4ab3-84b2-87cd08298129" InformativeScreenshot="f6b8aad6fb064712eb77a43ea3d19eda" Selector="&lt;wnd cls='TScrollBox' /&gt;" WaitForReady="COMPLETE">
+                          <ui:Target.TimeoutMS>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:Target.TimeoutMS>
+                        </ui:Target>
+                      </ui:FindChildren.Target>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:FindChildren>
+                    <Assign DisplayName="Reverse ViewFileButton Collection" sap:VirtualizedContainerService.HintSize="906,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="scg:IEnumerable(ui:UiElement)">[ViewFileButtonCollection]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="scg:IEnumerable(ui:UiElement)">[ViewFileButtonCollection.Reverse()]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <Assign DisplayName="Initiate xCounter" sap:VirtualizedContainerService.HintSize="906,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:Int32">[xCounter]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:Int32">1</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <ui:ForEach x:TypeArguments="ui:UiElement" CurrentIndex="{x:Null}" DisplayName="For Each &quot;View/File&quot; Button" sap:VirtualizedContainerService.HintSize="906,1404" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[ViewFileButtonCollection]">
+                      <ui:ForEach.Body>
+                        <ActivityAction x:TypeArguments="ui:UiElement">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="ui:UiElement" Name="item" />
+                          </ActivityAction.Argument>
+                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="870,1271" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                            <Sequence.Variables>
+                              <Variable x:TypeArguments="x:String" Name="ViewFileButtonText" />
+                            </Sequence.Variables>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="title" DisplayName="Get Attribute" sap:VirtualizedContainerService.HintSize="828,134" sap2010:WorkflowViewState.IdRef="GetAttribute_1">
+                              <ui:GetAttribute.Result>
+                                <OutArgument x:TypeArguments="x:String">[ViewFileButtonText]</OutArgument>
+                              </ui:GetAttribute.Result>
+                              <ui:GetAttribute.Target>
+                                <ui:Target ClippingRegion="{x:Null}" Selector="{x:Null}" Element="[item]" Id="3d97d409-425b-4129-8028-0ebc807a35f8" InformativeScreenshot="27211660d29a9b6f4df4228f50e05ea5">
+                                  <ui:Target.TimeoutMS>
+                                    <InArgument x:TypeArguments="x:Int32" />
+                                  </ui:Target.TimeoutMS>
+                                  <ui:Target.WaitForReady>
+                                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                                  </ui:Target.WaitForReady>
+                                </ui:Target>
+                              </ui:GetAttribute.Target>
+                            </ui:GetAttribute>
+                            <If Condition="[ViewFileButtonText = &quot;View / File&quot;]" DisplayName="If First &quot;VIEW/FILE&quot; Button" sap:VirtualizedContainerService.HintSize="828,905" sap2010:WorkflowViewState.IdRef="If_1">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <If.Then>
+                                <Sequence sap:VirtualizedContainerService.HintSize="792,729" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <Parallel DisplayName="Parallel Steps" sap:VirtualizedContainerService.HintSize="750,420" sap2010:WorkflowViewState.IdRef="Parallel_1">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <uix:NHighlight Color="Gold" DisplayName="Highlight Topmost view/File Button" HighlightTime="2" sap:VirtualizedContainerService.HintSize="200,374" sap2010:WorkflowViewState.IdRef="NHighlight_1" InUiElement="[item]">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </uix:NHighlight>
+                                    <Sequence DisplayName="Log Row Number" sap:VirtualizedContainerService.HintSize="376,374" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <Assign DisplayName="Calculate Row Number" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+                                        <Assign.To>
+                                          <OutArgument x:TypeArguments="x:Int32">[XRowNumber]</OutArgument>
+                                        </Assign.To>
+                                        <Assign.Value>
+                                          <InArgument x:TypeArguments="x:Int32">[XCounter]</InArgument>
+                                        </Assign.Value>
+                                      </Assign>
+                                      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                                        <ui:CommentOut.Body>
+                                          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,204" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Update Status &quot;Cell View Button Row&quot;" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Project\Update_Status_on_Work_Log.xaml">
+                                              <ui:InvokeWorkflowFile.Arguments>
+                                                <InArgument x:TypeArguments="x:String" x:Key="in_WorkLogFilePath">[in_WorkLogFilePath]</InArgument>
+                                                <InArgument x:TypeArguments="x:String" x:Key="in_SheetName">[in_WorkLogSheetName]</InArgument>
+                                                <InArgument x:TypeArguments="x:String" x:Key="in_CellAddress">[String.Format("{0}{1}", in_Config("ColLetter_ViewButtonRow").ToString, in_LogSheetRowNumber)]</InArgument>
+                                                <InArgument x:TypeArguments="x:String" x:Key="in_CellContent">[XRowNumber.ToString]</InArgument>
+                                              </ui:InvokeWorkflowFile.Arguments>
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                            </ui:InvokeWorkflowFile>
+                                          </Sequence>
+                                        </ui:CommentOut.Body>
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                      </ui:CommentOut>
+                                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[String.Format(&quot;The top most View/File button found with Label [{0}] is on row {1}&quot;, ViewFileButtonText, XRowNumber)]" />
+                                    </Sequence>
+                                  </Parallel>
+                                  <uix:NClick ClickType="Single" DisplayName="Click View / File Button" sap:VirtualizedContainerService.HintSize="750,115" sap2010:WorkflowViewState.IdRef="NClick_2" InUiElement="[item]" KeyModifiers="None" MouseButton="Left">
+                                    <uix:NClick.Target>
+                                      <uix:TargetAnchorable DesignTimeRectangle="675, 53, 70, 25" ElementType="Button" FriendlyName="'View / File'" FuzzySelectorArgument="&lt;wnd cls='TButton' title='View / File' check:text='View / File' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEoAAAAdCAYAAAANW/o+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIASURBVGhD7ZlNSgMxFIAdBCnoQvAqs/YWIpJuXHoHwYALwVb3gmDcuFAHwQtIVhU9RQX33uCZl5mkmUzSiRi1xbf4aJrm570vb0JhVlZPB3Dz8kF4jJ6eYef2ENZGG4COSFQPw+qERKVwOXnriqqqinAwXoKiptMpoSBRiZCoREhUIiQqERKVyPKJkhzKkoMM/Rbiq+MjfF9UJxAJvCyBizwB+kheQsnlrA/3LwooWjAQJq6FEWXEyOZ7psBiCObshfTttziivFMWrG67AWLbnnaTaOd3VQV6PRRv2j4CmB3XEBNh+jv7eHH48yJkEYVyCiZ0W7ACmFB9NkAvuUA/imaM1fOwP5Q44uxjaSVvUOuafXrjcNaaQx5RNginGtxAQ4moMeYxEkqSTgwlmM/W+jX2ENz+WMLu/j1xtOZFyCSqSRovcJOkH6g3HtGVJEwFNZJV1XRkaLy70BBb399/ThwpZBOlHwt1SjZJGxhWW6ASmjFMJW/uN8mVJFVdwbsjlmhff0ocCeQTNe8OwLYtd4VNDOc4VYKyQ0krOn8LDMmimr5gHP1kFPWzBO+nX2RJRHnV+gcsTUX9NSQqERKVCIlKJChqLF+tKGIGOrmavM9E7d0fW3tEm4PHi1oUvjIejDdh/+FMv+wLDf6PYCWhpPXzrVrU7t2RbhBxtq+H8Am+yGS/252C4AAAAABJRU5ErkJggg==" InformativeScreenshot="9a6c4fb91d292be076c00db33ba24327.png" ScopeSelectorArgument="&lt;wnd app='pm3.exe' cls='Tdlg_rti' title='Employer*s RTI Schedule*' /&gt;" SearchSteps="Selector, FuzzySelector, Image" WaitForReadyArgument="Complete" />
+                                    </uix:NClick.Target>
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                  </uix:NClick>
+                                  <ui:Break sap:VirtualizedContainerService.HintSize="750,22" sap2010:WorkflowViewState.IdRef="Break_1" />
+                                </Sequence>
+                              </If.Then>
+                            </If>
+                            <Assign DisplayName="Increment xCounter" sap:VirtualizedContainerService.HintSize="828,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:Int32">[xCounter]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:Int32">[xCounter + 1]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </Sequence>
+                        </ActivityAction>
+                      </ui:ForEach.Body>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:ForEach>
+                  </Sequence>
+                </ActivityAction>
+              </ui:WindowScope.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:WindowScope>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-8, -8, 1380, 601" FilePath="C:\Program Files (x86)\Moneysoft\Payroll Manager\pm3.exe" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACySURBVFhH7ZThCoUwCEZ99D3a3mw3s2HQZxjXuT8KJ8jmt8OKiGiMvcBmFnRy3bRkZPMScAjowu+gvImuOy7vAl+r9z5ak1mcySwUmMUitkSCAJd9EkkCcgooP0DgHsIbWYXzwwTmuqsJCueHCkiGVTg/REDgD23LK/DU0o/QU3Z2goD8AzYI6LG/5/4toLMIlHUnTADNeCiBEigBt8B8boFmPLgFVlECDwFtZAObOdD4AZThEKpZraPlAAAAAElFTkSuQmCC" InformativeScreenshot="8a7c0114f898e374a396aa4a5dbe7cd5.png" Selector="&lt;wnd app='pm3.exe' cls='Tpaymain' title='Payroll Manager 100  -  ABAKCOM LTD  -  2021-22'/&gt;" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
   </Sequence>
 </Activity>
